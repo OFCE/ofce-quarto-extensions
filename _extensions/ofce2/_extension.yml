@@ -5,6 +5,7 @@ quarto-required: ">=1.4.330"
 contributes:
   formats:
     common:
+      toc: true
       lang: fr
       crossref:
         fig-prefix: figure
@@ -22,9 +23,7 @@ contributes:
         - nameref
         - reveal-auto-agenda
     html:
-      toc: true
       theme: [cosmo, ofce.scss]
-      toc: true
       toc-location: left
       toc-title: Sur cette page
       number-sections: true
@@ -36,7 +35,6 @@ contributes:
       cap-location: margin
       reference-location: margin
     pdf:
-      toc: true
       toc-depth: 1
       number-sections: true
       number-depth: 3
