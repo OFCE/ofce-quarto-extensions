@@ -1,0 +1,61 @@
+title: Format OFCE
+author: XT
+version: 0.1.0
+quarto-required: ">=1.4.330"
+contributes:
+  formats:
+    common:
+      lang: fr
+      crossref:
+        fig-prefix: figure
+        tbl-prefix: tableau
+        eq-prefix: équation
+        sec-prefix: section
+        fig-title: figure
+        tbl-title: tableau
+        lof-title: Figures
+        lot-title: Tableaux
+        logo: www/ofce.png
+      filters:
+        - pandoc-quotes.lua
+        - custom-numbered-blocks
+        - nameref
+        - reveal-auto-agenda
+    html:
+      toc: true
+      theme: [cosmo, ofce.scss]
+      toc: true
+      toc-location: left
+      toc-title: Sur cette page
+      number-sections: true
+      number-depth: 3
+      html-math-method: katex
+      fig-dpi: retina
+      fig-format: svg
+      fig-width: 5
+      cap-location: margin
+      reference-location: margin
+    pdf:
+      toc: true
+      toc-depth: 1
+      number-sections: true
+      number-depth: 3
+      documentclass: scrreprt
+      classoption:
+      - DIV=9
+      papersize: a4
+      fontsize: 10pt
+      fig-cap-location: bottom
+      extra_dependencies: ["float"]
+      fig-dpi: 600
+      fig-format: png
+    revealjs:
+      revealjs:
+      slide-level: 2
+      slide-number: c/t
+      center: false
+      theme: [simple, ofce-pres.scss]
+      navigation-mode: linear
+      code-fold: false
+      self-contained: false
+      code-link: true
