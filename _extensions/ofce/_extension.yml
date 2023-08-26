@@ -20,7 +20,7 @@ contributes:
       filters:
         - nameref
         - custom-numbered-blocks
-        - pandoc-quote.lua
+        - quotes.lua
     html:
       theme: [cosmo, ofce.scss]
       toc-location: left
