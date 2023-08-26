@@ -1,6 +1,0 @@
-title: Pandoc quotes
-author: Joe
-version: 0.0.1
-contributes:
-  filters:
-    - pandoc-quotes.lua
