@@ -20,6 +20,16 @@ format:
     ofce-html: default
     ofce-pdf: default
 
+filters:
+       - custom-numbered-blocks
+custom-numbered-blocks:
+  classes:
+    encadre:
+      numbered: false
+      collapse: true
+      colors: [EFEFEF, EEEEEE]
+      label: "Encadré "
+      
 bibliography: references.bib
 ---
 ```{r, include=FALSE} 
