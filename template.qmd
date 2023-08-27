@@ -9,7 +9,7 @@ author:
 institution: "Observatoire Français des Conjonctures Économiques"
 date: today
 lang: fr
-abstract: "L'OFCE est un organisme indépendant de prévision, de recherche et d’évaluation des politiques publiques, accueilli en son sein par la Fondation nationale des sciences politiques (FNSP), en application de la convention passée en 1981 entre l'Etat et la FNSP. « Mettre au service du débat public en économie les fruits de la rigueur scientifique et de l’indépendance universitaire ». Telle est la mission que l’Etat a confiée à l’OFCE et qu'il remplit en conduisant des travaux théoriques et empiriques, en participant aux réseaux scientifiques internationaux, en assurant une présence régulière dans les médias et en coopérant étroitement avec les pouvoirs publics français et européens."
+abstract: "L'OFCE est un organisme indépendant de prévision, de recherche et d’évaluation des politiques publiques, accueilli en son sein par ..."
 citation:
   type: article
   container-title: "Document de travail de l'OFCE"
