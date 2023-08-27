@@ -51,9 +51,8 @@ contributes:
       toc-depth: 1
       number-sections: true
       number-depth: 3
-      documentclass: scrreprt
       classoption:
-      - DIV=9
+        - DIV=10
       papersize: a4
       fontsize: 11pt
       fig-cap-location: top
