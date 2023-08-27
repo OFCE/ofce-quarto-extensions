@@ -46,6 +46,8 @@ contributes:
       cap-location: margin
       reference-location: margin
     pdf:
+      documentclass: scrartcl
+      mainfont: "Nunito"
       toc-depth: 1
       number-sections: true
       number-depth: 3
@@ -53,11 +55,13 @@ contributes:
       classoption:
       - DIV=9
       papersize: a4
-      fontsize: 10pt
-      fig-cap-location: bottom
+      fontsize: 11pt
+      fig-cap-location: top
       extra_dependencies: ["float"]
       fig-dpi: 600
       fig-format: png
+      include-in-header: "header.tex"
+      include-before-body: "titlepage.tex"
     revealjs:
       revealjs:
       slide-level: 2

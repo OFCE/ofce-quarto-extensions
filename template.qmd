@@ -1,6 +1,6 @@
 ---
-title: Le passé pollue le futur
-subtitle: Document de travail OFCE
+title: Vers l'infini et au delà
+subtitle: Document de travail de l'OFCE
 author:
   - name: Albertine Retrouvée
     email: albertine.retrouvee@sciencespo.fr
@@ -63,7 +63,7 @@ ggplot(cars)+
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dolor morbi non arcu risus quis varius quam quisque.    
 
-## Section niveau 2 {#sec-cacontinnue}
+## Section niveau 2 {#sec-cacontinue}
 
 Faucibus turpis in eu mi bibendum. Etiam tempor orci eu lobortis. Sit amet consectetur adipiscing elit pellentesque habitant. Quam viverra orci sagittis eu volutpat odio facilisis mauris sit. 
 
@@ -75,11 +75,11 @@ Scelerisque in dictum non consectetur a erat nam at. Elementum facilisis leo vel
 
 Ultrices neque ornare aenean euismod elementum nisi quis eleifend. Vivamus arcu felis bibendum ut tristique. Non nisi est sit amet facilisis magna. Consectetur libero id faucibus nisl tincidunt eget.
 
-## Section niveau 2 {#sec-cacontinnue}
+## Section niveau 2 {#sec-ca-continue}
 
 Amet est placerat in egestas erat imperdiet sed. Non enim praesent elementum facilisis leo vel fringilla est. Iaculis eu non diam phasellus vestibulum lorem.
 
-## Section niveau 2 {#sec-encore}
+## Section niveau 2 {#sec-encoreetencore}
 
 Eleifend donec pretium vulputate sapien nec sagittis aliquam malesuada bibendum. Auctor elit sed vulputate mi sit amet.
 
