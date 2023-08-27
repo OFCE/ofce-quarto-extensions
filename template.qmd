@@ -45,7 +45,9 @@ showtext_auto()
 
 "Lorem" "ipsum" dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dolor morbi non arcu risus quis varius quam quisque.
 
-Voir @sec-sec-ledebut ou \nameref{sec-ledebut}. @efron1993i a montré que c'est vrai. Les contours sont matérialisés sur la @fig-cars.
+Voir @sec-ledebut (\nameref{sec-ledebut}). @efron1993i a montré que c'est vrai. Les contours sont matérialisés sur la @fig-cars.
+
+pour le dépôt voir {{< fa brands github >}}
 
 ```{r}
 #| label: fig-cars
@@ -57,7 +59,7 @@ ggplot(cars)+
     theme_ofce()
 ```
 
-# Section de niveau 1 {#sec-ledebut}
+# Une section de niveau 1 pour commencer {#sec-ledebut}
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dolor morbi non arcu risus quis varius quam quisque.    
 
