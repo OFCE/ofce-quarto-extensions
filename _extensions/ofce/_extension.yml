@@ -24,6 +24,7 @@ contributes:
         - nameref
        # - custom-numbered-blocks
         - quotes
+        - fontawesome
       #custom-numbered-blocks:
       #  classes:
       #   encadre:
