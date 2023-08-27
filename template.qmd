@@ -13,8 +13,8 @@ abstract: "L'OFCE est un organisme indépendant de prévision, de recherche et d
 citation:
   type: article
   container-title: "Document de travail de l'OFCE"
-  url: ofce.github.io/pasfuture
-keywords: [ passé, présent, futur]
+  url: ofce.github.io/nofuture
+keywords: [passé, présent, futur]
 
 format:
     ofce-html: default

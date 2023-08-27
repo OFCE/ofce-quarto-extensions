@@ -19,8 +19,16 @@ contributes:
         logo: www/ofce.png
       filters:
         - nameref
-        - custom-numbered-blocks
+       # - custom-numbered-blocks
         - quotes
+      #custom-numbered-blocks:
+      #  classes:
+      #   encadre:
+      #      numbered: false
+      #      collapse: true
+      #      colors: [EFEFEF, EEEEEE]
+      #      label: "Encadré "
+
     html:
       theme: [cosmo, ofce.scss]
       toc-location: left
