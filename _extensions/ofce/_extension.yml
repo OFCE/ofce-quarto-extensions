@@ -46,6 +46,9 @@ contributes:
       cap-location: margin
       reference-location: margin
     pdf:
+      format-ressources: 
+        - img/ofce.png
+        - img/siencespo.png
       documentclass: scrartcl
       mainfont: "Nunito"
       toc-depth: 1
