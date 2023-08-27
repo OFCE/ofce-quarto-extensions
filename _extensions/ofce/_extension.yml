@@ -38,7 +38,7 @@ contributes:
       number-sections: true
       number-depth: 3
       html-math-method: katex
-      fig-dpi: retina
+      fig-dpi: 600
       fig-format: svg
       fig-width: 5
       cap-location: margin
