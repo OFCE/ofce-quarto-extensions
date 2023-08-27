@@ -9,6 +9,7 @@ contributes:
         - references.bib
       toc: true
       lang: fr
+      fig-asp: 0.61
       crossref:
         fig-prefix: figure
         tbl-prefix: tableau
@@ -40,7 +41,6 @@ contributes:
       html-math-method: katex
       fig-dpi: 600
       fig-format: svg
-      fig-width: 5
       cap-location: margin
       reference-location: margin
     pdf:

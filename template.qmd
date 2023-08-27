@@ -72,6 +72,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 ## Section niveau 2 {#sec-encore}
 
-## Bibliographie {.unnumbered}
+# Bibliographie {.unnumbered}
 :::{.refs}
 :::
