@@ -21,7 +21,7 @@ format:
     ofce-pdf: default
 
 filters:
-       - custom-numbered-blocks
+  - custom-numbered-blocks
 custom-numbered-blocks:
   classes:
     encadre:
@@ -29,7 +29,7 @@ custom-numbered-blocks:
       collapse: true
       colors: [EFEFEF, EEEEEE]
       label: "Encadré "
-      
+
 bibliography: references.bib
 ---
 ```{r, include=FALSE} 
@@ -77,7 +77,16 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 Diam vel quam elementum pulvinar etiam non quam lacus. Eu tincidunt tortor aliquam nulla facilisi cras fermentum odio eu. Massa placerat duis ultricies lacus sed. Ut tellus elementum sagittis vitae et leo duis ut. Mauris vitae ultricies leo integer malesuada nunc vel risus commodo. Purus viverra accumsan in nisl nisi scelerisque eu ultrices vitae. Pulvinar neque laoreet suspendisse interdum consectetur libero. Adipiscing commodo elit at imperdiet dui accumsan sit. Commodo viverra maecenas accumsan lacus vel. Ac odio tempor orci dapibus. Sem viverra aliquet eget sit amet tellus. Aliquam nulla facilisi cras fermentum odio eu feugiat pretium. Pellentesque sit amet porttitor eget dolor morbi non arcu risus. Bibendum ut tristique et egestas quis ipsum. Lectus quam id leo in vitae turpis massa sed elementum. Tincidunt arcu non sodales neque sodales. Lorem donec massa sapien faucibus.
 :::
 
+## Section niveau 2 {#sec-cacontinnue}
 
-Diam vel quam elementum pulvinar etiam non quam lacus. Eu tincidunt tortor aliquam nulla facilisi cras fermentum odio eu. Massa placerat duis ultricies lacus sed. Ut tellus elementum sagittis vitae et leo duis ut. Mauris vitae ultricies leo integer malesuada nunc vel risus commodo. Purus viverra accumsan in nisl nisi scelerisque eu ultrices vitae. Pulvinar neque laoreet suspendisse interdum consectetur libero. Adipiscing commodo elit at imperdiet dui accumsan sit. Commodo viverra maecenas accumsan lacus vel. Ac odio tempor orci dapibus. Sem viverra aliquet eget sit amet tellus. Aliquam nulla facilisi cras fermentum odio eu feugiat pretium. Pellentesque sit amet porttitor eget dolor morbi non arcu risus. Bibendum ut tristique et egestas quis ipsum. Lectus quam id leo in vitae turpis massa sed elementum. Tincidunt arcu non sodales neque sodales. Lorem donec massa sapien faucibus.
+## Section niveau 2 {#sec-encore}
+
+# Une autre section de niveau 1 {#sec-etencore}
 
 ## Section niveau 2 {#sec-cacontinnue}
+
+## Section niveau 2 {#sec-encore}
+
+## Bibliographie {.unnumbered}
+:::{.refs}
+:::
