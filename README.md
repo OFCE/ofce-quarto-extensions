@@ -5,7 +5,7 @@
 Vous pouvez utiliser ce template pour créer un document de travail OFCE. Pour ce faire, taper la commande suivante dans le terminal: 
 
 
-`quarto use template ofce/ofce-quarto-extension`
+`quarto use template ofce/ofce-quarto-extensions`
 
 Cela installera l'extension et créera un fichier `qmd` ainsi qu'une bibliographie `references.bib` qui pourront servir de base de rédaction. 
 
@@ -13,7 +13,7 @@ Cela installera l'extension et créera un fichier `qmd` ainsi qu'une bibliograph
 
 Vous pouvez également utiliser ce template pour un projet Quarto déjà existant. Depuis le `Rproject` ou son dossier directeur, exécuter la commande suivante dans le terminal:
 
-`quarto add ofce/ofce-quarto-extension`
+`quarto add ofce/ofce-quarto-extensions`
 
 ## Usage
 
