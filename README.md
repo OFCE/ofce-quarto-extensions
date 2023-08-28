@@ -1,27 +1,23 @@
 # Comment utiliser les templates quarto OFCE?
  
 
-## Écrire un nouvel article
+## Installer pour un nouveau document 
 Vous pouvez utiliser ce template pour créer un document de travail OFCE. Pour ce faire, taper la commande suivante dans le terminal: 
 
 
 `quarto use template ofce/ofce-quarto-extension`
 
-## Installer pour un nouveau document 
+Cela installera l'extension et créera un fichier `qmd` ainsi qu'une bibliographie `references.bib` qui pourront servir de base de rédaction. 
 
-Cela installera l'extension et créera un fichier `qmd` ainsi qu'une bibliographie. 
-This will install the extension and create an example qmd file and bibiography that you can use as a starting place for your article.
-Installation for existing document
+## Installer pour un document existant 
 
-Vous pouvez également utiliser ce template pour un projet Quarto déjà existant. Depuis le `Rproject` ou du dossier directeur, executer la commande suivante dans le terminal:
-
-
+Vous pouvez également utiliser ce template pour un projet Quarto déjà existant. Depuis le `Rproject` ou son dossier directeur, exécuter la commande suivante dans le terminal:
 
 `quarto add ofce/ofce-quarto-extension`
 
 ## Usage
 
-Pour utiliser ce format, vous pouvez utiliser le format `names ofce-html`. par exemple:
+Pour retenir ce format, vous pouvez utiliser le format `names ofce-html`. par exemple:
 
 quarto render article.qmd --to ofce-html
 
