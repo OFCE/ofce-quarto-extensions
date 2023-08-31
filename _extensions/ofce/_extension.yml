@@ -23,6 +23,7 @@ contributes:
         logo: www/ofce.png
       filters:
         - nameref
+        - fr-nbsp
        # - custom-numbered-blocks
         - quotes
       shortcodes:
