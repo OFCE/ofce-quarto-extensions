@@ -37,7 +37,7 @@ contributes:
       #      label: "Encadré "
 
     html:
-      theme: [cosmo, ofce.scss]
+      theme: [cosmo, www/ofce.scss]
       toc-location: left
       toc-title: Sur cette page
       number-sections: true
@@ -71,7 +71,7 @@ contributes:
       slide-level: 2
       slide-number: c/t
       center: false
-      theme: [simple, ofce-pres.scss]
+      theme: [simple, www/ofce-pres.scss]
       navigation-mode: linear
       code-fold: false
       self-contained: false
