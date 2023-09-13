@@ -37,6 +37,8 @@ contributes:
       #      label: "Encadré "
 
     html:
+      format-ressources: 
+        - www/ofce.scss
       theme: [cosmo, www/ofce.scss]
       toc-location: left
       toc-title: Sur cette page
@@ -67,7 +69,8 @@ contributes:
       include-in-header: "header.tex"
       include-before-body: "titlepage.tex"
     revealjs:
-      revealjs:
+      format-ressources: 
+        - www/ofce-pres.scss
       slide-level: 2
       slide-number: c/t
       center: false
