@@ -47,7 +47,7 @@ contributes:
       html-math-method: katex
       fig-dpi: 600
       fig-format: svg
-      cap-location: margin
+      cap-location: top
       reference-location: margin
     pdf:
       format-ressources: 
@@ -63,6 +63,7 @@ contributes:
       papersize: a4
       fontsize: 11pt
       fig-cap-location: top
+      tbl-cap-location: top
       extra_dependencies: ["float"]
       fig-dpi: 600
       fig-format: png
