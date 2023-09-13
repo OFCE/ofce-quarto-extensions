@@ -77,4 +77,3 @@ contributes:
       navigation-mode: linear
       code-fold: false
       self-contained: false
-      code-link: true
