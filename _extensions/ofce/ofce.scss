@@ -57,12 +57,12 @@ h1, h2, h3, h4, h5 {
 }
 
 .quarto-section-identifier {
-  color: $scpored;
+  color: $scpored !important;
   font-weight: normal;
 }
 
 .figure-caption.margin-caption {
-  font-size: 1rem;
+  font-size: 1rem !important;
 }
 
 .nav-link {
