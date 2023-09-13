@@ -26,8 +26,10 @@ contributes:
         - fr-nbsp
        # - custom-numbered-blocks
         - quotes
+        - search-replace
       shortcodes:
         - fontawesome
+        - downloadthis
       #custom-numbered-blocks:
       #  classes:
       #   encadre:
