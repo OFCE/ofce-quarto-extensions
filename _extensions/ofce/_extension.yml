@@ -70,7 +70,7 @@ contributes:
       slide-level: 2
       slide-number: c/t
       center: false
-      theme: [simple, www/ofce-pres.scss]
+      theme: [simple, ofce-pres.scss]
       navigation-mode: linear
       code-fold: false
       self-contained: false
