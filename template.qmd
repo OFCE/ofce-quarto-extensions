@@ -17,8 +17,8 @@ citation:
 keywords: [passé, présent, futur]
 
 format:
-    ofce-html: default
-    ofce-pdf: default
+  ofce-html: default
+  ofce-pdf: default
 
 bibliography: references.bib
 ---
