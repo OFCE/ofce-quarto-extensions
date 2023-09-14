@@ -24,8 +24,8 @@ contributes:
         tbl-prefix: tableau
         eq-prefix: équation
         sec-prefix: section
-        fig-title: figure
-        tbl-title: tableau
+        fig-title: Figure
+        tbl-title: Tableau
         lof-title: Figures
         lot-title: Tableaux
         logo: ofce.png
