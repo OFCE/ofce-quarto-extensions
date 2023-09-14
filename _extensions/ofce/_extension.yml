@@ -8,6 +8,8 @@ contributes:
       format-ressources:
         - references.bib
         - secrets
+        - ofce.png
+        - sciencespo.png
       toc: true
       lang: fr
       fig-asp: 0.61
@@ -20,7 +22,7 @@ contributes:
         tbl-title: tableau
         lof-title: Figures
         lot-title: Tableaux
-        logo: www/ofce.png
+        logo: ofce.png
       filters:
         - nameref
         - fr-nbsp
@@ -39,7 +41,8 @@ contributes:
       #      label: "Encadré "
 
     html:
-      theme: [cosmo, www/ofce.scss]
+      theme: [cosmo, ofce.scss]
+      mainfont: Open Sans
       toc-location: left
       toc-title: Sur cette page
       number-sections: true
@@ -51,10 +54,10 @@ contributes:
       reference-location: margin
     pdf:
       format-ressources: 
-        - img/ofce.png
-        - img/siencespo.png
+        - ofce.png
+        - sciencespo.png
       documentclass: scrartcl
-      mainfont: "Nunito"
+      mainfont: Open Sans
       toc-depth: 1
       number-sections: true
       number-depth: 3
@@ -70,6 +73,7 @@ contributes:
       include-in-header: "header.tex"
       include-before-body: "titlepage.tex"
     revealjs:
+      mainfont: Open Sans
       slide-level: 2
       slide-number: c/t
       center: false
