@@ -108,17 +108,22 @@ h1, h2, h3, h4, h5 {
 }
 
 .figure-caption {
+  text-align: start;
   color: $darkgrey !important;
   font-size: 1rem !important;
   font-weight: bold !important;
 }
 
-.table-caption {
+.table-caption,caption {
+  text-align: start;
   color: $darkgrey !important;
   font-size: 1rem !important;
   font-weight: bold !important;
 }
 
+.table {
+  font-size: 0.9rem !important;
+}
 
 .blockquote {
   color: var(--bs-body-color);
