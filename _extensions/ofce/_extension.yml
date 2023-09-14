@@ -12,6 +12,9 @@ contributes:
         - sciencespo.png
       toc: true
       lang: fr
+      section-title-references: "Références"
+      title-block-author-single: "Auteur"
+      title-block-author-plural: "Auteurs"
       fig-asp: 0.61
       crossref:
         fig-prefix: figure
