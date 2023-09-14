@@ -13,6 +13,11 @@ contributes:
         - _language-fr.yml
       toc: true
       lang: fr
+      language:
+        fr:
+          section-title-references: "Références"
+          title-block-author-single: "Auteur"
+          title-block-author-plural: "Auteurs"
       fig-asp: 0.61
       crossref:
         fig-prefix: figure
