@@ -53,9 +53,6 @@ contributes:
       cap-location: top
       reference-location: margin
     pdf:
-      format-ressources: 
-        - ofce.png
-        - sciencespo.png
       documentclass: scrartcl
       mainfont: Open Sans
       toc-depth: 1
