@@ -62,6 +62,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .figure-caption.margin-caption {
+  color: $darkgrey !important;  
   font-size: 1rem !important;
 }
 
@@ -107,10 +108,17 @@ h1, h2, h3, h4, h5 {
 }
 
 .figure-caption {
-  color: $scpored !important;
+  color: $darkgrey !important;
   font-size: 1rem !important;
   font-weight: bold !important;
 }
+
+.table-caption {
+  color: $darkgrey !important;
+  font-size: 1rem !important;
+  font-weight: bold !important;
+}
+
 
 .blockquote {
   color: var(--bs-body-color);
