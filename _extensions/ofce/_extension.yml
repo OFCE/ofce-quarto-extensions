@@ -76,6 +76,7 @@ contributes:
       include-in-header: "header.tex"
       include-before-body: "titlepage.tex"
     revealjs:
+      logo: _extensions/ofce/ofce/ofce.png
       mainfont: Open Sans
       slide-level: 2
       slide-number: c/t
