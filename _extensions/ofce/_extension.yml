@@ -58,6 +58,9 @@ contributes:
       fig-format: svg
       cap-location: top
       reference-location: margin
+      logo: _extensions/ofce/ofce/ofce.png
+      template-partials:
+        - toc.html
     pdf:
       documentclass: scrartcl
       mainfont: Open Sans
