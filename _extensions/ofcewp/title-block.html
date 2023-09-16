@@ -3,7 +3,11 @@ $if(title)$<h1 class="title">$title$</h1>$endif$
 $if(subtitle)$
 <p class="subtitle">$subtitle$</p>
 $endif$
-$if(wp)$<p class="wp">Document de travail de l'OFCE n°$wp$</p>$endif$
+
+$if(wp)$
+<p class="subtitle">Document de travail de l'OFCE n°$wp$</p>
+$endif$
+
 $for(author)$
 <p class="author">$author$</p>
 $endfor$
