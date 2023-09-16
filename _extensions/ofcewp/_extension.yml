@@ -58,7 +58,7 @@ contributes:
       fig-format: svg
       cap-location: top
       reference-location: margin
-      logo: _extensions/ofce/ofce/ofce.png
+      logo: _extensions/ofce/ofcewp/ofce.png
       template-partials:
         - toc.html
     pdf:
@@ -79,7 +79,7 @@ contributes:
       include-in-header: "header.tex"
       include-before-body: "titlepage.tex"
     revealjs:
-      logo: _extensions/ofce/ofce/ofce.png
+      logo: _extensions/ofce/ofce/ofcewp.png
       mainfont: Open Sans
       slide-level: 2
       slide-number: c/t
