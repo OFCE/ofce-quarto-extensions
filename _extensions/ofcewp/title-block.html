@@ -6,9 +6,7 @@
     $if(subtitle)$
     <p class="subtitle lead">$subtitle$</p>
     $endif$
-    $if(logo)$ <p class="subtitle lead">
-      Document de travail de l'
-      <img src=$logo$ width="40" height="18"></p> $endif$
+    $if(wp)$ <p class="wp"><i>Document de travail de l'<img src=$logo$ width = "30" height="18"> n°$wp$</i></p> $endif$
     $if(categories)$
       $if(quarto-template-params.title-block-categories)$
     <div class="quarto-categories">
