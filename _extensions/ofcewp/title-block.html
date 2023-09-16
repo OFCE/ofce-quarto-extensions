@@ -1,32 +1,35 @@
 <header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-$if(title)$
-<h1 class="title">$title$</h1>
-$endif$
-$if(subtitle)$
-<p class="subtitle lead">$subtitle$</p>
-$endif$
-$if(categories)$
-  $if(quarto-template-params.title-block-categories)$
-<div class="quarto-categories">
-  $for(categories)$
-  <div class="quarto-category">
-    <img src=$logo$ width="80" height="60"> $categories$</div>
-  $endfor$
-</div>
-  $endif$
-$endif$
-</div>
-
-$if(hide-description)$
-$elseif(description)$
-<div>
-  <div class="description">
-    $description$
-  </div>
-</div>
-$endif$
-
-$title-metadata.html()$
-
-</header>
+    <div class="quarto-title">
+    $if(title)$
+    <h1 class="title">$title$</h1>
+    $endif$
+    $if(subtitle)$
+    <p class="subtitle lead">$subtitle$</p>
+    $endif$
+    $if(logo)$ <p class="subtitle lead">
+      Document de travail de l'
+      <img src=$logo$ width="40" height="18"></p> $endif$
+    $if(categories)$
+      $if(quarto-template-params.title-block-categories)$
+    <div class="quarto-categories">
+      $for(categories)$
+      <div class="quarto-category">$categories$</div>
+      $endfor$
+    </div>
+      $endif$
+    $endif$
+    </div>
+    
+    $if(hide-description)$
+    $elseif(description)$
+    <div>
+      <div class="description">
+        $description$
+      </div>
+    </div>
+    $endif$
+    
+    $title-metadata.html()$
+    
+    </header>
+    
