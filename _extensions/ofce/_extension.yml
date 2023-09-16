@@ -38,14 +38,6 @@ contributes:
       shortcodes:
         - fontawesome
         - downloadthis
-      #custom-numbered-blocks:
-      #  classes:
-      #   encadre:
-      #      numbered: false
-      #      collapse: true
-      #      colors: [EFEFEF, EEEEEE]
-      #      label: "Encadré "
-
     html:
       theme: [cosmo, ofce.scss]
       mainfont: Open Sans
@@ -58,9 +50,6 @@ contributes:
       fig-format: svg
       cap-location: top
       reference-location: margin
-      logo: _extensions/ofce/ofcewp/ofce.png
-      template-partials:
-        - title-block.html
     pdf:
       documentclass: scrartcl
       mainfont: Open Sans
@@ -76,5 +65,13 @@ contributes:
       extra_dependencies: ["float"]
       fig-dpi: 600
       fig-format: png
-      include-in-header: "header.tex"
-      include-before-body: "titlepage.tex"
+    revealjs:
+      logo: _extensions/ofce/ofce/ofcewp.png
+      mainfont: Open Sans
+      slide-level: 2
+      slide-number: c/t
+      center: false
+      theme: [simple, ofce-pres.scss]
+      navigation-mode: linear
+      code-fold: false
+      self-contained: false
