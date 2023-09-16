@@ -60,7 +60,7 @@ contributes:
       reference-location: margin
       logo: _extensions/ofce/ofcewp/ofce.png
       template-partials:
-        - toc.html
+        - title-block.html
     pdf:
       documentclass: scrartcl
       mainfont: Open Sans
