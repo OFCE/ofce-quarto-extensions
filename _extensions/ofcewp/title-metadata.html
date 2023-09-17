@@ -2,7 +2,7 @@ $if(by-affiliation/first)$
 <div class="quarto-title-meta-author">
   <div class="quarto-title-meta-heading">$labels.authors$</div>
   <div class="quarto-title-meta-heading">$labels.affiliations$</div>
-  
+
   $for(by-author)$
   <div class="quarto-title-meta-contents">
     <p class="author">$_title-meta-author.html()$</p>
@@ -39,7 +39,7 @@ $endif$
     </div>
   </div>
   $endif$
-  
+
   $if(date)$
   <div>
     <div class="quarto-title-meta-heading">$labels.published$</div>
@@ -57,7 +57,7 @@ $endif$
     </div>
   </div>
   $endif$
-  
+
   $if(doi)$
   <div>
     <div class="quarto-title-meta-heading">$labels.doi$</div>
@@ -68,8 +68,22 @@ $endif$
     </div>
   </div>
   $endif$
+
+  <div>
+    <div class="quarto-title-meta-heading">Status</div>
+    <div class="quarto-title-meta-contents">
+      $if(draft)$
+      <p class="date">draft</p>
+      $endif$
+      $if(published)$
+      <p class="date">Publié à $published$</p>
+      $endif$
+    </div>
+  </div>
+
+
 </div>
-  
+
 $if(abstract)$
 <div>
   <div class="abstract">

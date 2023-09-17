@@ -61,6 +61,7 @@ contributes:
       logo: _extensions/ofce/ofcewp/ofce.png
       template-partials:
         - title-block.html
+        - title-metadata.html
     pdf:
       documentclass: scrartcl
       mainfont: Open Sans
