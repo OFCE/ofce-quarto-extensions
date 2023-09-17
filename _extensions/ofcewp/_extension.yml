@@ -55,10 +55,11 @@ contributes:
       number-depth: 3
       html-math-method: katex
       fig-dpi: 600
-      fig-format: svg
+      fig-format: png
       cap-location: top
       reference-location: margin
       logo: _extensions/ofce/ofcewp/ofce.png
+      lightbox: true
       template-partials:
         - title-block.html
         - title-metadata.html
