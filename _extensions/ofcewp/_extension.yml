@@ -47,7 +47,7 @@ contributes:
       #      label: "Encadré "
 
     html:
-      theme: [cosmo, ofce.scss]
+      theme: [cosmo, ofcewp.scss]
       mainfont: Open Sans
       toc-location: left
       toc-title: Sur cette page
