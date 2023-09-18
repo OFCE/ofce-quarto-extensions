@@ -69,21 +69,23 @@ $endif$
   </div>
   $endif$
 
-  $if(draft||published)$
+  $if(draft)$
   <div>
     <div class="quarto-title-meta-heading">Status</div>
     <div class="quarto-title-meta-contents">
-      $if(draft)$
       <p class="date">draft</p>
-      $endif$
-      $if(published)$
-      <p class="date">Publié à $published$</p>
-      $endif$
-    </div>
+      </div>
   </div>
   $endif$
 
-</div>
+  $if(published)$
+  <div>
+    <div class="quarto-title-meta-heading">Status</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">Publié à $published$</p>
+    </div>
+  </div>
+  $endif$
 
 $if(abstract)$
 <div>
