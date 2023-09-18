@@ -39,7 +39,11 @@ contributes:
       #      collapse: true
       #      colors: [EFEFEF, EEEEEE]
       #      label: "Encadré "
-
+      google-scholar: true
+      appendix-style: default
+      appendix-cite-as: display
+      citation: true
+      license: CC BY
     html:
       theme: [cosmo, ofcewp.scss]
       mainfont: Open Sans
