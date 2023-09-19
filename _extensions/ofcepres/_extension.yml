@@ -27,9 +27,10 @@ contributes:
       filters:
         - nameref
         - fr-nbsp
-       # - custom-numbered-blocks
+       #- custom-numbered-blocks
         - quotes
         - search-replace
+        - reveal-auto-agenda
       shortcodes:
         - fontawesome
         - downloadthis
@@ -43,3 +44,6 @@ contributes:
       navigation-mode: linear
       code-fold: false
       self-contained: false
+      auto-agenda:
+        bullets: none
+        heading: ""
