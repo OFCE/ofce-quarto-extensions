@@ -86,22 +86,22 @@ $endif$
     </div>
   </div>
   $endif$
-</div>
-
-$if(abstract)$
-  <div>
-    <div class="abstract">
-      <div class="block-title">$labels.abstract$</div>
-      $abstract$
-    </div>
-  </div>
-$endif$
-
-$if(keywords)$
+  
+  $if(keywords)$
   <div>
     <div class="keywords">
       <div class="block-title">$labels.keywords$</div>
       <p>$for(keywords)$$it$$sep$, $endfor$</p>
+    </div>
+  </div>
+  $endif$
+</div>
+
+$if(abstract)$
+  <div class="quarto-title-meta">
+    <div class="abstract">
+      <div class="block-title">$labels.abstract$</div>
+      $abstract$
     </div>
   </div>
 $endif$
