@@ -35,11 +35,11 @@ contributes:
         - fontawesome
         - downloadthis
     revealjs:
-      logo: _extensions/ofce/ofce/ofce_m.png
+      logo: _extensions/ofce/ofcepres/ofce_m.png
       language:
         fr:
           toc-title-document: "Plan de la présentation"
-        en: 
+        en:
           toc-title-document: "Presentation outline"
       mainfont: Open Sans
       slide-level: 2

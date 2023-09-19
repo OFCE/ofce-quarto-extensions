@@ -2,7 +2,7 @@
 // fonts
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
 
-// couleurs 
+// couleurs
 $scpored: #e6142d;
 $ofcered: #a22a2e;
 $darkgrey: #333333;
@@ -15,10 +15,10 @@ $link-color: $presentation-color;
 $presentation-heading-color: $presentation-color;
 $ligthcolor: #F9F9F9;
 $presentation-h1-font-size: 2.5em;
-$presentation-h2-font-size: 1.2em;
-$presentation-h3-font-size: 1em;
-$presentation-h4-font-size: 1em;
-$presentation-font-size-root: $font-size-root;
+$presentation-h2-font-size: 1.5em;
+$presentation-h3-font-size: 1.3em;
+$presentation-h4-font-size: 1.2em;
+$presentation-font-size-root: 36px;
 // callout
 $callout-color-note: $presentation-color;
 $callout-border-width: 1px;
@@ -42,8 +42,8 @@ $callout-border-width: 1px;
 }
 
 .reveal h2::before {
-  font-family: "Font Awesome 5 Free"; 
-  font-weight: 900; 
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
   content: "\f101";
   letter-spacing: 10px;
 }
