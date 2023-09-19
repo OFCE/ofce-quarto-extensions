@@ -60,7 +60,7 @@ contributes:
       fig-dpi: 600
       fig-format: png
     revealjs:
-      logo: _extensions/ofce/ofce/ofcewp.png
+      logo: _extensions/ofce/ofce/ofce.png
       mainfont: Open Sans
       slide-level: 2
       slide-number: c/t
