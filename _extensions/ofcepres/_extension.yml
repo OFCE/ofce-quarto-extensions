@@ -36,6 +36,11 @@ contributes:
         - downloadthis
     revealjs:
       logo: _extensions/ofce/ofce/ofce_m.png
+      language:
+        fr:
+          toc-title-document: "Plan de la présentation"
+        en: 
+          toc-title-document: "Presentation outline"
       mainfont: Open Sans
       slide-level: 2
       slide-number: c/t

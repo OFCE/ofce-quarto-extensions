@@ -1,15 +1,8 @@
 /*-- scss:defaults --*/
 // fonts
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,300;0,700;1,300;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap');
 
-// Fonts (CSS rules)
-//$font-family-sans-serif: 'Nunito Sans', sans-serif;
-//$font-family-monospace: 'Roboto Mono', monospace;
-$font-family-serif: 'Libre Baskerville', serif; 
-$font-family-sans-serif: 'Open Sans', sans-serif;
-$font-family-monospace: 'Fira Code', monospace;
-
-// gris ofce
+// couleurs 
 $scpored: #e6142d;
 $ofcered: #a22a2e;
 $darkgrey: #333333;
@@ -29,9 +22,6 @@ $presentation-font-size-root: 20px;
 // callout
 $callout-color-note: $presentation-color;
 $callout-border-width: 1px;
-
-$mainFont: 'Nunito', sans-serif;
-$headingFont: 'Nunito', sans-serif;
 
 /*-- scss:rules --*/
 
