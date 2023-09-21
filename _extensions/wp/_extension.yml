@@ -53,6 +53,7 @@ contributes:
       reference-location: margin
       logo: _extensions/ofce/wp/ofce.png
       lightbox: true
+      title-block-style: default
       template-partials:
         - title-block.html
         - title-metadata.html
