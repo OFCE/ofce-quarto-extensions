@@ -9,6 +9,7 @@ contributes:
       toc: true
       lang: fr
       date-format: "dddd D MMMM YYYY"
+      author-footer: ""
       footer: '{{< meta title >}} {{< fa ellipsis >}} {{< meta author-footer >}} '
       language:
         fr:
@@ -43,7 +44,6 @@ contributes:
           toc-title-document: "Plan de la présentation"
         en:
           toc-title-document: "Presentation outline"
-      author-footer: ""
       mainfont: Open Sans
       slide-level: 2
       slide-number: c/t
