@@ -21,9 +21,9 @@ contributes:
         eq-prefix: équation
         sec-prefix: section
         fig-title: "**Figure**"
-        fig-delim: " **:**"
+        fig-delim: "\u2002**:**"
         tbl-title: "**Tableau**"
-        tbl-delim: " **:**"
+        tbl-delim: "\u2002**:**"
         lof-title: Figures
         lot-title: Tableaux
         logo: ofce.png
