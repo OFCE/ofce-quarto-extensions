@@ -29,7 +29,6 @@ contributes:
         logo: ofce.png
       filters:
         - nameref
-       # - custom-numbered-blocks
         - quotes
         - search-replace
         - fr-nbsp
