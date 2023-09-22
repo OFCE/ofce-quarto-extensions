@@ -32,7 +32,6 @@ contributes:
        # - custom-numbered-blocks
         - quotes
         - search-replace
-        - quarto
         - fr-nbsp
       shortcodes:
         - fontawesome
