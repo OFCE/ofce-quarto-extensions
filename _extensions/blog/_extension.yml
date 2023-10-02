@@ -34,7 +34,7 @@ contributes:
         - fr-nbsp
        # - custom-numbered-blocks
         - quotes
-        - search-replace
+       # - search-replace
       shortcodes:
         - fontawesome
         - downloadthis

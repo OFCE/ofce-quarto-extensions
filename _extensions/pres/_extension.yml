@@ -32,7 +32,7 @@ contributes:
         - fr-nbsp
        #- custom-numbered-blocks
         - quotes
-        - search-replace
+       #- search-replace
         - reveal-auto-agenda
       shortcodes:
         - fontawesome

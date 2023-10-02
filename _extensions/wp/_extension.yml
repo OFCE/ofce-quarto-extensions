@@ -30,7 +30,7 @@ contributes:
       filters:
         - nameref
         - quotes
-        - search-replace
+        # - search-replace
         - fr-nbsp
       shortcodes:
         - fontawesome
