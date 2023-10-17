@@ -10,53 +10,43 @@ $if(beamer)$
 $else$
 
 \begin{titlepage}
-\raisebox{9.5cm}
-{
-   \begin{minipage}{0.22\linewidth}
-  
-  \large\textbf{OFCE}
-  \newline
-  \large\textbf{Working Paper}
-  \newline
-
-  N˚ \textcolor{red}{\LARGE\textbf{$wp$}}
-
-\end{minipage} 
-} 
-%
-%
-% Linebreak to separate code
-\begin{minipage}{0.02\linewidth}
-    \rule{1pt}{\textheight}
-\end{minipage} 
-%
-%
-%
-\begin{minipage}{0.7\linewidth}
- \textcolor{red}{\Huge\textbf{\textsf{$title$}}}
- 
- $if(subtitle)$
-\vspace{5mm}
- \textcolor{red}{\textbf{\textsf{$subtitle$}}}
-\vspace{5mm}
- $endif$
- \vspace{20mm}
- 
- %$for(authors)$$it.name.literal$$sep$ \newline $endfor$
- $for(by-author)$ 
- 
-  \textbf{$it.name.literal$}$if(by-author.affiliations)$$for(by-author.affiliations)$,$if(by-author.affiliations.name)$
-          $by-author.affiliations.name$$endif$$endfor$
-  $endif$
-$endfor$ % by-author
-\raisebox{-5cm}
-{
-  \includegraphics[height=1cm]{$logo$} \hspace{1cm}  \includegraphics[height=1cm]{$logo2$}
+  \backgroundsetup{
+    scale=1,
+    angle=0,
+    opacity=1,
+    contents={
+  \begin{tikzpicture}[remember picture,overlay]
+    \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+      \node [anchor = west] at (-8.25,12) {\includegraphics[width=2.5cm]{$logo$}};
+      \node [anchor = west] at (-8.5,-12){\includegraphics[width=3cm]{$logo2$}};
+      \node [anchor = east] at (8,12){\textcolor{gray}{\LARGE\textit{Working Paper}}};
+      \draw [thick,black](-5.25,-13) -- (-5.25,13);
+  \end{tikzpicture}
+  }
 }
-%
-\end{minipage}
+\BgThispage
 
-%
+\hspace{3cm}
+\begin{minipage}{12.5cm}
+  \vspace{5cm}
+  \textcolor{red}{\Huge\textbf{\textsf{$title$}}}
+ 
+  $if(subtitle)$
+ \vspace{5mm}
+  \textcolor{red}{\large\textbf{\textsf{$subtitle$}}}
+ \vspace{5mm}
+  $endif$
+  \vspace{20mm}
+  
+  %$for(authors)$$it.name.literal$$sep$ \newline $endfor$
+  $for(by-author)$ 
+  
+   \textbf{$it.name.literal$}$if(by-author.affiliations)$$for(by-author.affiliations)$,$if(by-author.affiliations.name)$
+           $by-author.affiliations.name$$endif$$endfor$
+   $endif$
+ $endfor$ % by-author
+ \end{minipage}
+  
 \end{titlepage}
 $endif$
 %
