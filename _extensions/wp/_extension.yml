@@ -74,8 +74,8 @@ contributes:
       extra_dependencies: ["float"]
       fig-dpi: 600
       fig-format: png
-      logo: _extensions/ofce/ofcewp/ofce_m.png
-      logo2: _extensions/ofce/ofcewp/sciencespo.png
+      logo: _extensions/ofce/wp/ofce_m.png
+      logo2: _extensions/ofce/wp/sciencespo.png
       template-partials:
         - _extensions/ofce/wp/pdf_template/title.tex
         - _extensions/ofce/wp/pdf_template/before-body.tex
