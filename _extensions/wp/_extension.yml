@@ -41,7 +41,7 @@ contributes:
       citation: true
       license: CC BY
     html:
-      theme: [cosmo, ofcewp.scss]
+      theme: [cosmo, html_template/ofcewp.scss]
       mainfont: Open Sans
       toc-location: left
       toc-title: Sur cette page
@@ -56,9 +56,9 @@ contributes:
       lightbox: true
       title-block-style: default
       template-partials:
-        - title-block.html
-        - title-metadata.html
-        - toc.html
+        - html_template/title-block.html
+        - html_template/title-metadata.html
+        - html_template/toc.html
     pdf:
       documentclass: scrreprt
       mainfont: Open Sans
