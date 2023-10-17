@@ -61,7 +61,7 @@ contributes:
         - html_template/toc.html
     pdf:
       documentclass: scrreprt
-      mainfont: Open Sans
+      # mainfont: Open Sans
       toc-depth: 1
       number-sections: true
       number-depth: 3

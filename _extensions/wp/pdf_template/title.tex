@@ -1,29 +1,15 @@
-% $if(title)$
-% \title{$title$$if(thanks)$\thanks{$thanks$}$endif$}
-% 
-% $endif$
-% $if(subtitle)$
-% $if(beamer)$
-% $else$
-% \usepackage{etoolbox}
-% \makeatletter
-% \providecommand{\subtitle}[1]{% add subtitle to \maketitle
-%   \apptocmd{\@title}{\par {\large #1 \par}}{}{}
-% }
-% \makeatother
-% $endif$
-% \subtitle{$subtitle$}
-% $endif$
-% \author{$for(authors)$$it.name.literal$$sep$ \and $endfor$}
-% \date{$date$}
-% $if(beamer)$
-% $if(institute)$
-% \institute{$for(institute)$$institute$$sep$ \and $endfor$}
-% $endif$
-% $if(titlegraphic)$
-% \titlegraphic{\includegraphics{$titlegraphic$}}
-% $endif$
-% $if(logo)$
-% \includegraphics{$logo$}
-% $endif$
-% $endif$
+%%% title.tex we use to call other packages. Because this works
+\usepackage{titlepic}
+\usepackage{titling}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{fontspec}
+\usepackage{placeins}
+\usepackage{graphbox}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage[some]{background}
+\usepackage{lipsum}
+\usepackage{caption}
