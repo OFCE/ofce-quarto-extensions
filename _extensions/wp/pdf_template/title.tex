@@ -13,3 +13,11 @@
 \usepackage[some]{background}
 \usepackage{lipsum}
 \usepackage{caption}
+\usepackage{datetime}
+\usepackage{xstring}
+ 
+\def\getYear#1{\StrLeft{#1}{4}}
+\def\getMonth#1{\StrMid{#1}{6}{7}}
+\def\getDay#1{\StrRight{#1}{2}}
+
+\def\jolimois#1{\monthname{\getMonth{#1}}}

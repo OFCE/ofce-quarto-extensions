@@ -19,9 +19,12 @@ $else$
     \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
       \node [anchor = west] at (-8.25,12) {\includegraphics[width=2.5cm]{$logo$}};
       \node [anchor = west] at (-8.5,-12){\includegraphics[width=3cm]{$logo2$}};
-      \node [anchor = east] at (8,12){\textcolor{gray}{\LARGE\textit{Working Paper}}};
+      \node [anchor = east] at (8.75,13-0.75){\textcolor{gray}{\Huge\textit{Working Paper}}};
       \draw [thick,black](-5.25,-13) -- (-5.25,13);
-  \end{tikzpicture}
+      \draw [color = white, fill=blue] (11-2,13-2) rectangle (11,13);
+      \draw [color = white, fill=blue,thick] (11-1-1.5,13-1-0.2-1.5) rectangle (11-1,13-1-0.2);
+      \node [anchor = east] at (11-0.65,13-0.75){\textcolor{white}{\huge\textbf{$wp$}}};
+    \end{tikzpicture}
   }
 }
 \BgThispage
@@ -63,6 +66,12 @@ $endif$
 \vspace{2cm}
 
 \LARGE\textbf{$title$}
+
+%\getYear{$date$}
+
+%\let
+%\monthname[\getMonth{$date$}]
+
 
 \large\textbf{$subtitle$}
 $if(abstract)$
