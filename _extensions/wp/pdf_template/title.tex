@@ -17,16 +17,20 @@
 \usepackage{xstring}
  
 \setmainfont{OpenSans}[
-  UprightFont = {*},
-  ItalicFont = {*_Italic},
+  UprightFont = {*-Regular},
+  BoldFont = {*-Bold},
+  BoldItalicFont = {*-BoldItalic},
+  ItalicFont = {*-Italic},
   Path = {_extensions/ofce/wp/OpenSans/},
   Extension = {.ttf}
 ]
 \setsansfont{OpenSans}[
-  UprightFont = {*},
-  ItalicFont = {*_Italic},
-  Path = {_extensions/ofce/wp/OpenSans/},
-  Extension = {.ttf}
+    UprightFont = {*-Regular},
+    BoldFont = {*-Bold},
+    BoldItalicFont = {*-BoldItalic},
+    ItalicFont = {*-Italic},
+    Path = {_extensions/ofce/wp/OpenSans/},
+    Extension = {.ttf}
 ]
 \def\getYear#1{\StrLeft{#1}{4}}
 \def\getMonth#1{\StrMid{#1}{6}{7}}
