@@ -61,7 +61,7 @@ contributes:
         - html_template/toc.html
     pdf:
       documentclass: scrreprt
-      annee: "`r lubridate::year(params$date)`"
+      annee: "`r lubridate::year(Sys.date())`"
       toc-depth: 1
       number-sections: true
       number-depth: 3
