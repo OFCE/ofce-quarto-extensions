@@ -63,6 +63,7 @@ contributes:
       documentclass: scrreprt
       annee: 2023
       toc-depth: 1
+      pdffont: OpenSans
       number-sections: true
       number-depth: 3
       classoption:
