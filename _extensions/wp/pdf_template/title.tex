@@ -15,21 +15,21 @@
 \usepackage{caption}
 \usepackage{datetime}
 \usepackage{xstring}
- 
-\setmainfont{OpenSans}[
+
+\setmainfont{$pdffont$}[
   UprightFont = {*-Regular},
   BoldFont = {*-Bold},
   BoldItalicFont = {*-BoldItalic},
   ItalicFont = {*-Italic},
-  Path = {_extensions/ofce/wp/OpenSans/},
+  Path = {_extensions/ofce/wp/*/},
   Extension = {.ttf}
 ]
-\setsansfont{OpenSans}[
+\setsansfont{$pdffont}[
   UprightFont = {*-Regular},
   BoldFont = {*-Bold},
   BoldItalicFont = {*-BoldItalic},
   ItalicFont = {*-Italic},
-  Path = {_extensions/ofce/wp/OpenSans/},
+  Path = {_extensions/ofce/wp/*/},
   Extension = {.ttf}
 ]
 \def\getYear#1{\StrLeft{#1}{4}}
