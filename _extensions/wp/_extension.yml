@@ -67,9 +67,9 @@ contributes:
       number-sections: true
       number-depth: 3
       classoption:
-        - DIV=10
+        - DIV=12
       papersize: a4
-      fontsize: 11pt
+      fontsize: 10pt
       fig-cap-location: top
       tbl-cap-location: top
       extra_dependencies: ["float"]
