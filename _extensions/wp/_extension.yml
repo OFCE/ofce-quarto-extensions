@@ -50,6 +50,7 @@ contributes:
       html-math-method: katex
       fig-dpi: 600
       fig-format: png
+      fig-width: 6
       cap-location: top
       reference-location: margin
       logo: _extensions/ofce/wp/ofce_m.png
