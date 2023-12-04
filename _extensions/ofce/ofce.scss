@@ -152,3 +152,12 @@ figcaption.quarto-float-caption,caption  {
 .callout-tip>.callout-header {
   background-color: $lightgrey !important;
 }
+
+.dnwld_button {
+  font-size: .8rem;
+  background-color: #EEE;
+  border-color: $scpodarkred;
+  border-width: 1px;
+  border-radius: 5%;
+  color: #222;
+}
