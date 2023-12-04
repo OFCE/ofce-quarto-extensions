@@ -45,11 +45,13 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .page-columns.page-full,
-.content,
-.body {
+.content {
   text-align: justify !important;
 }
 
+.listing-subtitle, 
+.listing-description,
+.listing-date,
 .align-left {
   text-align: left;
 }
