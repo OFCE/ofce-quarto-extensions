@@ -33,7 +33,9 @@ contributes:
         - fontawesome
         - downloadthis
     html:
-      theme: [cosmo, ofce.scss]
+      theme: 
+        - cosmo
+        - ofce.scss
       mainfont: Open Sans
       toc-location: left
       toc-title: Sur cette page
