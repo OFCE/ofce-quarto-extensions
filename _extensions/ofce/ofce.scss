@@ -19,6 +19,8 @@ $blue: #000080;
 $navbar-hl: #e6142d;
 $sidebar-hl: #e6142d;
 
+$navbar-bg: $lightgrey;
+
 $callout-color-tip: #DDD;
 
 /*-- scss:rules --*/
@@ -36,10 +38,7 @@ h1, h2, h3, h4, h5, h6,
     margin-right : 12px !important;
     margin-top: 6px !important;
     margin-bottom: 6px !important;
-    border-left-color: $scpored !important;
-    border-left-width: 1px !important;
-    border-left-style: solid !important;
-}
+  }
 
 .sidebar {
   padding-top: 32px !important;
