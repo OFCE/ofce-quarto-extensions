@@ -154,13 +154,14 @@ figcaption.quarto-float-caption,caption  {
   background-color: $lightgrey !important;
 }
 
-.dnwld_button {
+.dbtn {
   font-size: .8rem;
-  color: $scpored;
   background-color: #FFF;
-  border-color: $scpodarkred;
+  border-color: $link-color;
   border-width: 1px;
-  border-radius: 15%;
+  border-radius: 12px;
+  color: $link-color;
+  text-align: center;
   margin-top: 6px;
   margin-bottom: 12px;
 }
