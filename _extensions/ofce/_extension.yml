@@ -13,6 +13,7 @@ contributes:
           title-block-author-single: "Auteur"
           title-block-author-plural: "Auteurs"
       fig-asp: 0.61
+      cap-location: top
       crossref:
         fig-prefix: figure
         tbl-prefix: tableau
@@ -44,7 +45,6 @@ contributes:
       html-math-method: katex
       fig-dpi: 600
       fig-format: png
-      cap-location: top
       reference-location: margin
       logo: _extensions/ofce/wp/ofce_m.png
       lightbox: true

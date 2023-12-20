@@ -15,6 +15,7 @@ contributes:
           title-block-published: "Publié le"
           title-block-modified: "Modifié le"
       fig-asp: 0.61
+      cap-location: top
       crossref:
         fig-prefix: figure
         tbl-prefix: tableau
@@ -53,7 +54,6 @@ contributes:
       fig-dpi: 600
       fig-format: png
       fig-width: 6
-      cap-location: top
       reference-location: margin
       logo: _extensions/ofce/wp/ofce_m.png
       lightbox: true
@@ -73,8 +73,6 @@ contributes:
         - DIV=11
       papersize: a4
       fontsize: 9pt
-      fig-cap-location: top
-      tbl-cap-location: top
       extra_dependencies: ["float"]
       fig-dpi: 600
       fig-width: 5
