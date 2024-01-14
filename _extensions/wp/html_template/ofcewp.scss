@@ -146,7 +146,7 @@ figcaption.quarto-float-caption,caption  {
   line-height: 160%;
 }
 
-.encadre, .callout-tip {
+div.callout-tip {
   font-size: .8rem;
   border-radius: 0;
   background-clip: content-box;
@@ -154,7 +154,7 @@ figcaption.quarto-float-caption,caption  {
   border-left-color:$lightgrey !important;
 }
 
-.callout-tip>.callout-header {
+div.callout-tip div.callout-header {
   background-color: $lightgrey !important;
 }
 

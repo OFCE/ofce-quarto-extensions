@@ -44,7 +44,7 @@ contributes:
     html:
       theme: 
         - cosmo
-        - html_template/ofcewp.scss]
+        - html_template/ofcewp.scss
       mainfont: Open Sans
       toc-location: left
       toc-title: Sur cette page
@@ -58,6 +58,7 @@ contributes:
       logo: _extensions/ofce/wp/ofce_m.png
       lightbox: true
       title-block-style: default
+      callout-icon: false 
       template-partials:
         - html_template/title-block.html
         - html_template/title-metadata.html

@@ -150,3 +150,15 @@ h1, h2, h3, h4, h5 {
   margin-top: 6px;
   margin-bottom: 12px;
 }
+
+div.callout-tip {
+  font-size: .8rem;
+  border-radius: 0;
+  background-clip: content-box;
+  background-color: $lightgrey !important;
+  border-left-color:$lightgrey !important;
+}
+
+div.callout-tip div.callout-header {
+  background-color: $lightgrey !important;
+}

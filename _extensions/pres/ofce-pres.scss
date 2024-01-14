@@ -66,14 +66,16 @@ $callout-border-width: 1px;
   text-align: start !important;
 }
 
-.callout.callout-style-simple {
-  background-color: $ligthcolor !important;
-  padding-right: 1em !important;
-  padding-left: 1em !important;
-  margin-right: 3em !important;
-  margin-left: 3em !important;
-  font-size: 1em !important;
-  border-left: 0.15em solid $presentation-color !important;
+div.callout-tip {
+  font-size: .8rem;
+  border-radius: 0;
+  background-clip: content-box;
+  background-color: $lightgrey !important;
+  border-left-color:$lightgrey !important;
+}
+
+div.callout-tip div.callout-header {
+  background-color: $lightgrey !important;
 }
 
 .reveal .slide-logo {
