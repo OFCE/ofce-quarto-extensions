@@ -32,6 +32,9 @@ contributes:
        # - custom-numbered-blocks
         - quotes
        #- search-replace
+        - collapse-callout
+      collapse-callout:
+        tip: true
       shortcodes:
         - fontawesome
         - downloadthis

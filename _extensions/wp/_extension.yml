@@ -33,6 +33,9 @@ contributes:
         - quotes
         # - search-replace
         - fr-nbsp
+        - collapse-callout
+      collapse-callout:
+        tip: true
       shortcodes:
         - fontawesome
         - downloadthis
