@@ -47,7 +47,7 @@ contributes:
     html:
       theme: 
         - cosmo
-        - html_template/ofcewp.scss]
+        - html_template/ofcewp.scss
       mainfont: Open Sans
       toc-location: left
       toc-title: Sur cette page
