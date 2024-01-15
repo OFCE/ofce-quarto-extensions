@@ -14,17 +14,18 @@ contributes:
           title-block-author-plural: "Auteurs"
       fig-asp: 0.61
       cap-location: top
-      fig-prefix: graphique
-      tbl-prefix: tableau
-      eq-prefix: équation
-      sec-prefix: section
-      tip-prefix: encadré
-      fig-title: "**Graphique**"
-      tip-title: "**Encadré**"
-      title-delim: "**.**"
-      tbl-title: "**Tableau**"
-      lof-title: Graphiques
-      lot-title: Tableaux
+      crossref:
+        fig-prefix: graphique
+        tbl-prefix: tableau
+        eq-prefix: équation
+        sec-prefix: section
+        tip-prefix: encadré
+        fig-title: "**Graphique**"
+        tip-title: "**Encadré**"
+        title-delim: "**.**"
+        tbl-title: "**Tableau**"
+        lof-title: Graphiques
+        lot-title: Tableaux
       logo: ofce.png
       filters:
         - nameref
