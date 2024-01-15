@@ -16,12 +16,13 @@ contributes:
           title-block-modified: "Modifié le"
       fig-asp: 0.61
       cap-location: top
-      crossref:
-        fig-prefix: graphique
+      fig-prefix: graphique
         tbl-prefix: tableau
         eq-prefix: équation
         sec-prefix: section
+        tip-prefix: encadré
         fig-title: "**Graphique**"
+        tip-title: "**Encadré**"
         title-delim: "**.**"
         tbl-title: "**Tableau**"
         lof-title: Graphiques
@@ -43,7 +44,7 @@ contributes:
     html:
       theme: 
         - cosmo
-        - html_template/ofcewp.scss
+        - html_template/ofcewp.scss]
       mainfont: Open Sans
       toc-location: left
       toc-title: Sur cette page
@@ -55,9 +56,9 @@ contributes:
       fig-width: 6
       reference-location: margin
       logo: _extensions/ofce/wp/ofce_m.png
+      callout-icon: false
       lightbox: true
       title-block-style: default
-      callout-icon: false 
       template-partials:
         - html_template/title-block.html
         - html_template/title-metadata.html

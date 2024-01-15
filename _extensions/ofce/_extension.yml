@@ -14,14 +14,16 @@ contributes:
           title-block-author-plural: "Auteurs"
       fig-asp: 0.61
       cap-location: top
-      crossref:
-        fig-prefix: figure
+      fig-prefix: graphique
         tbl-prefix: tableau
         eq-prefix: équation
         sec-prefix: section
-        fig-title: Figure
-        tbl-title: Tableau
-        lof-title: Figures
+        tip-prefix: encadré
+        fig-title: "**Graphique**"
+        tip-title: "**Encadré**"
+        title-delim: "**.**"
+        tbl-title: "**Tableau**"
+        lof-title: Graphiques
         lot-title: Tableaux
         logo: ofce.png
       filters:
@@ -47,5 +49,6 @@ contributes:
       fig-format: png
       reference-location: margin
       logo: _extensions/ofce/wp/ofce_m.png
+      callout-icon: false
       lightbox: true
       title-block-style: default
