@@ -15,23 +15,28 @@ contributes:
           title-block-published: "Publié le"
           title-block-modified: "Modifié le"
       fig-asp: 0.61
+      cap-location: top
       crossref:
-        fig-prefix: figure
+        fig-prefix: graphique
         tbl-prefix: tableau
         eq-prefix: équation
         sec-prefix: section
-        fig-title: "**Figure**"
-        fig-delim: "**.**"
+        tip-prefix: encadré
+        fig-title: "**Graphique**"
+        tip-title: "**Encadré**"
+        title-delim: "**.**"
         tbl-title: "**Tableau**"
-        tbl-delim: "**.**"
-        lof-title: Figures
+        lof-title: Graphiques
         lot-title: Tableaux
-        logo: ofce.png
+      logo: ofce.png
       filters:
         - nameref
         - quotes
         # - search-replace
         - fr-nbsp
+        - collapse-callout
+      collapse-callout:
+        tip: true
       shortcodes:
         - fontawesome
         - downloadthis
@@ -43,7 +48,7 @@ contributes:
     html:
       theme: 
         - cosmo
-        - html_template/ofcewp.scss]
+        - html_template/ofcewp.scss
       mainfont: Open Sans
       toc-location: left
       toc-title: Sur cette page
@@ -53,9 +58,9 @@ contributes:
       fig-dpi: 600
       fig-format: png
       fig-width: 6
-      cap-location: top
       reference-location: margin
       logo: _extensions/ofce/wp/ofce_m.png
+      callout-icon: false
       lightbox: true
       title-block-style: default
       template-partials:
@@ -73,8 +78,6 @@ contributes:
         - DIV=11
       papersize: a4
       fontsize: 9pt
-      fig-cap-location: top
-      tbl-cap-location: top
       extra_dependencies: ["float"]
       fig-dpi: 600
       fig-width: 5
