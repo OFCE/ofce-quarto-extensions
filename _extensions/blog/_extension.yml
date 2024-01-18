@@ -60,7 +60,7 @@ contributes:
       mainfont: Open Sans
       toc-location: left
       toc-title: Sur cette page
-      number-sections: true
+      number-sections: false
       number-depth: 3
       html-math-method: katex
       fig-dpi: 600
@@ -74,7 +74,7 @@ contributes:
       documentclass: scrartcl
       mainfont: Open Sans
       toc-depth: 1
-      number-sections: true
+      number-sections: false
       number-depth: 3
       classoption:
         - DIV=10
