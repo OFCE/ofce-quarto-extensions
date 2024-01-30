@@ -19,6 +19,7 @@ $blue: #000080;
 $navbar-hl: #e6142d;
 $navbar-bg: $lightgrey;
 $sidebar-hl: #e6142d;
+$whitebg:#FFFFFF;
 
 $callout-color-tip: #DDD;
 
@@ -31,7 +32,15 @@ h1, h2, h3, h4, h5, h6,
   color: $darkgrey;
 }
 
+.navbar {
+  banner-color: $whitebg;
+  background-color: $whitebg ;
+
+}
+
 .quarto-title-block {
+    banner-color: $whitebg;
+    background-color: $whitebg;
     margin-left: -1px !important;
     padding-left: 12px !important;
     margin-right : 12px !important;
@@ -42,8 +51,20 @@ h1, h2, h3, h4, h5, h6,
     border-left-style: solid !important;
 }
 
+.quarto-title-banner {
+  banner-color: $whitebg;
+  background-color: $whitebg ;
+
+}
+.quarto-title-meta-author {
+  banner-color: $whitebg;
+  background-color: $whitebg;
+
+}
+
 .sidebar {
   padding-top: 32px !important;
+  background-color: $whitebg ;
 }
 
 .sidebar-item-container {
