@@ -71,29 +71,24 @@ contributes:
       template-partials:
         - toc.html
     pdf:
-      documentclass: scrartcl
-      mainfont: Open Sans
+      documentclass: scrreprt
+      annee: 2024
       toc-depth: 1
+      pdffont: OpenSans
       number-sections: false
-      number-depth: 3
       classoption:
-        - DIV=10
+        - DIV=12
       papersize: a4
-      fontsize: 11pt
-      fig-cap-location: top
-      tbl-cap-location: top
+      fontsize: 9pt
       extra_dependencies: ["float"]
       fig-dpi: 600
+      fig-width: 5
       fig-format: png
-      include-in-header: "header.tex"
-      include-before-body: "titlepage.tex"
-    revealjs:
-      logo: _extensions/ofce/ofce/ofce.png
-      mainfont: Open Sans
-      slide-level: 2
-      slide-number: c/t
-      center: false
-      theme: [simple, ofce-pres.scss]
-      navigation-mode: linear
-      code-fold: false
-      self-contained: false
+      logo: ofce_m.png
+      logo2: sciencespo.png
+      template-partials:
+        - pdf_template/title.tex
+        - pdf_template/before-body.tex
+        - pdf_template/after-body.tex
+        - pdf_template/toc.tex
+        - pdf_template/biblio.tex
