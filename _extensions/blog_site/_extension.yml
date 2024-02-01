@@ -69,6 +69,7 @@ contributes:
       reference-location: margin
       callout-icon: true
       logo: _extensions/ofce/ofce/ofce.png
+      embed-resources: true
       #template-partials:
         #- html_template/title-block.html
         #- html_template/title-metadata.html
