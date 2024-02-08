@@ -52,7 +52,7 @@ contributes:
       fig-dpi: 600
       fig-format: png
       reference-location: margin
-      logo: _extensions/ofce/wp/ofce_m.png
+      logo: ofce_m.png
       callout-icon: false
       lightbox: true
       title-block-style: default
