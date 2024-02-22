@@ -78,6 +78,7 @@ contributes:
         - DIV=11
       papersize: a4
       fontsize: 9pt
+      linestretch: 1.25
       extra_dependencies: ["float"]
       fig-dpi: 600
       fig-width: 5
