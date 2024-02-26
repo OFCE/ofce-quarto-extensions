@@ -42,7 +42,7 @@ contributes:
       search-replace:
         oe : "\u0153"
         ae : "\u00e6"
-      csl: french4.csl
+      csl: csl/universite-de-montreal-apa.csl
     html:
       theme: 
         - cosmo
