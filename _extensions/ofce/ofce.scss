@@ -18,7 +18,7 @@ $green: #079D10;
 $blue: #000080;
 $navbar-hl: #e6142d;
 $sidebar-hl: #e6142d;
-
+$aligment: justify;
 $navbar-bg: $lightgrey;
 
 $callout-color-tip: #DDD;
@@ -54,7 +54,7 @@ h1, h2, h3, h4, h5, h6,
 
 .page-columns.page-full,
 .content {
-  text-align: justify !important;
+  text-align: $aligment !important;
 }
 
 .listing-subtitle, 
@@ -187,4 +187,25 @@ div.callout-tip div.callout-header {
 .control-label {
   font-size: .8rem;
   text-align: start;
+}
+
+.quarto-figure-center>figure>div {
+  text-align: left !important;
+  font-size: .8rem !important;
+  color: $darkgrey !important;
+  line-height: 1rem !important;
+  margin-bottom: 0px !important;
+}
+
+.quarto-figure-center>figure>div>p {
+  margin-bottom: 0.2rem !important;
+}
+
+.figure.figure {
+  margin-bottom: 0 !important;
+}
+
+.csl-entry {
+  margin-bottom: 0.2rem;
+  font-size: 0.9rem;
 }

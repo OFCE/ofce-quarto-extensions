@@ -32,7 +32,7 @@ contributes:
       filters:
         - nameref
         - quotes
-        # - search-replace
+        - search-replace
         - fr-nbsp
         - collapse-callout
       collapse-callout:
@@ -40,11 +40,16 @@ contributes:
       shortcodes:
         - fontawesome
         - downloadthis
+        - wordcount 
+      search-replace:
+        oe : "\u0153"
+        ae : "\u00e6"
       google-scholar: true
       appendix-style: default
       appendix-cite-as: [display, bibtex]
       citation: true
       license: CC BY
+      csl: csl/revue-francaise-de-gestion.csl
     html:
       theme: 
         - cosmo
@@ -59,7 +64,7 @@ contributes:
       fig-format: png
       fig-width: 6
       reference-location: margin
-      logo: _extensions/ofce/wp/ofce_m.png
+      logo: ofce_m.png
       callout-icon: false
       lightbox: true
       title-block-style: default
@@ -78,15 +83,16 @@ contributes:
         - DIV=11
       papersize: a4
       fontsize: 9pt
+      linestretch: 1.25
       extra_dependencies: ["float"]
       fig-dpi: 600
       fig-width: 5
       fig-format: png
-      logo: _extensions/ofce/wp/ofce_m.png
-      logo2: _extensions/ofce/wp/sciencespo.png
+      logo: ofce_m.png
+      logo2: sciencespo.png
       template-partials:
-        - _extensions/ofce/wp/pdf_template/title.tex
-        - _extensions/ofce/wp/pdf_template/before-body.tex
-        - _extensions/ofce/wp/pdf_template/after-body.tex
-        - _extensions/ofce/wp/pdf_template/toc.tex
-        - _extensions/ofce/wp/pdf_template/biblio.tex
+        - pdf_template/title.tex
+        - pdf_template/before-body.tex
+        - pdf_template/after-body.tex
+        - pdf_template/toc.tex
+        - pdf_template/biblio.tex
