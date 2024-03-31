@@ -7,6 +7,7 @@ contributes:
     common:
       toc: true
       lang: fr
+      french: true
       language:
         fr:
           section-title-references: "Bibliograhie"

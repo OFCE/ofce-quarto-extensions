@@ -1,9 +1,13 @@
 <nav id="$idprefix$TOC" role="doc-toc">
   $if(wp)$ <p class="wp">
-    if(lang="fr")
-      Document de travail<br>de l’
+    $if(french)$
+      Document de travail<br>de l'
       <img src="_extensions/ofce/wp/ofce_m.png" width = "30" height="15" style="margin:0px -4px">
       &nbsp;n°$wp$-$annee$</p>
+    $else$
+      <img src="_extensions/ofce/wp/ofce_m.png" width = "30" height="15" style="margin:0px 0px">
+      &nbsp;working paper<br>
+      n°$wp$-$annee$</p>
     $endif$
   $endif$
   $if(toc-title)$
