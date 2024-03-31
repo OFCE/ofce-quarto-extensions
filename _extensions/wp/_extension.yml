@@ -14,14 +14,16 @@ contributes:
           title-block-author-plural: "Par"
           title-block-published: "Publié le"
           title-block-modified: "Modifié le"
-          document-container-title: "Document de travail de l'OFCE"
+          launch-dev-container-title: "Document de travail de l'OFCE"
+          callout-tip-title: "Encadré"
         en:
           section-title-references: "Bibilography"
           title-block-author-single: "Author"
           title-block-author-plural: "Authors"
           title-block-published: "Published on"
           title-block-modified: "Modified on"
-          document-container-title: "OFCE working paper"
+          launch-dev-container-title: "OFCE working paper"
+          callout-tip-title: "Box"
       fig-asp: 0.61
       cap-location: top
       crossref:
