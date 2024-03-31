@@ -68,9 +68,7 @@ contributes:
       appendix-cite-as: [display, bibtex]
       citation: true
       license: CC BY
-      csl: 
-        fr: csl/revue-francaise-de-gestion.csl
-        en: csl/apa-6th-edition.csl
+      csl: csl/revue-francaise-de-gestion.csl
     html:
       theme: 
         - cosmo
