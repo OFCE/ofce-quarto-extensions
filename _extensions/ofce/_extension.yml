@@ -17,7 +17,7 @@ contributes:
         en:
           section-title-references: "Bibilography"
           title-block-author-single: "Author"
-          title-block-author-plural: "Author"
+          title-block-author-plural: "Authors"
           title-block-published: "Published on"
           title-block-modified: "Modified on"
       fig-asp: 0.61
