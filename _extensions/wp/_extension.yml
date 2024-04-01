@@ -18,10 +18,8 @@ contributes:
           toc-title: "Sur cette page"
       fig-asp: 0.61
       cap-location: top
-      annee: `r lubridate::year(rmarkdown::metadata(date))`
       citation:
         type: article-journal
-        container-title: "OFCE Working Paper n°{{< meta annee >}}-{{< meta wp >}}"
       crossref:
         fig-prefix: figure
         tbl-prefix: tableau
@@ -52,7 +50,6 @@ contributes:
       google-scholar: true
       appendix-style: default
       appendix-cite-as: [display, bibtex]
-      citation: true
       license: CC BY
       csl: csl/revue-francaise-de-gestion.csl
     html:
