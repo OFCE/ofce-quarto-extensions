@@ -6,36 +6,33 @@ contributes:
   formats:
     common:
       toc: true
-      lang: fr
-      french: true
+      lang: en
+      french: false
       language:
-        fr:
-          section-title-references: "Bibliograhie"
-          title-block-author-single: "Par"
-          title-block-author-plural: "Par"
-          title-block-published: "Publié le"
-          title-block-modified: "Modifié le"
-          toc-title: "Sur cette page"
+        en:
+          section-title-references: "Bibilography"
+          title-block-author-single: "Author"
+          title-block-author-plural: "Authors"
+          title-block-published: "Published on"
+          title-block-modified: "Modified on"
+          toc-title: "On this page"
       fig-asp: 0.61
       cap-location: top
       crossref:
-        fig-prefix: graphique
-        tbl-prefix: tableau
-        eq-prefix: équation
+        fig-prefix: figure
+        tbl-prefix: table
+        eq-prefix: equation
         sec-prefix: section
-        tip-prefix: encadré
-        fig-title: "**Graphique**"
-        tip-title: "**Encadré**"
+        tip-prefix: box
+        fig-title: "**Graph**"
+        tip-title: "**Box**"
         title-delim: "**.**"
-        tbl-title: "**Tableau**"
-        lof-title: Graphiques
-        lot-title: Tableaux
+        tbl-title: "**Table**"
+        lof-title: Graphs
+        lot-title: Tables
       logo: ofce.png
       filters:
         - nameref
-        - quotes
-        - search-replace
-        - fr-nbsp
         - collapse-callout
       collapse-callout:
         tip: true
@@ -43,14 +40,12 @@ contributes:
         - fontawesome
         - downloadthis
         - wordcount 
-      search-replace:
-        ae : "\u00e6"
       google-scholar: true
       appendix-style: default
       appendix-cite-as: [display, bibtex]
       citation: true
       license: CC BY
-      csl: csl/revue-francaise-de-gestion.csl
+      csl: csl/apa-6th-edition.csl
     html:
       theme: 
         - cosmo
