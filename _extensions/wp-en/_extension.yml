@@ -43,6 +43,7 @@ contributes:
       google-scholar: true
       appendix-style: default
       appendix-cite-as: [display, bibtex]
+      quot-lang: en-GB
       citation:
         type: article-journal  
       license: CC BY

@@ -39,6 +39,7 @@ contributes:
         - search-replace
         - fr-nbsp
         - collapse-callout
+      quot-lang: fr
       collapse-callout:
         tip: true
       shortcodes:
