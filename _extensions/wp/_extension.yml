@@ -76,13 +76,13 @@ contributes:
         - html_template/toc.html
     pdf:
       documentclass: scrreprt
-      annee: 2023
       toc-depth: 1
       pdffont: OpenSans
       number-sections: true
       number-depth: 3
       classoption:
         - DIV=11
+        - twoside=semi
       papersize: a4
       fontsize: 9pt
       linestretch: 1.25
