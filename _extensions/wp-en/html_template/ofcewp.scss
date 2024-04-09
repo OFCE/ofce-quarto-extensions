@@ -168,15 +168,15 @@ div.callout-tip div.callout-header {
 }
 
 .dbtn {
-  font-size: .8rem;
-  background-color: #FFF;
+  font-size: .7rem;
+  background-color: $lightergrey;
   border-color: $link-color;
   border-width: 1px;
   border-radius: 12px;
   color: $link-color;
   text-align: center;
-  margin-top: 6px;
-  margin-bottom: 12px;
+  margin-top: 0px;
+  margin-bottom: 6px;
 }
 
 .control-label {
