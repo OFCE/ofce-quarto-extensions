@@ -46,15 +46,10 @@ contributes:
         - wordcount 
       search-replace:
         ae : "\u00e6"
-      google-scholar: true
-      appendix-style: default
-      appendix-cite-as: [display, bibtex]
-      license: CC BY
-      csl: csl/revue-francaise-de-gestion.csl
     html:
       theme: 
         - cosmo
-        - html_template/meaps.scss
+        - html_template/note.scss
       mainfont: Open Sans
       toc-location: left
       number-sections: true
