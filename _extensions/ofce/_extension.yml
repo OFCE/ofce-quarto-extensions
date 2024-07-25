@@ -73,3 +73,9 @@ contributes:
       callout-icon: false
       lightbox: true
       title-block-style: default
+    dashboard:
+      theme: 
+        - cosmo
+        - ofce.scss
+      mainfont: Open Sans
+      logo: ofce_m.png
