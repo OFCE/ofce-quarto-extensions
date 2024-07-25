@@ -78,4 +78,4 @@ contributes:
         - cosmo
         - ofce.scss
       mainfont: Open Sans
-      logo: ofce_m.png
+      logo: "none"
