@@ -12,27 +12,22 @@ $else$
 \definecolor{ofcerouge}{RGB}{198, 45, 43}
 \definecolor{scporouge}{RGB}{231, 0, 26}
 
-% \begin{titlepage}
-%   \backgroundsetup{
-%     scale=1,
-%     angle=0,
-%     opacity=1,
-%     contents={
-%   \begin{tikzpicture}[remember picture,overlay]
-%     \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
-%       \node [anchor = center] at (-2.875-5.25,12.5) {\includegraphics[width=2.5cm]{$logo$}};
-%       \node [anchor = center] at (-2.875-5.25,-12.75){\includegraphics[width=2.5cm]{$logo2$}};
-%       \node [anchor = east] at (8.5,-11.5){\textcolor{black}{Date de première publication : $date$}};
-%       \node [anchor = east] at (8.5,-12){\textcolor{black}{Date de dernière modification : $date-modified$}};
-%       \node [anchor = east] at (8.5,13-0.7){\textcolor{gray}{\Huge\textit{Policy Brief}}};
-%       \draw [thick,black](-5.75,-13) -- (-5.75,13);
-%       \draw [color = white, fill=ofcepbbleu] (8.7,11.4) rectangle (10.45,13.15);
-%       \draw [color = white, fill=ofcepbbleu, very thick] (8.75-.5,11.25-.5) rectangle (8.75+.6,11.25+.6);
-%       \node [anchor = east] at (11-0.7,13-0.7){\textcolor{white}{\huge\textbf{$pb$}}};
-%       \node [anchor = east] at (10-0.74,12-0.67){\textcolor{white}{\textbf{$annee$}}};
-%     \end{tikzpicture}
-%   }
-% }
+\begin{titlepage}
+
+  \backgroundsetup{
+    scale=1,
+    angle=0,
+    opacity=1,
+    contents={
+  \begin{tikzpicture}[remember picture,overlay]
+    \useasboundingbox (0,0) rectangle(\the\paperwidth,\the\paperheight);
+      \node [anchor = center] at (-2.875-5.25,12.5) {\includegraphics[width=2.5cm]{$logo$}};
+      \node [anchor = center] at (-2.875-5.25,-12.75){\includegraphics[width=2.5cm]{$logo2$}};
+      \node [anchor = east] at (8.5,-11.5){\textcolor{black}{Date de première publication : $date$}};
+      \node [anchor = east] at (8.5,-12){\textcolor{black}{Date de dernière modification : $date-modified$}};
+  \end{tikzpicture}
+  }
+}
 
 \BgThispage
 
