@@ -95,3 +95,9 @@ contributes:
         - pdf_template/after-body.tex
         - pdf_template/toc.tex
         - pdf_template/biblio.tex
+    dashboard:
+      theme:
+        - cosmo
+        - ofce.scss
+      mainfont: Open Sans
+      logo: "none"

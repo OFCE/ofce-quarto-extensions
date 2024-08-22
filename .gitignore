@@ -49,3 +49,4 @@ po/*~
 rsconnect/
 
 /.luarc.json
+.DS_Store
