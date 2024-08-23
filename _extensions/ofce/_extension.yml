@@ -90,19 +90,6 @@ contributes:
       fig-format: png
       logo: ofce_m.png
       logo2: sciencespo.png
-      crossref:
-        chapters: false
-        fig-prefix: graphique
-        tbl-prefix: tableau
-        eq-prefix: équation
-        sec-prefix: section
-        tip-prefix: encadré
-        fig-title: "**Graphique**"
-        tip-title: "**Encadré**"
-        title-delim: "**.**"
-        tbl-title: "**Tableau**"
-        lof-title: Graphiques
-        lot-title: Tableaux
       template-partials:
         - pdf_template/title.tex
         - pdf_template/before-body.tex
