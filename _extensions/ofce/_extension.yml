@@ -75,7 +75,7 @@ contributes:
       lightbox: true
       title-block-style: default
     pdf:
-      documentclass: scrreprt
+      documentclass: scrartcl
       toc-depth: 1
       pdffont: OpenSans
       number-sections: true

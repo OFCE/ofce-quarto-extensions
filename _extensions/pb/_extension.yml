@@ -69,7 +69,7 @@ contributes:
         - html_template/title-metadata.html
         - html_template/toc.html
     pdf:
-      documentclass: scrreprt
+      documentclass: scrartcl
       annee: 2023
       toc-depth: 1
       pdffont: OpenSans
@@ -88,6 +88,3 @@ contributes:
       template-partials:
         - pdf_template/title.tex
         - pdf_template/before-body.tex
-        - pdf_template/after-body.tex
-        - pdf_template/toc.tex
-        - pdf_template/biblio.tex
