@@ -17,6 +17,7 @@ contributes:
       fig-asp: 0.61
       cap-location: top
       crossref:
+        chapter: false
         fig-prefix: graphique
         tbl-prefix: tableau
         eq-prefix: équation
