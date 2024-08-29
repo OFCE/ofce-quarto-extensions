@@ -38,13 +38,22 @@ h1, h2, h3, h4, h5, h6,
 
 }
 
+main {
+  margin-top: .25em;
+  margin-bottom: .25em
+}
+
+#quarto-content>* {
+  padding-top: 0px
+}
+
 .quarto-title-block {
     background-color: $whitebg;
     margin-left: -1px !important;
     padding-left: 12px !important;
     margin-right : 12px !important;
     margin-top: 6px !important;
-    margin-bottom: 12px !important;
+    margin-bottom: 6px !important;
     border-left-color: $scpored !important;
     border-left-width: 1px !important;
     border-left-style: solid !important;

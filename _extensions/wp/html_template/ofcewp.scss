@@ -34,15 +34,25 @@ h1, h2, h3, h4, h5, h6,
   font-size: 0.8rem !important;
 }
 
+main {
+  margin-top: .25em;
+  margin-bottom: .25em
+}
+
+#quarto-content>* {
+  padding-top: 0px
+}
+
 .quarto-title-block {
-    margin-left: -1px !important;
-    padding-left: 12px !important;
-    margin-right : 12px !important;
-    margin-top: 6px !important;
-    margin-bottom: 12px !important;
-    border-left-color: $scpored !important;
-    border-left-width: 1px !important;
-    border-left-style: solid !important;
+  background-color: $whitebg;
+  margin-left: -1px !important;
+  padding-left: 12px !important;
+  margin-right: 12px !important;
+  margin-top: 6px !important;
+  margin-bottom: 6px !important;
+  border-left-color: $scpored !important;
+  border-left-width: 1px !important;
+  border-left-style: solid !important;
 }
 
 .sidebar {
@@ -68,7 +78,7 @@ h1, h2, h3, h4, h5, h6,
   text-align: $aligment !important;
 }
 
-.listing-subtitle, 
+.listing-subtitle,
 .listing-description,
 .listing-date,
 .align-left {
