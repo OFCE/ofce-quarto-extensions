@@ -21,7 +21,7 @@ $navbar-hl: #e6142d;
 $navbar-bg: $lightgrey;
 $sidebar-hl: #e6142d;
 $whitebg:#FFFFFF;
-
+$aligment: left;
 $callout-color-tip: #DDD;
 
 /*-- scss:rules --*/
@@ -94,7 +94,7 @@ main {
 .page-columns.page-full,
 .content,
 .body {
-  text-align: left !important;
+  text-align: $aligment !important;
 }
 
 .align-left {
