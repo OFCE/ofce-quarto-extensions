@@ -43,11 +43,11 @@ contributes:
       shortcodes:
         - fontawesome
         - downloadthis
-        - wordcount 
+#       - wordcount
       search-replace:
         ae : "\u00e6"
     html:
-      theme: 
+      theme:
         - cosmo
         - html_template/note.scss
       mainfont: Open Sans

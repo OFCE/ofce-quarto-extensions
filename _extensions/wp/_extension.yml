@@ -45,7 +45,7 @@ contributes:
       shortcodes:
         - fontawesome
         - downloadthis
-        - wordcount 
+       # - wordcount
       search-replace:
         ae : "\u00e6"
       google-scholar: true
@@ -54,7 +54,7 @@ contributes:
       license: CC BY
       csl: csl/revue-francaise-de-gestion.csl
     html:
-      theme: 
+      theme:
         - cosmo
         - html_template/ofcewp.scss
       mainfont: Open Sans

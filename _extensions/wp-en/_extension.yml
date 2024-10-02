@@ -39,17 +39,17 @@ contributes:
       shortcodes:
         - fontawesome
         - downloadthis
-        - wordcount 
+      #  - wordcount
       google-scholar: true
       appendix-style: default
       appendix-cite-as: [display, bibtex]
       quot-lang: en-GB
       citation:
-        type: article-journal  
+        type: article-journal
       license: CC BY
       csl: csl/apa-6th-edition.csl
     html:
-      theme: 
+      theme:
         - cosmo
         - html_template/ofcewp.scss
       mainfont: Open Sans
