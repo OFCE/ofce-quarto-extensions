@@ -96,5 +96,6 @@ contributes:
         - pdf_template/after-body.tex
         - pdf_template/toc.tex
         - pdf_template/biblio.tex
+    typst: default
      
 #suppress-bibliography: true        
