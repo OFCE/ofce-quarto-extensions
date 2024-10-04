@@ -99,3 +99,4 @@ contributes:
         - ofce.scss
       mainfont: Open Sans
       logo: "none"
+    typst: default

@@ -88,3 +88,4 @@ contributes:
       template-partials:
         - pdf_template/title.tex
         - pdf_template/before-body.tex
+    typst: default

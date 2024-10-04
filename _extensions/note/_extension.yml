@@ -87,3 +87,4 @@ contributes:
       logo2: logos/sciencespo.png
       template-partials:
         - pdf_template/preamble.tex
+    typst: default
