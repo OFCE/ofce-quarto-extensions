@@ -20,12 +20,17 @@ $blue: #000080;
 $navbar-hl: #e6142d;
 $navbar-bg: $lightgrey;
 $sidebar-hl: #e6142d;
-$whitebg:#FFFFFF;
+$white: #FFFFFF;
 $aligment: left;
 $callout-color-tip: #DDD;
 
 /*-- scss:rules --*/
-h1, h2, h3, h4, h5, h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 .no-row-height.column-margin.column-container,
 .quarto-table-caption.margin-caption,
 .figure-caption.margin-caption {
@@ -34,7 +39,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .navbar {
-  background-color: $whitebg ;
+  background-color: $white;
 
 }
 
@@ -48,29 +53,29 @@ main {
 }
 
 .quarto-title-block {
-    background-color: $whitebg;
-    margin-left: -1px !important;
-    padding-left: 12px !important;
-    margin-right : 12px !important;
-    margin-top: 6px !important;
-    margin-bottom: 6px !important;
-    border-left-color: $scpored !important;
-    border-left-width: 1px !important;
-    border-left-style: solid !important;
+  background-color: $whitebg;
+  margin-left: -1px !important;
+  padding-left: 12px !important;
+  margin-right: 12px !important;
+  margin-top: 6px !important;
+  margin-bottom: 6px !important;
+  border-left-color: $scpored !important;
+  border-left-width: 1px !important;
+  border-left-style: solid !important;
 }
 
 .quarto-title-banner {
-  background-color: $whitebg ;
+  background-color: $white;
 
 }
 
 .quarto-title-meta-author {
-  background-color: $whitebg;
+  background-color: $white;
 }
 
 .sidebar {
   padding-top: 32px !important;
-  background-color: $whitebg ;
+  background-color: $white;
 }
 
 .sidebar-item-container {
@@ -78,16 +83,20 @@ main {
   line-height: 1rem !important;
 }
 
-.quarto-secondary-nav, nav.quarto-secondary-nav, .quarto-banner {
+.quarto-secondary-nav,
+nav.quarto-secondary-nav,
+.quarto-banner {
   color: white;
   background-color: transparent !important;
 }
 
-.breadcrumb-item, .breadcrumb {
+.breadcrumb-item,
+.breadcrumb {
   font-size: 0.8rem !important;
 }
 
-.nav-page-text, .dropdown-item  {
+.nav-page-text,
+.dropdown-item {
   font-size: 0.8rem !important;
 }
 
@@ -120,7 +129,9 @@ tfoot.gt_footnotes {
   font-size: 0.875em !important;
 }
 
-.quarto-title-meta-author, .quarto-title-meta, .keywords {
+.quarto-title-meta-author,
+.quarto-title-meta,
+.keywords {
   font-size: 0.875rem !important;
 }
 
@@ -128,10 +139,15 @@ tfoot.gt_footnotes {
   font-size: 0.825rem !important;
 }
 
-.katex
-{ font-size: 1.1em !important; }
+.katex {
+  font-size: 1.1em !important;
+}
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   line-height: 1.3;
 }
 
@@ -159,7 +175,8 @@ h1, h2, h3, h4, h5 {
 .figure-caption,
 .subfigure-caption,
 .table-caption,
-figcaption.quarto-float-caption,caption  {
+figcaption.quarto-float-caption,
+caption {
   color: $darkgrey !important;
   text-align: start !important;
   font-size: 1rem !important;
@@ -196,7 +213,7 @@ div.callout-tip {
   border-radius: 0;
   background-clip: content-box;
   background-color: $lightgrey !important;
-  border-left-color:$lightgrey !important;
+  border-left-color: $lightgrey !important;
 }
 
 div.callout-tip div.callout-header {
@@ -209,8 +226,10 @@ div.callout-tip div.callout-header {
   border: none;
   color: $link-color;
   text-align: center;
-  margin-top: 12px;
-  margin-bottom: 12px;
+  margin-top: 0;
+  margin-bottom: 6px;
+  padding-bottom: 3px;
+  padding-top: 3px;
 }
 
 .control-label {
@@ -221,4 +240,15 @@ div.callout-tip div.callout-header {
 .tab-content {
   border-style: none;
   padding: 0;
+}
+
+.quarto-figure {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+.callout.callout-titled .callout-body>:last-child:not(.sourceCode),
+.callout.callout-titled .callout-body>div>:last-child:not(.sourceCode) {
+  padding-bottom: 0;
+  margin-bottom: 0
 }
