@@ -182,27 +182,6 @@ font-weight: 600 !important;
   border-left-color:$lightgrey !important;
 }
 
-div.callout-tip {
-  font-size: .8rem;
-  border-radius: 0;
-  background-clip: content-box;
-  background-color: $lightergrey !important;
-  border-left-color:$lightergrey !important;
-}
-
-div.callout-tip div.callout-header {
-  background-color: $lightergrey !important;
-}
-
-.dbtn {
-  font-size: .7rem;
-  background-color: transparent;
-  border: none;
-  color: $link-color;
-  text-align: center;
-  margin-top: 12px;
-  margin-bottom: 12px;
-}
 
 .control-label {
   font-size: .8rem;
@@ -228,4 +207,37 @@ div.callout-tip div.callout-header {
 .csl-entry {
   margin-bottom: 0.2rem;
   font-size: 0.9rem;
+}
+
+
+div.callout-tip {
+  font-size: .8rem;
+  border-radius: 0;
+  background-clip: content-box;
+  background-color: $lightgrey !important;
+  border-left-color:$lightgrey !important;
+}
+
+div.callout-tip div.callout-header {
+  background-color: $lightgrey !important;
+}
+
+.dbtn {
+  font-size: .7rem;
+  background-color: transparent;
+  border: none;
+  color: $link-color;
+  text-align: center;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.control-label {
+  font-size: .8rem;
+  text-align: start;
+}
+
+.tab-content {
+  border-style: none;
+  padding: 0;
 }
