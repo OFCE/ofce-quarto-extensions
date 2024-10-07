@@ -14,6 +14,7 @@ $lightgrey: #EEE;
 $lightergrey: #f8f8f8;
 $green: #079D10;
 $blue: #000080;
+$white: #FFF;
 $navbar-hl: #e6142d;
 $sidebar-hl: #e6142d;
 $aligment: left;
@@ -44,7 +45,7 @@ main {
 }
 
 .quarto-title-block {
-  background-color: $whitebg;
+  background-color: $white;
   margin-left: -1px !important;
   padding-left: 12px !important;
   margin-right: 12px !important;
