@@ -45,7 +45,6 @@ contributes:
       shortcodes:
         - fontawesome
         - downloadthis
-       # - wordcount
       search-replace:
         ae : "\u00e6"
       google-scholar: true
