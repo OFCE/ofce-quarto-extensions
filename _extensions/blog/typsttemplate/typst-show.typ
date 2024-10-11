@@ -1,5 +1,5 @@
-#let title-page(title:[],subtitle:[], authors: none, email:[], first_publish:none, revision:none,
-abstract:[],year:[],
+#let title-page(title:[],subtitle:[], authors: none, email:[], first_publish: none, 
+abstract: none, year:[],
 number:[],
 body) = {
   
@@ -98,8 +98,8 @@ if authors != none {
 
 place(bottom + right, dx: 1.5cm, 
   text({
-    if(first_publish != none){[Première publication : #first_publish \ ] } 
-    if(revision != none){text([Dernière révision : #revision]) }} , 
+    if(first_publish != none){[Première publication : #first_publish \ ] } },
+    //if(revision != none){text([Dernière révision : #revision]) }} , 
     size: 11pt
     
      )
@@ -113,9 +113,9 @@ place(bottom + right, dx: 1.5cm,
   place(bottom, dx: 2*lc_space + line_x, dy: -1*line_x,
   clearance: 4cm,
     box(fill: grey3, baseline: 100%,width: 13cm,inset: 1em,
-        text(style: "italic",abstract,size: 10pt)  
-  )
-)
+      text(style: "italic",abstract,size: 10pt)
+      ) 
+    ) 
 
   //// 5. Internal cover page
   pagebreak()
@@ -145,11 +145,10 @@ $endif$
 $endfor$
     ),
 $endif$
-  abstract: [$abstract$],
+  abstract: [$description$],
   year: [2024],
   number:[$wp$],
   first_publish:[$date$],
-  revision:[$date-modified$],
   body
 )
 
