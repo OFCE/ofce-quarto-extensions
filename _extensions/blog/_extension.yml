@@ -96,6 +96,13 @@ contributes:
         - pdf_template/after-body.tex
         - pdf_template/toc.tex
         - pdf_template/biblio.tex
-    typst: default
+    typst: 
+      mainfont: "Arial"
+      keep-typ: true
+      toc: false 
+      papersize: a4
+      template-partials:
+        - typsttemplate/typst-template.typ
+        - typsttemplate/typst-show.typ
      
 #suppress-bibliography: true        
