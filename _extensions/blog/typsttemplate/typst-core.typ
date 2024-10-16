@@ -94,27 +94,11 @@
   // Format author strings here, so can use in author note
   let author_strings = ()
   if authors != none {
-    for a in authors {
-      let author_string = [
-        // Solo manuscripts don't have institutional id
-        #a.name#if authors.len() > 1 [#super[#a.affiliation]]#if a.keys().contains("affiliation") {[\*]}
-        #if a.keys().contains("orcid") {
-            box(
-              height: 1em,
-              link(
-                a.orcid, 
-                figure( 
-                  image("orcid.svg", height: 0.9em)
-                )
-              )
-            )
-          }
-        ]
-      if a.keys().contains("affiliation") {
-        authornote = [\* #a.affiliation\ #authornote]
-      }
+    for a in authors{
+      let author_string = [#a.name]
       author_strings.push(author_string)
     }
+    
   }
 
   // Page settings (including headers & footers)
@@ -164,11 +148,11 @@
     ),
     footer-descent: 24pt,
     footer: locate(
-        // Page 1 footer has author note
+        
         loc => if [#loc.page()] == [3] {
-          [#text(size: 0.85em)[#authornote]]
+
         } else {
-          []
+
         }
     )
   )
@@ -229,71 +213,6 @@
     text(size: 1em, weight: "bold", style: "italic", it)
   )
 
-  /* Content front matter */
-
-  // let titleblock(
-  //   body, 
-  //   width: 100%, 
-  //   size: 1.5em, 
-  //   weight: "bold", 
-  //   above: 1em, 
-  //   below: 0em
-  // ) = [
-  //   #align(center)[
-  //     #block(width: width, above: above, below: below)[
-  //       #text(weight: weight, size: size)[#body]
-  //     ]
-  //   ]
-  // ]
-
-  // if title != none {
-  //   titleblock(title)
-  // }
-
-  // if authors != none {
-  //   titleblock(
-  //     weight: "regular", size: 1.25em,
-  //     [#author_strings.join(", ", last: " & ")]
-  //   )
-  // }
-
-  // if affiliations != none {
-  //   titleblock(
-  //     weight: "regular", size: 1.1em, below: 2em,
-  //     for a in affiliations [
-  //       #if authors.len() > 1 [#super[#a.id]]#a.name#if a.keys().contains("department") [, #a.department] \
-  //     ]
-  //   )
-  // }
-  
-  // // Abstract and keywords block
-  // block(inset: (top: 2em, bottom: 0em, left: 2.4em, right: 2.4em))[
-  //   #set text(size: 0.92em)
-  //   #if abstract != none {
-  //     abstract
-  //   }
-  //   #if keywords != none {
-  //     [#v(0.4em)#text(style: "italic")[Keywords:] #keywords]
-  //   }
-  // ]
-
-  // No table of contents because it's a blog
-  // if toc {
-  //   pagebreak()
-
-  //   let title = if toc_title == none {
-  //     auto
-  //   } else {
-  //     toc_title
-  //   }
-  //   block(inset: (top: 2em, bottom: 0em, left: 2.4em, right: 2.4em))[
-  //     #outline(
-  //       title: toc_title,
-  //       depth: toc_depth,
-  //       indent: toc_indent
-  //     )
-  //   ]
-  // }
 
 pagebreak()
 
