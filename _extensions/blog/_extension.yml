@@ -12,7 +12,6 @@ contributes:
         - sciencespo.png
         - _language-fr.yml
       toc: false
-      lang: fr
       language:
         fr:
           section-title-references: "Références"
