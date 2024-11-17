@@ -48,7 +48,7 @@ contributes:
         - quotes
         - collapse-callout
         - nbsp
- #       - commnents
+        - commnents
       shortcodes:
         - fontawesome
       csl: /_extensions/ofce/blog/csl/revue-francaise-de-gestion.csl
