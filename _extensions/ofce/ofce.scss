@@ -226,10 +226,23 @@ div.callout-tip div.callout-header {
   border: none;
   color: $link-color;
   text-align: center;
-  margin-top: 0;
+  margin-top: 12px;
   margin-bottom: 6px;
   padding-bottom: 3px;
   padding-top: 3px;
+}
+
+.dbtn-inline {
+  font-size: .7rem;
+  background-color: transparent;
+  border: none;
+  color: $link-color;
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 6px;
+  padding-bottom: 3px;
+  padding-top: 3px;
+  float: right;
 }
 
 .control-label {
