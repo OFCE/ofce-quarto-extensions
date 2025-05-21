@@ -50,3 +50,7 @@ rsconnect/
 
 /.luarc.json
 .DS_Store
+ofce-quarto-extensions.Rproj
+
+# Test files
+test*.qmd
