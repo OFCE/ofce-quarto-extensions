@@ -54,3 +54,5 @@ ofce-quarto-extensions.Rproj
 
 # Test files
 test*.qmd
+test_typst.pdf
+test_typst.typ
