@@ -16,8 +16,8 @@
   #let colourtype = rgb("#EEC900")
 
   // Font definition
-  #let main_title_font = "Helvetica"
-  #let serif_font = "Palatino"
+  #let main_title_font = "Open sans"
+  #let serif_font = "Open sans"
 
 #let title-page(title:[],subtitle:[], authors: none, email:[], first_publish: datetime.today(),
 abstract: none, year:[],
@@ -203,8 +203,8 @@ if authors != none {
   // #let colourtype = rgb("#EEC900")
 
   // // Font definition
-  // #let main_title_font = "Helvetica"
-  // #let serif_font = "Palatino"
+  // #let main_title_font = "Open sans"
+  // #let serif_font = "Open sans"
 
 
 /// CORE TEXT
@@ -254,8 +254,8 @@ if authors != none {
   let colourtype = rgb("#EEC900")
 
   // Font definition
-  let main_title_font = "Helvetica"
-  let serif_font = "Palatino"
+  let main_title_font = "Open sans"
+  let serif_font = "Open sans"
 
 
 let main_date = none
