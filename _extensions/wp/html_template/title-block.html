@@ -32,9 +32,19 @@
   $if(abstract)$
   <div class="quarto-title">
     <div class="abstract">
-      <div class="quarto-title-meta-heading">$abstract-title$</div>  
+      <div class="quarto-title-meta-heading">$abstract-title$</div>
       $abstract$
     </div>
   </div>
   $endif$
+
+  $if(thanks)$
+  <div class="quarto-title">
+    <div class="abstract">
+      <div class="quarto-title-meta-heading">$thanks-title$</div>
+      <em>$thanks$</em>
+    </div>
+  </div>
+  $endif$
+
 </header>
