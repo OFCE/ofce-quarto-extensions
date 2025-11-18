@@ -19,10 +19,15 @@
   #let main_title_font = "Open sans"
   #let serif_font = "Open sans"
 
-#let title-page(title:[],subtitle:[], authors: none, email:[], first_publish: datetime.today(),
-abstract: none, year:[],
-number:[], language: "fr",
-body) = {
+#let title-page(
+  title:[],
+  subtitle:[],
+  authors: none, email:[],
+  first_publish: none,
+  abstract: none, year:[],
+  number:[],
+  language: "fr",
+  body) = {
 
   let marge = 3.5cm
   let ph = 29.7cm // page height for a4
@@ -58,31 +63,27 @@ if authors != none {
 
   // Date formatting
 
-  let main_date = none
 
-  if first_publish != none {
 
-   let main_date = first_publish.text
+  let main_date = if first_publish != none {
+  first_publish.text
+  } else {
+  none }
 
-  }
 
-  let pretty_date = none
-
-  if main_date != none {
+ let pretty_date =   if main_date != none {
 
     let date_decomp = main_date.split("-")
-
     let year_fp = int(date_decomp.at(0))
     let month_fp = int(date_decomp.at(1))
     let day_fp = int(date_decomp.at(2))
-
     let date_formatted = datetime(year: year_fp, month: month_fp, day: day_fp)
 
-    let pretty_date = fmt-date(date_formatted, length: "long", locale: language)
+    fmt-date(date_formatted, length: "long", locale: language)
 
   }
 
-
+    // Page formatting
 
   set page(margin: (top: marge, rest: marge))
 
@@ -258,29 +259,26 @@ if authors != none {
   let serif_font = "Open sans"
 
 
-let main_date = none
+  // Date formatting
 
-  if first_publish != none {
+    let main_date = if first_publish != none {
+  first_publish.text
+  } else {
+  none }
 
-   let main_date = first_publish.text
 
-  }
-
-  let pretty_date = none
-
-  if main_date != none {
+ let pretty_date =   if main_date != none {
 
     let date_decomp = main_date.split("-")
-
     let year_fp = int(date_decomp.at(0))
     let month_fp = int(date_decomp.at(1))
     let day_fp = int(date_decomp.at(2))
-
     let date_formatted = datetime(year: year_fp, month: month_fp, day: day_fp)
 
-    let pretty_date = fmt-date(date_formatted, length: "long", locale: language)
+    fmt-date(date_formatted, length: "long", locale: language)
 
   }
+
 
 
   // Set link and cite colors
