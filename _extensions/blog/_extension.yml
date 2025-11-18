@@ -76,6 +76,7 @@ contributes:
       keep-typ: true
       toc: false
       papersize: a4
+      logo: false
       template-partials:
         - typsttemplate/typst-template.typ
         - typsttemplate/typst-show.typ
