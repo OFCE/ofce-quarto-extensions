@@ -49,17 +49,6 @@ contributes:
       cap-location: top
       crossref:
         chapters: false
-        fig-prefix: graphique
-        tbl-prefix: tableau
-        eq-prefix: équation
-        sec-prefix: section
-        tip-prefix: encadré
-        fig-title: "**Graphique**"
-        tip-title: "**Encadré**"
-        title-delim: "**.**"
-        tbl-title: "**Tableau**"
-        lof-title: Graphiques
-        lot-title: Tableaux
       logo: ofce.png
       filters:
         - nameref
@@ -98,6 +87,7 @@ contributes:
       documentclass: scrartcl
       toc-depth: 1
       pdffont: OpenSans
+      date-format: "D MMMM YYYY"
       number-sections: true
       number-depth: 3
       classoption:
