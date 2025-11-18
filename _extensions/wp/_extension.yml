@@ -16,6 +16,17 @@ contributes:
           title-block-published: "Publié le"
           title-block-modified: "Modifié le"
           toc-title: "Sur cette page"
+          callout-tip-title: "Encadré"
+          crossref-tip-prefix: "encadré"
+        en:
+          section-title-references: "Bibliograhy"
+          title-block-author-single: "By"
+          title-block-author-plural: "By"
+          title-block-published: "Published on"
+          title-block-modified: "Modified on"
+          toc-title: "On this page"
+          callout-tip-title: "Box"
+          crossref-tip-prefix: "box"
       fig-asp: 0.61
       cap-location: top
       citation:
@@ -91,6 +102,11 @@ contributes:
       fig-format: png
       logo: ofce_m.png
       logo2: sciencespo.png
+      geometry:
+        - top = 3cm
+        - bottom = 3cm
+        - left = 3cm
+        - right = 3cm
       template-partials:
         - pdf_template/title.tex
         - pdf_template/before-body.tex

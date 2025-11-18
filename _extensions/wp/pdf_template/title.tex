@@ -59,3 +59,10 @@ $endif$
 
 \lofoot*{\thepage}
 \refoot*{\thepage}
+
+% Réduit l'espace entre les colonnes des tableaux
+\setlength{\tabcolsep}{0.5pt}
+
+% Pour changer les notes de marge en texte de bas de page
+\usepackage{marginnote}
+\renewcommand{\marginnote}[1]{{#1}}
