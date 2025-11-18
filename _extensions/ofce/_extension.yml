@@ -16,15 +16,35 @@ contributes:
           title-block-published: "Publié le"
           title-block-modified: "Modifié le"
           toc-title: "Sur cette page"
+          crossref-fig-prefix: graphique
+          crossref-tbl-prefix: tableau
+          crossref-eq-prefix: équation
+          crossref-sec-prefix: section
+          crossref-tip-prefix: encadré
+          crossref-fig-title: "Graphique"
+          callout-tip-title: "Encadré"
+          crossref-title-delim: "."
+          crossref-tbl-title: "Tableau"
+          crossref-lof-title: Graphiques
+          crossref-lot-title: Tableaux
         en:
-          section-title-references: "Bibilography"
+          section-title-references: "Bibliograhy"
           title-block-author-single: "Author"
           title-block-author-plural: "Authors"
-          title-block-published: "Published on"
+          title-block-published: "Publushed on"
           title-block-modified: "Modified on"
-          launch-dev-container-title: "OFCE working paper"
-          callout-tip-title: "Box"
           toc-title: "On this page"
+          crossref-fig-prefix: graphic
+          crossref-tbl-prefix: table
+          crossref-eq-prefix: equation
+          crossref-sec-prefix: section
+          crossref-tip-prefix: box
+          crossref-fig-title: "Graphic"
+          callout-tip-title: "Box"
+          crossref-title-delim: "."
+          crossref-tbl-title: "Table"
+          crossref-lof-title: Graphics
+          crossref-lot-title: Tables
       fig-asp: 0.61
       cap-location: top
       crossref:
