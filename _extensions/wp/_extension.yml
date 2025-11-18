@@ -53,7 +53,6 @@ contributes:
       filters:
         - nameref
         - quotes
-        - search-replace
         - fr-nbsp
         - collapse-callout
       quot-lang: fr
@@ -62,8 +61,6 @@ contributes:
       shortcodes:
         - fontawesome
         - downloadthis
-      search-replace:
-        ae : "\u00e6"
       google-scholar: true
       appendix-style: default
       appendix-cite-as: [display, bibtex]
@@ -105,16 +102,11 @@ contributes:
         - right = 2.5cm
       linestretch: 1.25
       extra_dependencies: ["float"]
-      fig-dpi: 1200
+      fig-dpi: 600
       fig-width: 5
       fig-format: svg
       logo: ofce_m.png
       logo2: sciencespo.png
-      geometry:
-        - top = 3cm
-        - bottom = 3cm
-        - left = 3cm
-        - right = 3cm
       template-partials:
         - pdf_template/title.tex
         - pdf_template/before-body.tex
