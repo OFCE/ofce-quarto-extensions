@@ -90,6 +90,7 @@ contributes:
     pdf:
       documentclass: article
       toc-depth: 1
+      date-format: "D MMMM YYYY"
       pdffont: OpenSans
       number-sections: true
       number-depth: 3
