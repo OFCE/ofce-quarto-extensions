@@ -59,6 +59,7 @@ contributes:
       collapse-callout:
         tip: true
       shortcodes:
+        - wordcount
         - fontawesome
         - downloadthis
       google-scholar: true
@@ -69,7 +70,7 @@ contributes:
     html:
       theme:
         - cosmo
-        - html_template/ofcewp.scss
+        - html/ofce.scss
       mainfont: Open Sans
       toc-location: left
       number-sections: true
@@ -84,9 +85,9 @@ contributes:
       lightbox: true
       title-block-style: default
       template-partials:
-        - html_template/title-block.html
-        - html_template/title-metadata.html
-        - html_template/toc.html
+        - html/title-block.html
+        - html/title-metadata.html
+        - html/toc.html
     pdf:
       documentclass: article
       toc-depth: 1
@@ -110,10 +111,10 @@ contributes:
       logo2: sciencespo.png
       callout-icon: false
       template-partials:
-        - pdf_template/before-title.tex
-        - pdf_template/title.tex
-        - pdf_template/before-body.tex
-        - pdf_template/after-body.tex
-        - pdf_template/toc.tex
-        - pdf_template/biblio.tex
+        - pdf/before-title.tex
+        - pdf/title.tex
+        - pdf/before-body.tex
+        - pdf/after-body.tex
+        - pdf/toc.tex
+        - pdf/biblio.tex
     typst: default

@@ -51,6 +51,7 @@ contributes:
         chapters: false
       logo: ofce.png
       filters:
+        - wordcount
         - nameref
         - fr-nbsp
        # - custom-numbered-blocks
@@ -102,8 +103,8 @@ contributes:
       logo: ofce_m.png
       logo2: sciencespo.png
       template-partials:
-        - pdf_template/title.tex
-        - pdf_template/before-body.tex
+        - pdf/title.tex
+        - pdf/before-body.tex
     dashboard:
       theme:
         - cosmo
