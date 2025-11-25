@@ -1,7 +1,6 @@
 /*-- scss:defaults --*/
 // fonts
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
-@import url('_extensions/quarto_ext/fontawesome/assets/css/all.css');
 // Fonts (CSS rules)
 $font-family-sans-serif: 'Open Sans', sans-serif;
 $font-family-monospace: 'Firacode', monospace;
@@ -65,10 +64,14 @@ main {
   padding-left: 12px !important;
   margin-right: 12px !important;
   margin-top: 6px !important;
-  margin-bottom: 6px !important;
+  margin-bottom: 3em !important;
   border-left-color: $scpored !important;
   border-left-width: 1px !important;
   border-left-style: solid !important;
+}
+
+main.content>p:has(+section) {
+    margin-bottom: 0.5rem
 }
 
 .sidebar {
@@ -186,6 +189,7 @@ font-weight: 600 !important;
 
 .blockquote {
   color: var(--bs-body-color);
+  border: none;
   font-size: 0.9rem;
   line-height: 140%;
   margin-left: 1em;
@@ -195,11 +199,24 @@ font-weight: 600 !important;
   padding-top: 0em;
 }
 
-.blockquote::before {
-  font-family: "Font Awesome 6 Free";
+.blockquote>p::before {
+  display: inline;
+  font-size: 0.9em;
+  font-family: FontAwesome;
   font-weight: 900;
   content: "\f10d";
   letter-spacing: 10px;
+  color: $darkgrey;
+}
+
+.blockquote>p::after {
+  display: inline-block;
+  font-family: FontAwesome;
+  font-weight: 900;
+  content: "\f10e";
+  margin-left: 6px;
+  letter-spacing: 10px;
+  color: $darkgrey;
 }
 
 .control-label {
