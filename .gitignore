@@ -56,3 +56,5 @@ ofce-quarto-extensions.Rproj
 test*.qmd
 test_typst.pdf
 test_typst.typ
+ref_wp/*
+.sourcoise*

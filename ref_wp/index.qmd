@@ -29,6 +29,7 @@ format:
   wp-html: default
   wp-pdf:
     output-file: "OFCEWP2025-23.pdf"
+  wp-typst: default
 crossref:
   custom:
     - key: apptbl
@@ -97,15 +98,18 @@ psal <- imap(
   ~ggplot(naq |> filter(champ == .x)) +
     aes(x=time, y=psal, col = geo, group = geo) +
     geom_line(color = "grey80", layout = "fixed", linewidth = 0.2) +
-    geom_line_interactive(
-      aes(
-        tooltip = "Part des salaires dans la VAN,<br>corrigée de la non salarisation,<br>{.y}" |> glue(),
-        data_id = champ),
-      linewidth = 0.5) +
-     geom_point_interactive(
-      aes(tooltip = tooltip, data_id = time, fill = geo),
-      size = 1, stroke = 0.5, shape = 21, color = "white",
-      hover_nearest = TRUE, show.legend=FALSE) +
+    # geom_line_interactive(
+    #   aes(
+    #     tooltip = "Part des salaires dans la VAN,<br>corrigée de la non salarisation,<br>{.y}" |> glue(),
+    #     data_id = champ),
+    #   linewidth = 0.5) +
+     # geom_point_interactive(
+     #  aes(tooltip = tooltip, data_id = time, fill = geo),
+     #  size = 1, stroke = 0.5, shape = 21, color = "white",
+     #  hover_nearest = TRUE, show.legend=FALSE) +
+     geom_point(
+      aes(fill = geo),
+      size = 1, shape = 21, color = "white") +
   ylab("% de la VA") + xlab(NULL) +
   facet_wrap(vars(geo), ncol = 3, labeller = lbl) +
   scale_ofce_date(
@@ -123,10 +127,11 @@ psal <- imap(
  comptes nationaux trimestriels (namq_10_a10), téléchargés le {date}, code à github.com/xtimbeau/travail/R/vaq.r.",
     champ = "Branches marchandes {.y}.",
     note = "La CCF ou les impôts nets de subventions proviennent des comptes annuels, jusqu'en 2023 ou 2024 selon les pays, extrapolée au delà (voir tableau A1). Le partage de la valeur ajoutée pour les tous derniers points évolue donc comme le partage dans la valeur ajoutée brute. Les traits colorés correspondent à chaque pays, les traits fins gris rappellent les autres pays.")  )
-tabsetize(psal, r = 1.25)
+# tabsetize(psal, r = 1.25)
 ```
 
 ```{r, results="asis"}
+#| eval: false
 margin_download(naq |> select(-tooltip))
 ```
 
@@ -194,8 +199,12 @@ En revanche, la part des salaires serait légèrement supérieure en Italie à s
 
 ::: {#apptbl-data_trim}
 ```{r}
+#| eval: false
+
 date <- "0225-01-01"
 date <- stringr::str_glue("{day(date)}/{month(date)}/{year(date)}")
+
+
 
 qs2::qs_read("doms.qs2") |> 
   gt() |> 
