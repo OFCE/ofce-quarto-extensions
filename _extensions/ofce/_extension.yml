@@ -84,6 +84,8 @@ contributes:
       callout-icon: false
       lightbox: true
       title-block-style: default
+      template-partials:
+        - title-metadata.html
     pdf:
       documentclass: scrartcl
       toc-depth: 1
