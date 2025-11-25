@@ -109,25 +109,24 @@ $if(author)$
         </div>
       </div>
       $endif$
-    </div>
-  
-    $if(abstract)$
+
+      $if(abstract)$
       <div>
         <div class="abstract">
           <div class="quarto-title-meta-heading onec">$abstract-title$</div>  
           $abstract$
         </div>
       </div>
-    $endif$
+      $endif$
 
-  $if(thanks)$
-  <div class="quarto-title">
-    <div class="abstract">
-      <div class="quarto-title-meta-heading">$thanks-title$</div>
-      <em>$thanks$</em>
-    </div>
-  </div>
-  $endif$
-  
+      $if(thanks)$
+      <div class="quarto-title">
+        <div class="abstract">
+          <div class="quarto-title-meta-heading">$thanks-title$</div>
+          <em>$thanks$</em>
+        </div>
+      </div>
+      $endif$
+    
   </details>
 $endif$
