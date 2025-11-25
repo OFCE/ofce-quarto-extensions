@@ -117,4 +117,13 @@ contributes:
         - pdf/after-body.tex
         - pdf/toc.tex
         - pdf/biblio.tex
-    typst: default
+    typst:
+      mainfont: Arial
+      keep-typ: true
+      toc: false
+      callout-icon: false
+      papersize: a4
+      logo: false
+      template-partials:
+        - typst/typst-template.typ
+        - typst/typst-show.typ
