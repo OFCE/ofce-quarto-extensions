@@ -46,6 +46,11 @@ h6,
 
 }
 
+.sidebar-logo {
+  height: 24px;
+  display:  inline;
+}
+
 main {
   margin-top: .25em;
   margin-bottom: .25em
@@ -182,11 +187,12 @@ h5 {
 .figure-caption,
 .subfigure-caption,
 .table-caption,
-figcaption.quarto-float-caption,
-caption {
+figcaption.quarto-float-caption,caption  {
   color: $darkgrey !important;
   text-align: start !important;
   font-size: 1rem !important;
+font-weight: 600 !important;
+  margin-bottom: 6px;
 }
 
 .csl-entry {

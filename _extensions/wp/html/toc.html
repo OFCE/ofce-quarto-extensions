@@ -1,4 +1,5 @@
 <nav id="$idprefix$TOC" role="doc-toc">
+  <a href="index.html">
   $if(wp)$ <p class="wp">
     $if(french)$
       Document de travail<br>de l'
@@ -10,8 +11,9 @@
       n°$annee$-$wp$</p>
     $endif$
   $endif$
+  </a>
   $if(toc-title)$
   <h2 id="$idprefix$toc-title">$toc-title$</h2>
-  $endif$ 
+  $endif$
   $table-of-contents$
 </nav>

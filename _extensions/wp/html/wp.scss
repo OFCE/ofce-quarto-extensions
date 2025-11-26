@@ -49,6 +49,11 @@ h3,.h3,h4,.h4 {
   font-size: 0.8rem !important;
 }
 
+.sidebar-logo {
+  height: 24px;
+  display:  inline;
+}
+
 main {
   margin-top: .25em;
   margin-bottom: .25em
@@ -122,6 +127,7 @@ tfoot.gt_footnotes {
 
 .wp {
   font-size: 0.875em !important;
+  color: $link-color;
 }
 
 .quarto-title-meta-author, .quarto-title-meta, .keywords {
