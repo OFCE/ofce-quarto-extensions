@@ -84,6 +84,7 @@ contributes:
       logo: ofce_m.png
       callout-icon: false
       lightbox: true
+      link-external-icon: true
       title-block-style: default
       template-partials:
         - html/title-metadata.html

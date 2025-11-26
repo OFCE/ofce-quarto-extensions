@@ -70,7 +70,7 @@ main {
   margin-right: 12px !important;
   padding-bottom: 0px !important;
   margin-top: 6px !important;
-  margin-bottom: 3em !important;
+  margin-bottom: 1.5em !important;
   border-left-color: $scpored !important;
   border-left-width: 1px !important;
   border-left-style: solid !important;
@@ -78,6 +78,10 @@ main {
 
 main.content>p:has(+section) {
     margin-bottom: 0.5rem
+}
+
+main.content>section:first-of-type>h2:nth-child(1),main.content>section:first-of-type>.h2:nth-child(1) {
+    margin-top: 0.5em
 }
 
 .sidebar {
@@ -127,6 +131,9 @@ tfoot.gt_footnotes {
 
 .wp {
   font-size: 0.875em !important;
+}
+
+.wp:hover {
   color: $link-color;
 }
 
