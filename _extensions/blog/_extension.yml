@@ -87,8 +87,6 @@ contributes:
       papersize: a4
       section-numbering: 1.1.a
       logo: false
-      variables:
-        path-to-biblio: "_extensions/ofce/wp/csl/"
       template-partials:
         - typst/typst-template.typ
         - typst/typst-show.typ
