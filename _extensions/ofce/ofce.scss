@@ -37,6 +37,10 @@ h6,
   color: $darkgrey;
 }
 
+#toc-title.h2 {
+  font-size: 0.8rem !important;
+}
+
 .navbar {
   background-color: $white;
 
@@ -287,4 +291,8 @@ div.callout-tip div.callout-header {
 .callout.callout-titled .callout-body>div>:last-child:not(.sourceCode) {
   padding-bottom: 0;
   margin-bottom: 0
+}
+
+.details-box {
+  margin-bottom: 3px;
 }

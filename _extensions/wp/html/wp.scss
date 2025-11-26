@@ -63,6 +63,7 @@ main {
   margin-left: -1px !important;
   padding-left: 12px !important;
   margin-right: 12px !important;
+  padding-bottom: 0px !important;
   margin-top: 6px !important;
   margin-bottom: 3em !important;
   border-left-color: $scpored !important;
@@ -326,4 +327,8 @@ div.callout-tip div.callout-header {
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-decoration-color: $scpored;
+}
+
+.details-box {
+  margin-bottom: 3px;
 }
