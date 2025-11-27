@@ -1,6 +1,6 @@
 title: Format html OFCE
 author: Anissa Saumtally et Xavier Timbeau
-version: 0.2.7
+version: 0.2.8
 quarto-required: ">=1.8.26"
 contributes:
   formats:

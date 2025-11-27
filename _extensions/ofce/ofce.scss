@@ -306,3 +306,34 @@ div.callout-tip div.callout-header {
 .details-box {
   margin-bottom: 3px;
 }
+
+.callout-tip .collapse:not(.show) {
+  display: block;
+  max-height: 90px;
+}
+
+.callout-tip .collapse {
+  max-height: 90px; /* Hauteur de l'aperçu */
+  overflow: hidden;
+  transition: max-height 3.35s ease;
+  position: relative;
+}
+
+.callout-tip .callout-collapse .collapsing {
+  height: 90px;
+  overflow: hidden;
+  transition: height 0.35s ease;
+}
+.callout-tip .collapse:not(.show)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(transparent, white);
+}
+
+.callout-tip .collapse.show {
+  max-height: 2000px; /* Assez grand pour le contenu complet */
+}

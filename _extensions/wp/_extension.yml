@@ -1,6 +1,6 @@
 title: Format document de travail OFCE
 author: Anissa Saumtally et Xavier Timbeau
-version: 0.3.11
+version: 0.3.12
 quarto-required: ">=1.8.26"
 contributes:
   formats:
