@@ -1,6 +1,6 @@
 title: Format document de travail OFCE
 author: Anissa Saumtally et Xavier Timbeau
-version: 0.3.10
+version: 0.3.11
 quarto-required: ">=1.8.26"
 contributes:
   formats:
@@ -52,6 +52,7 @@ contributes:
         type: article-journal
       logo: ofce.png
       filters:
+        - wordcount
         - nameref
         - quotes
         - fr-nbsp
@@ -60,7 +61,6 @@ contributes:
       collapse-callout:
         tip: true
       shortcodes:
-        - wordcount
         - fontawesome
         - downloadthis
       google-scholar: true
