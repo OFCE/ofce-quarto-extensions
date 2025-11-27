@@ -337,3 +337,38 @@ div.callout-tip div.callout-header {
 .callout-tip .collapse.show {
   max-height: 2000px; /* Assez grand pour le contenu complet */
 }
+
+.nav-pills {
+  .nav-link {
+    border: none;
+    padding-bottom: 0em;
+    padding-top: 0.25em;
+
+
+    &:hover {
+      border: none;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-decoration-color: $lightgrey;
+    }
+
+    &.active,
+    .show > & {
+      padding-bottom: 0em;
+      padding-top: 0.25em;
+      background-color: transparent;
+      border: none;
+      color: $link-color;
+      text-decoration: underline;
+      text-decoration-thickness: 10%;
+      text-decoration-color: $scpored;
+
+      &:hover {
+        border: none;
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+        text-decoration-color: $scpored;
+      }
+    }
+  }
+}
