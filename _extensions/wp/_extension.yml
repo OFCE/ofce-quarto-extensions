@@ -113,6 +113,7 @@ contributes:
       logo: ofce_m.png
       logo2: sciencespo.png
       callout-icon: false
+      output-file: "OFCEWP{{< meta annee >}}-{{< meta wp >}}.pdf"
       template-partials:
         - pdf/before-title.tex
         - pdf/title.tex
