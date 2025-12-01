@@ -27,11 +27,12 @@ contributes:
           crossref-tbl-title: "Tableau"
           crossref-lof-title: Graphiques
           crossref-lot-title: Tableaux
+          other-links-title: Contenus liés
         en:
           section-title-references: "Bibliograhy"
           title-block-author-single: "Author"
           title-block-author-plural: "Authors"
-          title-block-published: "Publushed on"
+          title-block-published: "Published on"
           title-block-modified: "Modified on"
           toc-title: "On this page"
           crossref-fig-prefix: graphic
@@ -45,6 +46,7 @@ contributes:
           crossref-tbl-title: "Table"
           crossref-lof-title: Graphics
           crossref-lot-title: Tables
+          other-links-title: Related contents
       authors-title: "Autrices, auteurs & résumé"
       fig-asp: 0.61
       cap-location: top
