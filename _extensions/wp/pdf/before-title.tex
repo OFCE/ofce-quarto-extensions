@@ -62,3 +62,7 @@ $endif$
 
 \usepackage{etoolbox}
 \AtBeginEnvironment{quote}{\par\singlespacing\small}
+
+% Pour changer les notes de marge en texte de bas de page
+\usepackage{marginnote}
+\renewcommand{\marginnote}[1]{{#1}}
