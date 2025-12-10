@@ -9,7 +9,6 @@ author:
     orcid: "0000-0002-6198-5953"
 editor: visual
 date: "2025-10-24"
-date-format: "D MMMM YYYY"
 date-modified: now
 wp: 23
 annee: 2025
@@ -26,9 +25,10 @@ citation:
   issue: 2025-23
   url: https://xtimbeau.github.io/travail/
 format:
+  wp-typst: default
+  
+  wp-pdf: default
   wp-html: default
-  wp-pdf:
-    output-file: "OFCEWP2025-23.pdf"
 crossref:
   custom:
     - key: apptbl
@@ -133,7 +133,7 @@ En revanche, la part des salaires serait légèrement supérieure en Italie à s
 {{< fa square >}}
 :::
 
-## Références {.unnumbered}
+## Références {.unnumbered} 
 
 ::: {#refs}
 :::
@@ -151,7 +151,7 @@ En revanche, la part des salaires serait légèrement supérieure en Italie à s
 \toprule
  &  & \multicolumn{2}{>{\centering\arraybackslash}m{\dimexpr 97.50pt -2\tabcolsep-1.5\arrayrulewidth}}{\shortstack[l]{\textbf{B1G, D1} \\trim., niveau 1 \\namq\_10\_a10}} & \multicolumn{2}{>{\centering\arraybackslash}m{\dimexpr 97.50pt -2\tabcolsep-1.5\arrayrulewidth}}{\shortstack[l]{\textbf{SAL, NSAL} \\an., niveau 2 \\nama\_10\_a64\_e}} & \multicolumn{2}{>{\centering\arraybackslash}m{\dimexpr 97.50pt -2\tabcolsep-1.5\arrayrulewidth}}{\shortstack[l]{\textbf{P51C, D29x39, D51} \\an., niveau 1 \\nama\_10\_a64}} & \multicolumn{2}{>{\centering\arraybackslash}m{\dimexpr 97.50pt -2\tabcolsep-1.5\arrayrulewidth}}{\shortstack[l]{\textbf{L68A} \\an., niveau 2 \\nama\_10\_a64}} & \multicolumn{2}{>{\centering\arraybackslash}m{\dimexpr 97.50pt -2\tabcolsep-1.5\arrayrulewidth}}{\shortstack[l]{\textbf{N11N} \\an., niveau 2 \\nama\_10\_nfa\_st}} \\ 
 \cmidrule(lr){3-4} \cmidrule(lr){5-6} \cmidrule(lr){7-8} \cmidrule(lr){9-10} \cmidrule(lr){11-12}
- &  & de & à & de & à & de & à & de & à & de & à \\ 
+ &  & de & \`a & de & \`a & de & \`a & de & \`a & de & \`a \\ 
 \midrule\addlinespace[2.5pt]
 DE & Allemagne & 1991T1 & 2025T2 & 1995 & 2024 & 1995 & 2024 & 1995 & 2024 & 1995 & 2023 \\ 
 FR & France & 1980T1 & 2025T2 & 1978 & 2024 & 1978 & 2024 & 1978 & 2023 & 1978 & 2024 \\ 
@@ -161,10 +161,10 @@ PL & Pologne & 1995T1 & 2025T2 & 1995 & 2024 & 1995 & 2024 & 1995 & 2023 & 2000 
 RO & Roumanie & 1995T1 & 2025T2 & 1995 & 2024 & 1995 & 2024 & 1995 & 2024 & 1995 & 2022 \\ 
 NL & Pays-Bas & 1995T1 & 2025T2 & 1995 & 2024 & 1995 & 2024 & 1995 & 2024 & 1995 & 2023 \\ 
 BE & Belgique & 1995T1 & 2025T2 & 1995 & 2024 & 1995 & 2024 & 1995 & 2023 & 1995 & 2024 \\ 
-CZ & Tchéquie & 1995T1 & 2025T2 & 1995 & 2024 & 1995 & 2024 & 1995 & 2024 & 1995 & 2024 \\ 
+CZ & Tch\\'equie & 1995T1 & 2025T2 & 1995 & 2024 & 1995 & 2024 & 1995 & 2024 & 1995 & 2024 \\ 
 PT & Portugal & 1995T1 & 2025T2 & 1995 & 2024 & 1995 & 2024 & 1995 & 2023 & 2000 & 2022 \\ 
-SE & Suède & 1993T1 & 2025T2 & 1993 & 2024 & 1993 & 2023 & 1993 & 2023 & 1993 & 2022 \\ 
-GR & Grèce & 1995T1 & 2025T2 & 1995 & 2024 & 1995 & 2024 & 1995 & 2024 & 1995 & 2022 \\ 
+SE & Su\`ede & 1993T1 & 2025T2 & 1993 & 2024 & 1993 & 2023 & 1993 & 2023 & 1993 & 2022 \\ 
+GR & Gr\`ece & 1995T1 & 2025T2 & 1995 & 2024 & 1995 & 2024 & 1995 & 2024 & 1995 & 2022 \\ 
 HU & Hongrie & 1995T1 & 2025T2 & 1995 & 2024 & 1995 & 2024 & 1995 & 2024 & 1995 & 2023 \\ 
 AT & Autriche & 1995T1 & 2025T2 & 1995 & 2024 & 1995 & 2024 & 1995 & 2024 & 1995 & 2024 \\ 
 BG & Bulgarie & 1995T1 & 2025T2 & 1995 & 2024 & 1995 & 2024 & 1995 & 2024 & 2000 & 2022 \\ 
@@ -174,7 +174,7 @@ SK & Slovaquie & 1995T1 & 2025T2 & 1995 & 2024 & 1995 & 2024 & 1995 & 2024 & 200
 IE & Irlande & 1995T1 & 2025T2 & 1995 & 2024 & 1995 & 2024 & 1995 & 2024 & 1995 & 2023 \\ 
 HR & Croatie & 1995T1 & 2025T2 & 1995 & 2024 & 1995 & 2024 & 1995 & 2023 & 1995 & 2022 \\ 
 LT & Lituanie & 1995T1 & 2025T2 & 1995 & 2024 & 1995 & 2024 & 1995 & 2024 & 1995 & 2022 \\ 
-SI & Slovénie & 1995T1 & 2025T2 & 1995 & 2024 & 1995 & 2024 & 1995 & 2024 & 1995 & 2023 \\ 
+SI & Slov\\'enie & 1995T1 & 2025T2 & 1995 & 2024 & 1995 & 2024 & 1995 & 2024 & 1995 & 2023 \\ 
 LV & Lettonie & 1995T1 & 2025T2 & 1995 & 2024 & 1995 & 2024 & 1995 & 2023 & 1995 & 2022 \\ 
 EE & Estonie & 1995T1 & 2025T2 & 2000 & 2024 & 1995 & 2024 & 1995 & 2024 & 2000 & 2022 \\ 
 CY & Chypre & 1995T1 & 2025T2 & 1995 & 2024 & 1995 & 2024 & 1995 & 2023 & 1995 & 2022 \\ 
@@ -183,7 +183,7 @@ MT & Malte & 1995T1 & 2025T2 & 1995 & 2024 & 1995 & 2024 & 1995 & 2024 & 2000 & 
 \bottomrule
 \end{tabular*}
 \begin{minipage}{\linewidth}
-\emph{Note} : données téléchargées sur le site d'Eurostat (package eurostat v4.0.0) le 1/1/225, telles que publiées par Eurostat. Les instituts nationaux peuvent mettre à dispositon plus de données non (encore ?) prises en compte par Eurostat. Le niveau 1 compte 21 branches dont 19 marchandes. Le niveau 2 compte jusqu'à 99 branches, 47 sont utilisées pour les comptes de stock de capital productif.\\
+\emph{Note} : données téléchargées sur le site d'Eurostat (package eurostat v4.0.0) le 1/1/2025, telles que publiées par Eurostat. Les instituts nationaux peuvent mettre à dispositon plus de données non (encore ?) prises en compte par Eurostat. Le niveau 1 compte 21 branches dont 19 marchandes. Le niveau 2 compte jusqu'à 99 branches, 47 sont utilisées pour les comptes de stock de capital productif.\\
 \end{minipage}
 \end{table}
 
@@ -195,7 +195,7 @@ Premiers et derniers points connus par pays et par variables
 :::
 ::::
 
-::: {.content-visible when-format="pdf"}
+::: {.content-visible when-format="typst"}
 ## Suppléments {.unnumbered}
 
 6 annexes sont accessibles en ligne à l'adresse <https://xtimbeau.github.io/travail/> :
