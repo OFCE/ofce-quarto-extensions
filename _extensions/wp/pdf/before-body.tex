@@ -46,21 +46,27 @@ $else$
       \textcolor{scporouge}{\Huge\textbf{\textsf{$title$}}}
     \end{spacing}
   $if(subtitle)$
- \vspace{5mm}
-  \textcolor{scporouge}{\large\textbf{\textsf{$subtitle$}}}
- \vspace{5mm}
+    \vspace{5mm}
+    \begin{spacing}{1.5}
+      \textcolor{scporouge}{\large\textbf{\textsf{$subtitle$}}}
+    \end{spacing}
+    \vspace{5mm}
   $endif$
   \vspace{20mm}
   \end{flushleft}
 
   $for(by-author)$
-
-   \textbf{$it.name.literal$}$if(by-author.affiliations)$$for(by-author.affiliations)$,$if(by-author.affiliations.name)$
-           $by-author.affiliations.name$$endif$$endfor$
-   $endif$
- $endfor$ % by-author
+    \textbf{$it.name.literal$}
+    $if(by-author.affiliations)$
+     $for(by-author.affiliations)$,
+      $if(by-author.affiliations.name)$
+       $by-author.affiliations.name$
+      $endif$
+     $endfor$
+    $endif$
+    \vspace{2mm}
+   $endfor$ % by-author
  \end{minipage}
-
 
 $endif$
 %%
@@ -150,4 +156,3 @@ $endif$
 % tip
 \definecolor{quarto-callout-tip-color}{HTML}{000000}
 \definecolor{quarto-callout-tip-color-frame}{HTML}{EEEEEE}
-

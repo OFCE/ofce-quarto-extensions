@@ -1,6 +1,6 @@
 title: Format html OFCE
 author: Anissa Saumtally et Xavier Timbeau
-version: 0.2.7
+version: 0.2.10
 quarto-required: ">=1.8.26"
 contributes:
   formats:
@@ -27,11 +27,12 @@ contributes:
           crossref-tbl-title: "Tableau"
           crossref-lof-title: Graphiques
           crossref-lot-title: Tableaux
+          other-links-title: Contenus liés
         en:
           section-title-references: "Bibliograhy"
           title-block-author-single: "Author"
           title-block-author-plural: "Authors"
-          title-block-published: "Publushed on"
+          title-block-published: "Published on"
           title-block-modified: "Modified on"
           toc-title: "On this page"
           crossref-fig-prefix: graphic
@@ -45,6 +46,7 @@ contributes:
           crossref-tbl-title: "Table"
           crossref-lof-title: Graphics
           crossref-lot-title: Tables
+          other-links-title: Related contents
       authors-title: "Autrices, auteurs & résumé"
       ig-asp: 0.61
       cap-location: top
@@ -77,7 +79,6 @@ contributes:
       toc-title: Sur cette page
       number-sections: true
       number-depth: 3
-      html-math-method: katex
       fig-dpi: 1200
       fig-format: png
       reference-location: margin
