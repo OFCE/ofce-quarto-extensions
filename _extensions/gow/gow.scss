@@ -28,7 +28,27 @@ $font-family-monospace: 'Fira Code', monospace;
   //$link-color: $scpodarkred;
 
 /*-- scss:rules --*/
-  h1, h2, h3, h4, h5, h6,
+
+.voir-aussi {
+  margin-top: 1em;
+  font-size: 0.875rem;
+}
+
+.voir-aussi-heading {
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+.voir-aussi ul {
+  margin: 0;
+  padding-left: 1.5em;
+}
+
+.voir-aussi li {
+  margin-bottom: 0.25em;
+}
+
+h1, h2, h3, h4, h5, h6,
 .no-row-height.column-margin.column-container,
 .quarto-table-caption.margin-caption,
 .figure-caption.margin-caption {

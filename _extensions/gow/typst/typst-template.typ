@@ -18,18 +18,27 @@
   title: [],
   subtitle: [],
   authors: none,
+  extrarefs: none,
   abstract: none,
   first_publish: none,
   year: [],
-  number: [],
+  number: none,
   language: "fr",
   font: ("Times", "Times New Roman", "Arial"),
   fontsize: 11pt,
   linkcolor: rgb(0, 0, 0),
   linky: none,
+  voir_aussi: none,
   doc,
 ) = {
 
+
+  let marge = 0.5cm
+  let pw = 29.7cm // page height for a4
+  let ph = 21.0cm // page width for a4
+  let logo_column = 0cm
+  let lc_space = 0.5cm
+  let line_x = 0cm + (logo_column - marge) + lc_space*2
 
 
 
@@ -48,24 +57,48 @@
     let date_formatted = datetime(year: year_fp, month: month_fp, day: day_fp)
     fmt-date(date_formatted, length: "long", locale: language)
   }
+  
+   let year_doc = if main_date != none {
+    let date_decomp = main_date.split("-")
+    str(int(date_decomp.at(0)))
+  }
+  
+ // Function to extract content from divs with a specific class
+let extract-div(body, class-name) = {
+  let result = ()
+  
+  // This searches through the body for blocks with your class
+  // Note: The exact implementation depends on how Quarto structures the output
+  for element in body.children {
+    if element.func() == block and element.has("class") {
+      if class-name in element.at("class", default: ()) {
+        result.push(element.body)
+      }
+    }
+  }
+  
+  result.join()
+}
+
+let myCustomBlock = extract-div(doc, "myCustomBlock")
 
   // Page settings
   set page(
     paper: "a4",
     flipped: true,
-    margin: (left: 2.5cm, right: 2.5cm, top: 0.5cm, bottom: 0.5cm),
+    margin: (left: 2cm, right: 2cm, top: 0.5cm, bottom: 0.5cm),
     numbering: none,
   )
 
   // Text settings
   set text(
-    font: font,
+    font: main_title_font,
     size: fontsize
   )
 
   // Paragraph settings
   set par(
-    justify: true,
+    justify: false,
     leading: 0.6em,
     spacing: 1em
   )
@@ -86,43 +119,37 @@
   ]
 
   // Header with logos
-  grid(
-    columns: (1fr, auto, auto),
-    align: (left, center, right),
-    
-    image("/_extensions/ofce/blog/ofce_m.png", width: 2cm),
-    text(fill: gray, size: 1.5em, font: serif_font, style: "italic", "Focus Graphique  ",top-edge: "ascender"),
-    square(
-      fill: colourtype, size: 1cm,  
-      align(center + horizon, 
-      text(fill: white, size: 0.8cm, number))
-    )
-    )
+  
+  
+  place(top + left, dx: 0cm,dy: 0cm,
+        image("/_extensions/ofce/blog/ofce_m.png", width: 2cm)
+        )
+  place(top + left, dx: 0cm,dy: 0.75cm,
+        image("/_extensions/ofce/blog/sciencespo.png", width: 2cm)
+        )
+      
+  place(top+right ,dy:-0cm,dx: marge ,
+        square(fill: colourtype, size: 1cm,align(center+horizon,text(fill: white,size: 0.8cm,number)))
+        )
+  place(top+right ,dy:1.05cm,dx: marge ,
+        text(fill: colourtype, size: 0.43cm,align(right+horizon,text(year_doc)))
+        )
+  place(top + right, dx:-0.5cm, dy:0.25cm, align(horizon,
+        text(fill: gray ,size:0.9cm,font: main_title_font,style:"italic","L'ÉcoGraphe "))
+        )
 
-  // grid(
-  //  columns: (1fr, auto, auto),
-  //  align: (left, center, right),
-  //  image("/_extensions/ofce/blog/sciencespo.png", width: 2cm)
-
-  //  )
-    
+  
 
   
   
 
-  v(1em)
+  v(5em)
 
   // Title section
   block(
     text(size: 16pt, weight: "bold", fill: scpored, title)
   )
 
-  if subtitle != none and subtitle != [] {
-    v(0.5em)
-    block(
-      text(size: 14pt, fill: grey1, subtitle)
-    )
-  }
 
   v(1em)
 
@@ -139,73 +166,81 @@
   }
 
 
-  
+  // v(1em)
 
-  
-
- // v(1em)
-
-  // Horizontal line separator
-  //line(length: 100%, stroke: (thickness: 0.5pt, paint: grey2))
-
-  //v(1em)
-
-  
 
   // Main document content
     grid(
-    columns: (78%, 1fr),
+    columns: (73%, 1fr),
     column-gutter: 0.5em,
+    
+    // Column 1
     [
-      // Main document content
+      // Graph
       #doc
     ],
+    
+    // Column 2
     [
     
-      // Publication date
-  #if pretty_date != none {
-    v(0.5em)
-    text(size: 10pt, fill: grey1, [Publié le #pretty_date])
-  }
+    /// Publication date
   
-      // Abstract in colored box if provided
-      #v(2em)
+      #if pretty_date != none {
+      text(size: 10pt, fill: grey1, [Publié le #pretty_date])
+      }
+  
+    /// Abstract in colored box if provided
+    #v(0.5em)
+    
       #if abstract != none and abstract != [] {
-        block(
+      block(
           fill: grey3,
           inset: 1em,
-          radius: 4pt,
+          radius: 3pt,
           width: 100%,
-          text(style: "italic", size: 10pt, abstract)
+          text( size: 10pt, abstract)
         )
       }
       
-          // Website url 
-    
-  #if linky != none {
-    v(0.5em)
-    // Extract text content from linky if it's content type
-    let url_str = if type(linky) == "content" {
-      // Convert content to plain text by getting all text nodes
-      let extract_text(content) = {
-        if type(content) == "string" {
-          content
-        } else if content.has("text") {
-          content.text
-        } else if content.has("children") {
-          content.children.map(extract_text).join("")
-        } else if content.has("body") {
-          extract_text(content.body)
-        } else {
-          ""
-        }
+/// Website url 
+
+#if linky != none {
+  v(0.5em)
+  
+  // Extract text content from linky if it's content type
+  let url_str = if type(linky) == "content" {
+    // Convert content to plain text by getting all text nodes
+    let extract_text(content) = {
+      if type(content) == "string" {
+        content
+      } else if content.has("text") {
+        content.text
+      } else if content.has("children") {
+        content.children.map(extract_text).join("")
+      } else if content.has("body") {
+        extract_text(content.body)
+      } else {
+        ""
       }
-      extract_text(linky)
-    } else {
-      linky
     }
-    text(size: 10pt, fill: grey1)[Lien vers le billet sur le site de l'OFCE : #link(url_str)[#url_str]]
+    extract_text(linky)
+  } else {
+    linky
   }
+  
+  align(left, text(size: 10pt, fill: scpored)[Lien vers le billet sur le site de l'OFCE : #link(url_str)[#url_str]])
+}  
+
+  #if extrarefs != none {
+    v(0.5em)
+    text(size: 10pt, fill: scpored)[Voir aussi :]
+    v(0.3em)
+    for ref in extrarefs {
+      text(size: 9pt)[• #link(ref.lien)[#ref.texte]]
+      linebreak()
+    }
+  }
+
     ]
   )
 

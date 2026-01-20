@@ -53,6 +53,7 @@ contributes:
         en:
           title-delim: "**.**"
       filters:
+        - extract-year.lua
         - quotes
         - collapse-callout
         - nbsp
@@ -77,11 +78,14 @@ contributes:
       image-lazy-loading: true
       hide-description: true
       template-partials:
+        - html/title-block.html
         - html/title-metadata.html
+      filters:
+        - voir-aussi.lua
     typst:
       fig-dpi: 600
       fig-format: svg
-      mainfont: Arial
+      mainfont: Open sans
       keep-typ: true
       toc: false
       callout-icon: false
