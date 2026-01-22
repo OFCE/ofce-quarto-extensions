@@ -86,7 +86,7 @@ contributes:
       fig-dpi: 600
       fig-format: svg
       mainfont: Open sans
-      keep-typ: true
+      keep-typ: false
       toc: false
       callout-icon: false
       papersize: a4
