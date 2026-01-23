@@ -208,17 +208,17 @@ let myCustomBlock = extract-div(doc, "myCustomBlock")
   v(0.5em)
   
   // Extract text content from linky if it's content type
-  let url_str = if type(linky) == "content" {
+  let url_str = if type(linky) == content {
     // Convert content to plain text by getting all text nodes
-    let extract_text(content) = {
-      if type(content) == "string" {
-        content
-      } else if content.has("text") {
-        content.text
-      } else if content.has("children") {
-        content.children.map(extract_text).join("")
-      } else if content.has("body") {
-        extract_text(content.body)
+    let extract_text(c) = {
+      if type(c) == str {
+        c
+      } else if c.has("text") {
+        c.text
+      } else if c.has("children") {
+        c.children.map(extract_text).join("")
+      } else if c.has("body") {
+        extract_text(c.body)
       } else {
         ""
       }
