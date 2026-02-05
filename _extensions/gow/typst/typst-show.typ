@@ -42,6 +42,10 @@ $if(urlblog)$
   linky: [$urlblog$],
 $endif$
 
+$if(scalepic)$
+  scalepic: $scalepic$,
+$endif$
+
 
 $if(extraref)$
   extrarefs: (

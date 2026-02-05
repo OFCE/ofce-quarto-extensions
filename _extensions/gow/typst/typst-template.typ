@@ -28,6 +28,7 @@
   fontsize: 11pt,
   linkcolor: rgb(0, 0, 0),
   linky: none,
+  scalepic: 1,
   voir_aussi: none,
   doc,
 ) = {
@@ -168,10 +169,10 @@ let myCustomBlock = extract-div(doc, "myCustomBlock")
 
   // v(1em)
 
-
+ let plop = 73 * scalepic * 1%
   // Main document content
     grid(
-    columns: (73%, 1fr),
+    columns: (plop, 1fr),
     column-gutter: 0.5em,
     
     // Column 1
