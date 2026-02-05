@@ -6,7 +6,7 @@
 <div class="body">
 <% if (item.gow && item.nb) { %>
 <h3 class="no-anchor listing-title">
-<a href="<%= item.path %>">L'ÉcoGraphe n°<%= item.nb %></a>
+<a href="<%= item.path %>">L'ÉcoGraphe n°<%= item.nb %> (<%= new Date(item.date).getFullYear() %>)</a>
 </h3>
 <div class="listing-description">
 <a href="<%= item.path %>"><%= item.title %></a>
