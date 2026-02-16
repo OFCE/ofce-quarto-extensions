@@ -5,8 +5,13 @@
 </div>
 <div class="body">
 <% if (item.gow && item.nb) { %>
+<%
+  // Extract year from path (e.g., "./fr/2026/..." -> "2026")
+  const yearMatch = item.path.match(/\/(\d{4})\//);
+  const year = yearMatch ? yearMatch[1] : 'N/A';
+%>
 <h3 class="no-anchor listing-title">
-<a href="<%= item.path %>">L'ÉcoGraphe n°<%= item.nb %> (<%= new Date(item.date).getFullYear() %>)</a>
+<a href="<%= item.path %>">L'ÉcoGraphe n°<%= item.nb %> (<%= year %>)</a>
 </h3>
 <div class="listing-description">
 <a href="<%= item.path %>"><%= item.title %></a>
