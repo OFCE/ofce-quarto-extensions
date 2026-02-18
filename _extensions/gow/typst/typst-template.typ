@@ -237,7 +237,12 @@ let myCustomBlock = extract-div(doc, "myCustomBlock")
     text(size: 10pt, fill: scpored)[Voir aussi :]
     v(0.3em)
     for ref in extrarefs {
-      text(size: 9pt)[• #link(ref.lien)[#ref.texte]]
+      let lien = ref.at("lien", default: "")
+      if lien != "" {
+        text(size: 9pt)[• #link(lien)[#ref.texte]]
+      } else {
+        text(size: 9pt)[• #ref.texte]
+      }
       linebreak()
     }
   }
