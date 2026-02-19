@@ -169,7 +169,7 @@ let myCustomBlock = extract-div(doc, "myCustomBlock")
 
   // v(1em)
 
- let plop = 73 * scalepic * 1%
+ let plop = 70 * scalepic * 1%
   // Main document content
     grid(
     columns: (plop, 1fr),
