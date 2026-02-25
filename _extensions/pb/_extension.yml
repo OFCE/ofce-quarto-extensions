@@ -7,6 +7,7 @@ contributes:
     common:
       toc: true
       lang: fr
+      french: true
       language:
         fr:
           section-title-references: "Bibliograhie"
@@ -26,11 +27,12 @@ contributes:
           crossref-tbl-title: "Tableau"
           crossref-lof-title: Graphiques
           crossref-lot-title: Tableaux
+          other-links-title: Contenus liés
         en:
           section-title-references: "Bibliograhy"
           title-block-author-single: "Author"
           title-block-author-plural: "Authors"
-          title-block-published: "Publushed on"
+          title-block-published: "Published on"
           title-block-modified: "Modified on"
           toc-title: "On this page"
           crossref-fig-prefix: graphic
@@ -44,18 +46,20 @@ contributes:
           crossref-tbl-title: "Table"
           crossref-lof-title: Graphics
           crossref-lot-title: Tables
+          other-links-title: Related contents
+      authors-title: "Autrices, auteurs & résumé"
       fig-asp: 0.61
       cap-location: top
-      crossref:
-        chapters: false
-        title-delim: "**.**"
+      citation:
+        type: article-journal
       logo: ofce.png
       filters:
+        - wordcount
         - nameref
         - quotes
-        # - search-replace
         - fr-nbsp
         - collapse-callout
+      quot-lang: fr
       collapse-callout:
         tip: true
       shortcodes:
@@ -63,20 +67,18 @@ contributes:
         - downloadthis
       google-scholar: true
       appendix-style: default
-      appendix-cite-as: display
-      citation: true
+      appendix-cite-as: [display, bibtex]
       license: CC BY
+      csl: csl/revue-francaise-de-gestion.csl
     html:
       theme:
         - cosmo
-        - html_template/ofcepb.scss
+        - html/pb.scss
       mainfont: Open Sans
       toc-location: left
-      toc-title: Sur cette page
       number-sections: true
       number-depth: 3
-      html-math-method: katex
-      fig-dpi: 1200
+      fig-dpi: 600
       fig-format: png
       fig-width: 6
       reference-location: margin
@@ -84,29 +86,49 @@ contributes:
       callout-icon: false
       lightbox: true
       title-block-style: default
+      link-external-icon: true
       template-partials:
-        - html_template/title-block.html
-        - html_template/title-metadata.html
-        - html_template/toc.html
+        - html/title-block.html
+        - html/title-metadata.html
+        - html/toc.html
     pdf:
-      documentclass: scrartcl
-      annee: 2023
+      documentclass: article
       toc-depth: 1
+      date-format: "D MMMM YYYY"
       pdffont: OpenSans
       number-sections: true
       number-depth: 3
-      classoption:
-        - DIV=11
       papersize: a4
       fontsize: 9pt
-      callout-icon: false
+      geometry:
+        - top = 3cm
+        - bottom = 2.5cm
+        - left = 2.5cm
+        - right = 2.5cm
+      linestretch: 1.25
       extra_dependencies: ["float"]
-      fig-dpi: 1200
+      fig-dpi: 600
       fig-width: 5
       fig-format: svg
       logo: ofce_m.png
       logo2: sciencespo.png
+      callout-icon: false
       template-partials:
-        - pdf_template/title.tex
-        - pdf_template/before-body.tex
-    typst: default
+        - pdf/before-title.tex
+        - pdf/title.tex
+        - pdf/before-body.tex
+        - pdf/after-body.tex
+        - pdf/toc.tex
+        - pdf/biblio.tex
+    typst:
+      mainfont: Open Sans
+      keep-typ: true
+      toc: false
+      callout-icon: false
+      papersize: a4
+      section-numbering: 1.1.a
+      citeproc: true
+      logo: false
+      template-partials:
+        - typst/typst-template.typ
+        - typst/typst-show.typ
