@@ -82,3 +82,12 @@ conflicted::conflict_prefer_all("dplyr", quiet = TRUE)
 conflicted::conflicts_prefer(lubridate::year, .quiet = TRUE)
 conflicted::conflicts_prefer(lubridate::month, .quiet = TRUE)
 conflicted::conflicts_prefer(lubridate::quarter, .quiet = TRUE)
+
+
+## typst specific options
+
+if ("typst" %in% knitr::pandoc_to()) {
+  
+  formals(opt_interactive)$active <- FALSE
+
+}

@@ -62,3 +62,23 @@ $endif$
 
 \usepackage{etoolbox}
 \AtBeginEnvironment{quote}{\par\singlespacing\small}
+
+% Pour changer les notes de marge en texte de bas de page
+\usepackage{marginnote}
+\renewcommand{\marginnote}[1]{{#1}}
+
+% spacing de la bibliographie
+ \usepackage{calc}
+  \renewenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+    {\begin{list}{}{%
+          \setlength{\itemindent}{0pt}
+          \setlength{\leftmargin}{0pt}
+          \setlength{\parsep}{0pt}
+          % turn on hanging indent if param 1 is 1
+          \ifodd #1
+          \setlength{\leftmargin}{\cslhangindent}
+          \setlength{\itemindent}{-1\cslhangindent}
+          \fi
+          % set entry spacing
+          \setlength{\itemsep}{0.25\baselineskip}}} % hard-coded itemsep
+    {\end{list}}
