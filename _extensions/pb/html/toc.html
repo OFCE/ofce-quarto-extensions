@@ -1,0 +1,19 @@
+<nav id="$idprefix$TOC" role="doc-toc">
+  <a href="index.html">
+  $if(pb)$ <p class="wp">
+    $if(french)$
+      Policy Brief<br>de l'
+      <img src="_extensions/ofce/wp/ofce_m.png" width = "36" height="18" style="margin:0px -4px">
+      &nbsp;n°$pb$</p>
+    $else$
+      <img src="_extensions/ofce/wp/ofce_m.png" width = "36" height="18" style="margin:0px -4px 0px 0px">
+      &nbsp;Policy Brief<br>
+      n°$pb$</p>
+    $endif$
+  $endif$
+  </a>
+  $if(toc-title)$
+  <h2 id="$idprefix$toc-title">$toc-title$</h2>
+  $endif$
+  $table-of-contents$
+</nav>

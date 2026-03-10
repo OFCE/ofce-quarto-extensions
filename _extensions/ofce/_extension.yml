@@ -89,6 +89,7 @@ contributes:
       title-block-style: default
       template-partials:
         - html/title-metadata.html
+        - html/title-block.html
     pdf:
       documentclass: scrartcl
       toc-depth: 1
