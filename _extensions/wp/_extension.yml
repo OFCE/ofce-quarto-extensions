@@ -69,6 +69,7 @@ contributes:
       appendix-style: default
       appendix-cite-as: [display, bibtex]
       license: CC BY
+      csl: csl/revue-francaise-de-gestion.csl
     html:
       theme:
         - cosmo
@@ -125,8 +126,10 @@ contributes:
       section-numbering: 1.1.a
       toc: false
       callout-icon: false
+      citeproc: true
       papersize: a4
       logo: false
       template-partials:
         - typst/typst-template.typ
         - typst/typst-show.typ
+

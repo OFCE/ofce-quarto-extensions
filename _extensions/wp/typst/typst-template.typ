@@ -18,6 +18,46 @@
   // Font definition
   #let main_title_font = "Open sans"
   #let serif_font = "Open sans"
+  
+  
+  // Callout settings
+  
+#let callout(
+body: [],
+title: "Callout",
+background_color: none,
+icon: none,
+icon_color: none,
+body_background_color: white) = {
+  let _bg = rgb("#fde8ea")
+  let _ic = rgb("#e6142d")
+  let _bbg = white
+  block(
+    breakable: true,
+    fill: _bg,
+    stroke: (paint: _ic, thickness: 0.5pt, cap: "round"),
+    width: 100%,
+    radius: 2pt,
+    block(
+      breakable: true,
+      inset: 1pt,
+      width: 100%,
+      below: 0pt,
+      block(
+        breakable: true,
+        fill: _bg,
+        width: 100%,
+        inset: 8pt)[#if icon != none [#text(_ic, weight: 900)[#icon] ]#title]) +
+      if(body != []){
+        block(
+          breakable: true,
+          inset: 1pt,
+          width: 100%,
+          block(breakable: true, fill: _bbg, width: 100%, inset: 8pt, align(left, body)))
+      }
+    )
+}
+
 
 #let title-page(
   title:[],
@@ -34,10 +74,9 @@
   let marge = 3.5cm
   let ph = 29.7cm // page height for a4
   let pw = 21.0cm // page width for a4
-  let logo_column = 4cm
+  let logo_column = 2cm
   let lc_space = 0.5cm
   let line_x = 0cm + (logo_column - marge) + lc_space*2
-
 
 
 // Author block
@@ -169,12 +208,14 @@ if authors != none {
   )
   //// 4. Abstract
 
-  place(bottom, dx: 2*lc_space + line_x, dy: -1*line_x,
+if abstract != [] {
+ place(bottom, dx: 2*lc_space + line_x, dy: 1*line_x,
   clearance: 4cm,
-    box(fill: grey3, baseline: 100%,width: 13cm,inset: 1em,
-      text(style: "italic",abstract,size: 10pt)
+    box(fill: grey3, baseline: 100%,width: 15cm,inset: 1em,
+      text(style: "italic",abstract,size: 8pt)
       )
     )
+} else {}
 
   //// 5. Internal cover page
   pagebreak()
@@ -302,6 +343,8 @@ if authors != none {
     }
 
   }
+
+
 
   // Page settings (including headers & footers)
   set page(
@@ -465,3 +508,5 @@ v(4cm)
   inset: 6pt,
   stroke: none
 )
+
+

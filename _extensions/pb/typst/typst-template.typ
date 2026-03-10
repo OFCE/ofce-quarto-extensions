@@ -19,6 +19,46 @@
   #let main_title_font = "Open sans"
   #let serif_font = "Open sans"
 
+
+  // Callout settings
+
+#let callout(
+body: [],
+title: "Callout",
+background_color: none,
+icon: none,
+icon_color: none,
+body_background_color: white) = {
+  let _bg = rgb("#fde8ea")
+  let _ic = rgb("#e6142d")
+  let _bbg = white
+  block(
+    breakable: true,
+    fill: _bg,
+    stroke: (paint: _ic, thickness: 0.5pt, cap: "round"),
+    width: 100%,
+    radius: 2pt,
+    block(
+      breakable: true,
+      inset: 1pt,
+      width: 100%,
+      below: 0pt,
+      block(
+        breakable: true,
+        fill: _bg,
+        width: 100%,
+        inset: 8pt)[#if icon != none [#text(_ic, weight: 900)[#icon] ]#title]) +
+      if(body != []){
+        block(
+          breakable: true,
+          inset: 1pt,
+          width: 100%,
+          block(breakable: true, fill: _bbg, width: 100%, inset: 8pt, align(left, body)))
+      }
+    )
+}
+
+
 #let title-page(
   title:[],
   subtitle:[],

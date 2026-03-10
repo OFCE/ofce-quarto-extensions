@@ -12,7 +12,7 @@
       $endif$
     $endfor$
   ),
-  abstract: [$description$],
+  abstract: [$abstract$],
   year: [$annee$],
   number:[$wp$],
 
