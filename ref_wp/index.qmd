@@ -51,8 +51,10 @@ thanks: "Je remercie chaleureusement Elliot Aurissergues, François Geerolf et E
 ---
 
 ```{r, include=FALSE}
+#| eval: true
+#| 
 ofce::init_qmd()
-P6 <- source_data("R/nace.r")$pays1 
+# P6 <- source_data("R/nace.r")$pays1 
 
 options(
   ofce.tabsetize.pdf = "one",

@@ -13,7 +13,7 @@
   #let grey3 =  rgb("#D6D6D6")
   #let scpored = rgb("#e6142d")
   #let scpodarkred = rgb("#770C19")
-  #let colourtype = rgb("#EEC900")
+  #let colourtype = rgb("#E6142D")
 
   // Font definition
   #let main_title_font = "Open sans"
@@ -22,9 +22,11 @@
 #let title-page(
   title:[],
   subtitle:[],
-  authors: none, email:[],
+  authors: none,
+  email:[],
   first_publish: none,
-  abstract: none, year:[],
+  abstract: none,
+  year:[2026],
   number:[],
   language: "fr",
   body) = {
@@ -140,7 +142,7 @@ if authors != none {
         text(fill: colourtype, size: 0.9cm,text(year))
       )
 
-  place(top + right, dx:+1.25cm,dy:-1.5cm, align(horizon,text(fill: gray ,size:2cm,font: serif_font,style:"italic","Blog")))
+  place(top + right, dx:+1.25cm,dy:-1.5cm, align(horizon,text(fill: gray ,size:1cm,font: serif_font,style:"italic","Document de Travail ")))
 
 
   place(bottom + right, dx: 1.5cm,
@@ -178,7 +180,7 @@ if authors != none {
   pagebreak()
   set page(fill: none, margin: auto)
 
-  align(bottom , text("Rédacteurs en chef : Elliot Aurissergues & Paul Malliet") )
+
 
 
 
@@ -285,6 +287,9 @@ if authors != none {
   show link: set text(fill: linkcolor)
   show cite: set text(fill: linkcolor)
 
+ show figure.where(kind: "quarto-float-apptbl"): set block(breakable: true)
+ show figure.where(kind: table): set block(breakable: true)
+
   // Allow custom title for bibliography section
   set bibliography(title: bibliography-title, style: bibliography-style, )
 
@@ -311,7 +316,7 @@ if authors != none {
 
           grid(
           columns: (1fr, 1fr),
-          align(left+ bottom)[#text([Blog OFCE nº #number\ publié le #pretty_date], style: "italic")],
+          align(left+ bottom)[#text([Document de travail #number\ publiée le #pretty_date], style: "italic")],
           align(right + bottom)[#image("/_extensions/ofce/blog/ofce_m.png", width: 1cm) ]
 
           )
