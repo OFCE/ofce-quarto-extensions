@@ -26,6 +26,7 @@ citation:
   url: https://xtimbeau.github.io/travail/
 format:
   wp-typst: default
+  pb-typst: default
   
   wp-pdf: default
   wp-html: default
