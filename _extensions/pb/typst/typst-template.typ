@@ -278,7 +278,8 @@ if abstract != [] {
   // Set link and cite colors
   show link: set text(fill: linkcolor)
   show cite: set text(fill: linkcolor)
-
+ show figure.where(kind: "quarto-float-apptbl"): set block(breakable: true)
+ show figure.where(kind: table): set block(breakable: true)
   // Allow custom title for bibliography section
   set bibliography(title: bibliography-title, style: bibliography-style, )
 
