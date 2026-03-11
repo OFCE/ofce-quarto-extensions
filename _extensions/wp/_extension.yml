@@ -121,7 +121,7 @@ contributes:
         - pdf/toc.tex
         - pdf/biblio.tex
     typst:
-      mainfont: Arial
+      mainfont: Open Sans
       keep-typ: true
       section-numbering: 1.1.a
       toc: false

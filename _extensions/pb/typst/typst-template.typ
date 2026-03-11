@@ -29,9 +29,9 @@ background_color: none,
 icon: none,
 icon_color: none,
 body_background_color: white) = {
-  let _bg = rgb("#fde8ea")
-  let _ic = rgb("#e6142d")
-  let _bbg = white
+  let _bg = rgb("#faf0f3")
+  let _ic = rgb("#faf0f3")
+  let _bbg =  rgb("#faf0f3")
   block(
     breakable: true,
     fill: _bg,
@@ -135,11 +135,11 @@ if authors != none {
   /////// 1. logo position and line
 
   place(top + left, dx: -marge+lc_space,dy:-2cm,
-        image("/_extensions/ofce/blog/ofce_m.png", width: logo_column)
+        image("/_extensions/ofce/pb/ofce_m.png", width: logo_column)
         )
 
   place(bottom + left, dx: -marge+lc_space,dy: 2cm,
-        image("/_extensions/ofce/blog/sciencespo.png", width: logo_column)
+        image("/_extensions/ofce/pb/sciencespo.png", width: logo_column)
       )
   place(left,
         line(start: (line_x, 0cm), end: (line_x,  ph - 2*marge),
@@ -347,7 +347,7 @@ if abstract != [] {
           grid(
           columns: (1fr, 1fr),
           align(left+ bottom)[#text([Publié le #pretty_date], style: "italic")],
-          align(right + bottom)[#image("/_extensions/ofce/blog/ofce_m.png", width: 1cm) ]
+          align(right + bottom)[#image("/_extensions/ofce/pb/ofce_m.png", width: 1cm) ]
 
           )
 
@@ -359,14 +359,14 @@ if abstract != [] {
             grid(
             columns: (1fr, 1fr),
             align(left + bottom)[#counter(page).display()],
-            align(right + bottom)[#image("/_extensions/ofce/blog/ofce_m.png", width: 1cm) ]
+            align(right + bottom)[#image("/_extensions/ofce/pb/ofce_m.png", width: 1cm) ]
 
           )
 
           } else {
           grid(
             columns: (1fr, 1fr),
-            align(left)[#image("/_extensions/ofce/blog/ofce_m.png", width: 1cm) ],
+            align(left)[#image("/_extensions/ofce/pb/ofce_m.png", width: 1cm) ],
             align(right)[#counter(page).display()]
           )
 
