@@ -60,6 +60,8 @@ if FORMAT:match 'html' or FORMAT:match 'html5' then
             end
         }
     }
+elseif FORMAT:match 'latex' or FORMAT:match 'pdf' then
+    return {}
 else
     return {
         {
@@ -70,4 +72,3 @@ else
         }
     }
 end
-
