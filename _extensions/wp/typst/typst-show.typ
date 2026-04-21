@@ -12,8 +12,8 @@
       $endif$
     $endfor$
   ),
-  abstract: [$abstract$],
-  year: [$annee$],
+  abstract: [$description$],
+  year: [2024],
   number:[$wp$],
 
 $if(date)$

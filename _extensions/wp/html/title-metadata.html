@@ -1,17 +1,27 @@
+$if(categories)$
+  <div class="cat-box">
+    <div class="quarto-categories onec">
+    $for(categories)$
+      <div class="quarto-category">$categories$</div>
+    $endfor$
+    </div>
+  </div>
+$endif$
+
 $if(author)$
   <details class="details-box">
-    <summary class ="quarto-title-meta-heading"><b>Autrices, auteurs & résumé</b></summary>
-  
+    <summary class ="quarto-title-meta-heading"><b>$authors-title$</b></summary>
+
     $if(by-affiliation/first)$
     <div class="quarto-title-meta-author">
       <div class="quarto-title-meta-heading">$labels.authors$</div>
       <div class="quarto-title-meta-heading">$labels.affiliations$</div>
-    
+
       $for(by-author)$
       <div class="quarto-title-meta-contents">
         <span class="author">$_title-meta-author.html()$</span>
       </div>
-      
+
       $if(by-author.affiliations)$
       <div class="quarto-title-meta-contents">
         $for(by-author.affiliations)$
@@ -30,7 +40,7 @@ $if(author)$
       $endfor$
     </div>
     $endif$
-    
+
     $if(by-affiliation)$
       $elseif(by-author)$
       <div class="abstract">
@@ -42,7 +52,7 @@ $if(author)$
         </div>
       </div>
       $endif$
-      
+
     <div class="quarto-title-meta">
       $if(date)$
       <div>
@@ -52,7 +62,7 @@ $if(author)$
         </div>
       </div>
       $endif$
-    
+
       $if(date-modified)$
       <div>
         <div class="quarto-title-meta-heading">$labels.modified$</div>
@@ -61,7 +71,7 @@ $if(author)$
         </div>
       </div>
       $endif$
-    
+
       $if(doi)$
       <div>
         <div class="quarto-title-meta-heading">$labels.doi$</div>
@@ -72,7 +82,7 @@ $if(author)$
         </div>
       </div>
       $endif$
-    
+
       $if(draft)$
       <div>
         <div class="quarto-title-meta-heading">Status</div>
@@ -81,7 +91,7 @@ $if(author)$
           </div>
       </div>
       $endif$
-    
+
       $if(published)$
       <div>
         <div class="quarto-title-meta-heading">Status</div>
@@ -90,7 +100,7 @@ $if(author)$
         </div>
       </div>
       $endif$
-      
+
       $if(keywords)$
       <div>
         <div class="keywords">
@@ -99,24 +109,24 @@ $if(author)$
         </div>
       </div>
       $endif$
-      <div class="quarto-categories onec">
-        $if(abstract)$
-        <div>
-          <div class="abstract">
-            <div class="quarto-title-meta-heading onec">$abstract-title$</div>  
+    </div>
+
+    $if(abstract)$
+      <div>
+        <div class="abstract">
+            <div class="quarto-title-meta-heading">$abstract-title$</div>
             $abstract$
           </div>
         </div>
-        $endif$
+    $endif$
 
-        $if(thanks)$
-        <div class="quarto-title">
-          <div class="abstract">
-            <div class="quarto-title-meta-heading">$thanks-title$</div>
-            <em>$thanks$</em>
-          </div>
+    $if(thanks)$
+      <div class="quarto-title">
+        <div class="abstract">
+          <div class="quarto-title-meta-heading">$thanks-title$</div>
+          <em>$thanks$</em>
         </div>
-        $endif$
       </div>
+    $endif$
   </details>
 $endif$

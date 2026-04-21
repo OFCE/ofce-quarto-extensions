@@ -121,15 +121,12 @@ contributes:
         - pdf/toc.tex
         - pdf/biblio.tex
     typst:
-      mainfont: Open Sans
+      mainfont: Arial
       keep-typ: true
-      section-numbering: 1.1.a
       toc: false
       callout-icon: false
-      citeproc: true
       papersize: a4
       logo: false
       template-partials:
         - typst/typst-template.typ
         - typst/typst-show.typ
-

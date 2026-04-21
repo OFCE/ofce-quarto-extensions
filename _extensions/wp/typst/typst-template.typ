@@ -13,60 +13,18 @@
   #let grey3 =  rgb("#D6D6D6")
   #let scpored = rgb("#e6142d")
   #let scpodarkred = rgb("#770C19")
-  #let colourtype = rgb("#E6142D")
+  #let colourtype = rgb("#EEC900")
 
   // Font definition
   #let main_title_font = "Open sans"
   #let serif_font = "Open sans"
-  
-  
-  // Callout settings
-  
-#let callout(
-body: [],
-title: "Callout",
-background_color: none,
-icon: none,
-icon_color: none,
-body_background_color: white) = {
-  let _bg = rgb("#faf0f3")
-  let _ic = rgb("#faf0f3")
-  let _bbg =  rgb("#faf0f3")
-  block(
-    breakable: true,
-    fill: _bg,
-    stroke: (paint: _ic, thickness: 0.5pt, cap: "round"),
-    width: 100%,
-    radius: 2pt,
-    block(
-      breakable: true,
-      inset: 1pt,
-      width: 100%,
-      below: 0pt,
-      block(
-        breakable: true,
-        fill: _bg,
-        width: 100%,
-        inset: 8pt)[#if icon != none [#text(_ic, weight: 900)[#icon] ]#title]) +
-      if(body != []){
-        block(
-          breakable: true,
-          inset: 1pt,
-          width: 100%,
-          block(breakable: true, fill: _bbg, width: 100%, inset: 8pt, align(left, body)))
-      }
-    )
-}
-
 
 #let title-page(
   title:[],
   subtitle:[],
-  authors: none,
-  email:[],
+  authors: none, email:[],
   first_publish: none,
-  abstract: none,
-  year:[2026],
+  abstract: none, year:[],
   number:[],
   language: "fr",
   body) = {
@@ -74,9 +32,10 @@ body_background_color: white) = {
   let marge = 3.5cm
   let ph = 29.7cm // page height for a4
   let pw = 21.0cm // page width for a4
-  let logo_column = 2cm
+  let logo_column = 4cm
   let lc_space = 0.5cm
   let line_x = 0cm + (logo_column - marge) + lc_space*2
+
 
 
 // Author block
@@ -126,7 +85,7 @@ if authors != none {
 
     // Page formatting
 
-  set page(margin: (top: marge, rest: marge), numbering: none)
+  set page(margin: (top: marge, rest: marge))
 
   set text(font: main_title_font, size: 14pt)
   set heading(numbering: "1.1.1")
@@ -136,11 +95,11 @@ if authors != none {
   /////// 1. logo position and line
 
   place(top + left, dx: -marge+lc_space,dy:-2cm,
-        image("/_extensions/ofce/wp/ofce_m.png", width: logo_column)
+        image("/_extensions/ofce/blog/ofce_m.png", width: logo_column)
         )
 
   place(bottom + left, dx: -marge+lc_space,dy: 2cm,
-        image("/_extensions/ofce/wp/sciencespo.png", width: logo_column)
+        image("/_extensions/ofce/blog/sciencespo.png", width: logo_column)
       )
   place(left,
         line(start: (line_x, 0cm), end: (line_x,  ph - 2*marge),
@@ -181,7 +140,7 @@ if authors != none {
         text(fill: colourtype, size: 0.9cm,text(year))
       )
 
-  place(top + right, dx:+1.25cm,dy:-1.5cm, align(horizon,text(fill: gray ,size:1cm,font: serif_font,style:"italic","Document de Travail ")))
+  place(top + right, dx:+1.25cm,dy:-1.5cm, align(horizon,text(fill: gray ,size:2cm,font: serif_font,style:"italic","Blog")))
 
 
   place(bottom + right, dx: 1.5cm,
@@ -208,20 +167,18 @@ if authors != none {
   )
   //// 4. Abstract
 
-if abstract != [] {
- place(bottom, dx: 2*lc_space + line_x, dy: 1*line_x,
+  place(bottom, dx: 2*lc_space + line_x, dy: -1*line_x,
   clearance: 4cm,
-    box(fill: grey3, baseline: 100%,width: 15cm,inset: 1em,
-      text(style: "italic",abstract,size: 8pt)
+    box(fill: grey3, baseline: 100%,width: 13cm,inset: 1em,
+      text(style: "italic",abstract,size: 10pt)
       )
     )
-} else {}
 
   //// 5. Internal cover page
   pagebreak()
   set page(fill: none, margin: auto)
 
-
+  align(bottom , text("Rédacteurs en chef : Elliot Aurissergues & Paul Malliet") )
 
 
 
@@ -328,9 +285,6 @@ if abstract != [] {
   show link: set text(fill: linkcolor)
   show cite: set text(fill: linkcolor)
 
- show figure.where(kind: "quarto-float-apptbl"): set block(breakable: true)
- show figure.where(kind: table): set block(breakable: true)
-
   // Allow custom title for bibliography section
   set bibliography(title: bibliography-title, style: bibliography-style, )
 
@@ -343,8 +297,6 @@ if abstract != [] {
     }
 
   }
-
-
 
   // Page settings (including headers & footers)
   set page(
@@ -359,8 +311,8 @@ if abstract != [] {
 
           grid(
           columns: (1fr, 1fr),
-          align(left+ bottom)[#text([Document de travail #number\ publiée le #pretty_date], style: "italic")],
-          align(right + bottom)[#image("/_extensions/ofce/wp/ofce_m.png", width: 1cm) ]
+          align(left+ bottom)[#text([Blog OFCE nº #number\ publié le #pretty_date], style: "italic")],
+          align(right + bottom)[#image("/_extensions/ofce/blog/ofce_m.png", width: 1cm) ]
 
           )
 
@@ -372,14 +324,14 @@ if abstract != [] {
             grid(
             columns: (1fr, 1fr),
             align(left + bottom)[#counter(page).display()],
-            align(right + bottom)[#image("/_extensions/ofce/wp/ofce_m.png", width: 1cm) ]
+            align(right + bottom)[#image("/_extensions/ofce/blog/ofce_m.png", width: 1cm) ]
 
           )
 
           } else {
           grid(
             columns: (1fr, 1fr),
-            align(left)[#image("/_extensions/ofce/wp/ofce_m.png", width: 1cm) ],
+            align(left)[#image("/_extensions/ofce/blog/ofce_m.png", width: 1cm) ],
             align(right)[#counter(page).display()]
           )
 
@@ -508,5 +460,3 @@ v(4cm)
   inset: 6pt,
   stroke: none
 )
-
-
