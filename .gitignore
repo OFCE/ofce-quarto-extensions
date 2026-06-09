@@ -59,3 +59,6 @@ test_typst.typ
 ref_wp/*
 .sourcoise*
 /test_note_files
+test_note.typ
+test_note.pdf
+test_note.html
