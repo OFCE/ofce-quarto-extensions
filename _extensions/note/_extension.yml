@@ -61,23 +61,24 @@ contributes:
     html:
       theme:
         - cosmo
-        - html_template/note.scss
+        - html_template/ofce.scss
       mainfont: Open Sans
       toc-location: left
+      toc-title: Sur cette page
       number-sections: true
       number-depth: 3
-      fig-dpi: 600
+      fig-dpi: 1200
       fig-format: png
       fig-width: 6
       reference-location: margin
-      logo: ofce_m.png
+      logo: logos/ofce_m.png
       callout-icon: false
       lightbox: true
+      link-external-icon: true
       title-block-style: default
       template-partials:
-        - html_template/title-block.html
         - html_template/title-metadata.html
-        - html_template/toc.html
+        - html_template/title-block.html
     pdf:
       documentclass: scrreprt
       toc-depth: 1
@@ -100,4 +101,15 @@ contributes:
       template-partials:
         - pdf_template/title.tex
         - pdf_template/before-body.tex
-    typst: default
+    typst:
+      mainfont: Open Sans
+      keep-typ: true
+      toc: false
+      callout-icon: false
+      papersize: a4
+      logo: false
+      number-sections: true
+      section-numbering: "1.1.1"
+      template-partials:
+        - typst/typst-template.typ
+        - typst/typst-show.typ

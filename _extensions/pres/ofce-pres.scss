@@ -59,9 +59,33 @@ $callout-border-width: 1px;
   letter-spacing: 10px;
 }
 
-.reveal .slide blockquote {
-  border-left: 3px solid $text-muted;
-  padding-left: 0.5em;
+// Blockquotes
+.reveal blockquote {
+  color: var(--bs-body-color);
+  border: none;
+  font-size: 2rem;
+  line-height: 140%;
+  margin: 0em 0 1em 1em;
+  padding: 0;
+
+  > p::before {
+    display: inline;
+    font-family: FontAwesome;
+    font-weight: 900;
+    content: "\f10d";
+    letter-spacing: 10px;
+    color: $darkgrey;
+  }
+
+  > p::after {
+    display: inline-block;
+    font-family: FontAwesome;
+    font-weight: 900;
+    content: "\f10e";
+    margin-left: 6px;
+    letter-spacing: 10px;
+    color: $darkgrey;
+  }
 }
 
 .reveal .footer.footer-default {

@@ -26,7 +26,7 @@ $endif$
   BoldFont = {*-Bold},
   BoldItalicFont = {*-BoldItalic},
   ItalicFont = {*-Italic},
-  Path = {_extensions/ofce/pb/OpenSans/},
+  Path = {_extensions/ofce/blog_site/OpenSans/},
   Extension = {.ttf}
 ]
 \setsansfont{OpenSans}[
@@ -34,7 +34,7 @@ $endif$
   BoldFont = {*-Bold},
   BoldItalicFont = {*-BoldItalic},
   ItalicFont = {*-Italic},
-  Path = {_extensions/ofce/pb/OpenSans/},
+  Path = {_extensions/ofce/blog_site/OpenSans/},
   Extension = {.ttf}
 ]
 
@@ -55,12 +55,8 @@ $endif$
 \pagestyle{scrheadings}
 \setkomafont{pageheadfoot}{\small}
 
-\rehead{}
+\rehead{Billet de Blog - $date$}
 \lohead{\includegraphics[height=0.25cm]{$logo$}}
 
 \lofoot*{\thepage}
 \refoot*{\thepage}
-
-% Pour changer les notes de marge en texte de bas de page
-\usepackage{marginnote}
-\renewcommand{\marginnote}[1]{{#1}}
