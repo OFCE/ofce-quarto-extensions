@@ -149,13 +149,13 @@ if authors != none {
 
 
 
-  place(dx: 2cm,dy: 4cm,
+  place(dx: 2cm,dy: 3.5cm,
     box(width: 13cm,
       align(horizon + left)[
         #text(size: 24pt, title, fill:  scpored,weight: "bold" )
         #v(1em)
         #text(subtitle,fill: grey1)
-        #v(2em)
+
 
         #authorblock()
 

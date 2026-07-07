@@ -1,13 +1,14 @@
-title: Format html OFCE
+title: Format OFCE
 author: Anissa Saumtally et Xavier Timbeau
-version: 0.2.10
-quarto-required: ">=1.8.26"
+version: 0.2.0
+quarto-required: ">=1.4.300"
 contributes:
   formats:
     common:
       toc: true
       lang: fr
       french: true
+      authors-title: "Autrices, auteurs & résumé"
       language:
         fr:
           section-title-references: "Bibliograhie"
@@ -16,101 +17,88 @@ contributes:
           title-block-published: "Publié le"
           title-block-modified: "Modifié le"
           toc-title: "Sur cette page"
-          crossref-fig-prefix: graphique
-          crossref-tbl-prefix: tableau
-          crossref-eq-prefix: équation
-          crossref-sec-prefix: section
-          crossref-tip-prefix: encadré
-          crossref-fig-title: "Graphique"
-          callout-tip-title: "Encadré"
-          crossref-title-delim: "."
-          crossref-tbl-title: "Tableau"
-          crossref-lof-title: Graphiques
-          crossref-lot-title: Tableaux
-          other-links-title: Contenus liés
         en:
-          section-title-references: "Bibliograhy"
+          section-title-references: "Bibilography"
           title-block-author-single: "Author"
           title-block-author-plural: "Authors"
           title-block-published: "Published on"
           title-block-modified: "Modified on"
-          toc-title: "On this page"
-          crossref-fig-prefix: graphic
-          crossref-tbl-prefix: table
-          crossref-eq-prefix: equation
-          crossref-sec-prefix: section
-          crossref-tip-prefix: box
-          crossref-fig-title: "Graphic"
+          launch-dev-container-title: "OFCE working paper"
           callout-tip-title: "Box"
-          crossref-title-delim: "."
-          crossref-tbl-title: "Table"
-          crossref-lof-title: Graphics
-          crossref-lot-title: Tables
-          other-links-title: Related contents
-      authors-title: "Autrices, auteurs & résumé"
-      ig-asp: 0.61
+          toc-title: "On this page"
+      fig-asp: 0.61
       cap-location: top
       crossref:
         chapters: false
+        fig-prefix: graphique
+        tbl-prefix: tableau
+        eq-prefix: équation
+        sec-prefix: section
+        tip-prefix: encadré
+        fig-title: "**Graphique**"
+        tip-title: "**Encadré**"
+        title-delim: "**.**"
+        tbl-title: "**Tableau**"
+        lof-title: Graphiques
+        lot-title: Tableaux
       logo: ofce.png
       filters:
-        - wordcount
         - nameref
         - fr-nbsp
-       # - custom-numbered-blocks
         - quotes
-        - search-replace
         - collapse-callout
       collapse-callout:
         tip: true
       shortcodes:
         - fontawesome
         - downloadthis
-      search-replace:
-        oe : "\u0153"
-        ae : "\u00e6"
       csl: csl/revue-francaise-de-gestion.csl
     html:
       theme:
-        - cosmo
+        - bootstrap
+        - ../../ofce-website/sass/default.scss
+        - ../../ofce-website/sass/rules.scss
         - ofce.scss
       mainfont: Open Sans
       toc-location: left
       toc-title: Sur cette page
       number-sections: true
       number-depth: 3
+      html-math-method: katex
       fig-dpi: 1200
-      fig-format: png
+      fig-format: svg
       reference-location: margin
       logo: ofce_m.png
       callout-icon: false
       lightbox: true
-      link-external-icon: true
       title-block-style: default
       template-partials:
-        - html/title-metadata.html
-        - html/title-block.html
+        - html_template/title-metadata.html
+        - html_template/title-block.html
+      include-in-header:
+        - blog-nav-active.html
+      include-after-body:
+        - encadre.js
+
     pdf:
       documentclass: scrartcl
       toc-depth: 1
       pdffont: OpenSans
-      date-format: "D MMMM YYYY"
       number-sections: true
       number-depth: 3
       classoption:
         - DIV=11
-      callout-icon: false
       papersize: a4
       fontsize: 9pt
       extra_dependencies: ["float"]
       fig-dpi: 1200
       fig-width: 5
-      fig-format: png
+      fig-format: svg
       logo: ofce_m.png
       logo2: sciencespo.png
       template-partials:
-        - pdf/title.tex
-        - pdf/before-body.tex
+        - pdf_template/title.tex
+        - pdf_template/before-body.tex
     dashboard:
       theme:
         - cosmo
