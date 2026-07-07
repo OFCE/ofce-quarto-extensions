@@ -101,7 +101,17 @@ $if(author)$
       </div>
       $endif$
 
+<!--
+    $if(keywords)$
+      <div>
+        <div class="keywords">
+          <div class="quarto-title-meta-heading">$labels.keywords$</div>
+          <p>$for(keywords)$$it$$sep$, $endfor$</p>
+        </div>
+      </div>
+      $endif$
     </div>
+-->
 
     $if(abstract)$
       <div>

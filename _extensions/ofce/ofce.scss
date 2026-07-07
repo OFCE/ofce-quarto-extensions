@@ -430,16 +430,12 @@ a {
   height: 1.9em;
 }
 
-.sidebar-logo {
-  height: 24px;
-}
-
 .no-row-height.column-margin.column-container {
   margin-top: 0.25em !important;
 }
 
-.sidebar-logo {
-    height: 18px;
+.sidebar-logo img {
+    height: 18px !important;
     padding-bottom: .5rem
 }
 

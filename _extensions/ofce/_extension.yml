@@ -74,7 +74,6 @@ contributes:
       title-block-style: default
       template-partials:
         - html_template/title-metadata.html
-        - html_template/title-block.html
       include-in-header:
         - blog-nav-active.html
       include-after-body:
