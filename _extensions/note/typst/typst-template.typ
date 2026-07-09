@@ -56,7 +56,9 @@
   // Link / cite colours
   show link: set text(fill: linkcolor)
   show cite: set text(fill: linkcolor)
-
+ show figure.where(kind: "quarto-float-apptbl"): set block(breakable: true)
+ show figure.where(kind: table): set block(breakable: true)
+ 
   set bibliography(title: bibliography-title, style: bibliography-style)
 
   // Page settings — header alternates page numbers on subsequent pages
