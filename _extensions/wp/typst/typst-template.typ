@@ -95,11 +95,11 @@ if authors != none {
   /////// 1. logo position and line
 
   place(top + left, dx: -marge+lc_space,dy:-2cm,
-        image("/_extensions/ofce/blog/ofce_m.png", width: logo_column)
+        image("/_extensions/ofce/wp/ofce_m.png", width: logo_column)
         )
 
   place(bottom + left, dx: -marge+lc_space,dy: 2cm,
-        image("/_extensions/ofce/blog/sciencespo.png", width: logo_column)
+        image("/_extensions/ofce/wp/sciencespo.png", width: logo_column)
       )
   place(left,
         line(start: (line_x, 0cm), end: (line_x,  ph - 2*marge),
@@ -140,7 +140,7 @@ if authors != none {
         text(fill: colourtype, size: 0.9cm,text(year))
       )
 
-  place(top + right, dx:+1.25cm,dy:-1.5cm, align(horizon,text(fill: gray ,size:2cm,font: serif_font,style:"italic","Blog")))
+  place(top + right, dx:+1.25cm,dy:-1.5cm, align(horizon,text(fill: gray ,size:2cm,font: serif_font,style:"italic","Document de travail")))
 
 
   place(bottom + right, dx: 1.5cm,
@@ -311,8 +311,8 @@ if authors != none {
 
           grid(
           columns: (1fr, 1fr),
-          align(left+ bottom)[#text([Blog OFCE nº #number\ publié le #pretty_date], style: "italic")],
-          align(right + bottom)[#image("/_extensions/ofce/blog/ofce_m.png", width: 1cm) ]
+          align(left+ bottom)[#text([Document de travail OFCE nº #number\ publié le #pretty_date], style: "italic")],
+          align(right + bottom)[#image("/_extensions/ofce/wp/ofce_m.png", width: 1cm) ]
 
           )
 
@@ -324,14 +324,14 @@ if authors != none {
             grid(
             columns: (1fr, 1fr),
             align(left + bottom)[#counter(page).display()],
-            align(right + bottom)[#image("/_extensions/ofce/blog/ofce_m.png", width: 1cm) ]
+            align(right + bottom)[#image("/_extensions/ofce/wp/ofce_m.png", width: 1cm) ]
 
           )
 
           } else {
           grid(
             columns: (1fr, 1fr),
-            align(left)[#image("/_extensions/ofce/blog/ofce_m.png", width: 1cm) ],
+            align(left)[#image("/_extensions/ofce/wp/ofce_m.png", width: 1cm) ],
             align(right)[#counter(page).display()]
           )
 
