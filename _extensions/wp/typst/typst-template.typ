@@ -178,7 +178,7 @@ if authors != none {
   pagebreak()
   set page(fill: none, margin: auto)
 
-  align(bottom , text("Rédacteurs en chef : Elliot Aurissergues & Paul Malliet") )
+
 
 
 
