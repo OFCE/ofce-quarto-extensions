@@ -125,6 +125,8 @@ contributes:
       keep-typ: true
       toc: false
       callout-icon: false
+      section-numbering: 1.1.a
+      citeproc: true
       papersize: a4
       logo: false
       template-partials:
