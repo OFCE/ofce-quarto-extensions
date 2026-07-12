@@ -1,6 +1,6 @@
 title: Format OFCE
 author: Anissa Saumtally et Xavier Timbeau
-version: 0.3.0
+version: 0.4.0
 quarto-required: ">=1.9.38"
 contributes:
   formats:
@@ -9,3 +9,7 @@ contributes:
         - html_template/title-metadata.html
       include-after-body:
         - encadre.js
+    share-pdf:
+      template-partials:
+        - pdf_template/title.tex
+        - pdf_template/before-body.tex

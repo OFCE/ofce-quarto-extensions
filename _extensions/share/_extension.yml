@@ -58,7 +58,11 @@ contributes:
         - bootstrap
         - sass/default.scss
         - sass/rules.scss
-        # - ofce.scss
+        - ofce.scss
+      include-in-header: 
+        - url-nav-active.html
+      lightbox: true
+      link-external-icon: true
       mainfont: Open Sans
       toc-location: left
       toc-title: Sur cette page
@@ -68,10 +72,12 @@ contributes:
       fig-dpi: 1200
       fig-format: svg
       reference-location: margin
+      fig-width: 6
+      callout-icon: false
       logo: ofce_m.png
       callout-icon: false
-      lightbox: true
       title-block-style: default
+      image-lazy-loading: true
 
     pdf:
       documentclass: scrartcl
@@ -89,6 +95,3 @@ contributes:
       fig-format: svg
       logo: ofce_m.png
       logo2: sciencespo.png
-      template-partials:
-        - pdf_template/title.tex
-        - pdf_template/before-body.tex
