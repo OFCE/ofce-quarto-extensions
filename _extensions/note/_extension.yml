@@ -1,7 +1,7 @@
 title: Format note OFCE
 author: Paul Malliet & Xavier Timbeau
-version: 0.2.2
-quarto-required: ">=1.8.26"
+version: 0.3.0
+quarto-required: ">=1.9.38"
 contributes:
   formats:
     common:
@@ -60,8 +60,10 @@ contributes:
         - downloadthis
     html:
       theme:
-        - cosmo
-        - html_template/ofce.scss
+        - bootstrap
+        - ../ofce-website/sass/default.scss
+        - ../ofce-website/sass/rules.scss
+        - ../html_template/ofce.scss
       mainfont: Open Sans
       toc-location: left
       toc-title: Sur cette page

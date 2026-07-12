@@ -1,7 +1,7 @@
 title: Format OFCE
 author: Anissa Saumtally et Xavier Timbeau
-version: 0.2.0
-quarto-required: ">=1.4.300"
+version: 0.3.0
+quarto-required: ">=1.9.38"
 contributes:
   formats:
     common:
@@ -56,8 +56,8 @@ contributes:
     html:
       theme:
         - bootstrap
-        - ../../ofce-website/sass/default.scss
-        - ../../ofce-website/sass/rules.scss
+        - ../ofce-website/sass/default.scss
+        - ../ofce-website/sass/rules.scss
         - ofce.scss
       mainfont: Open Sans
       toc-location: left

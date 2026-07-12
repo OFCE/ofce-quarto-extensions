@@ -65,7 +65,9 @@ contributes:
       logo: ofce_m.png
     html:
       theme:
-        - cosmo
+        - bootstrap
+        - ../ofce-website/sass/default.scss
+        - ../ofce-website/sass/rules.scss
         - blog.scss
       mainfont: Open Sans
       number-sections: false
