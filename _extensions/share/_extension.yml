@@ -75,7 +75,6 @@ contributes:
       fig-width: 6
       callout-icon: false
       logo: ofce_m.png
-      callout-icon: false
       title-block-style: default
       image-lazy-loading: true
 
