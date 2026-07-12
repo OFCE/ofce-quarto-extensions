@@ -1,7 +1,7 @@
 title: Format OFCE pour le graphique de la semaine
 author: Paul Malliet, Anissa Saumtally, Xavier Timbeau
 version: 0.5.0
-quarto-required: ">=1.9.36.26"
+quarto-required: ">=1.9.36"
 contributes:
   formats:
     common:
