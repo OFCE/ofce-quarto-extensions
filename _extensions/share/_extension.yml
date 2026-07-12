@@ -58,7 +58,7 @@ contributes:
         - bootstrap
         - sass/default.scss
         - sass/rules.scss
-        - ofce.scss
+        # - ofce.scss
       mainfont: Open Sans
       toc-location: left
       toc-title: Sur cette page
