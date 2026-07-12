@@ -61,8 +61,8 @@ contributes:
     html:
       theme:
         - bootstrap
-        - ../ofce-website/sass/default.scss
-        - ../ofce-website/sass/rules.scss
+        - /_extensions/ofce-website/sass/default.scss
+        - /_extensions/ofce-website/sass/rules.scss
         - ../html_template/ofce.scss
       mainfont: Open Sans
       toc-location: left

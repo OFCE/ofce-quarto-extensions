@@ -15,11 +15,7 @@
   abstract: [$description$],
   year: [2024],
   number:[$wp$],
-
-$if(date)$
-  first_publish: [$date$],
-$endif$
-
+  first_publish:[$date$],
 $if(lang)$
   language: "$lang$",
 $endif$

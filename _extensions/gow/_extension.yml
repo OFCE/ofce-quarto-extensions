@@ -63,13 +63,16 @@ contributes:
         - fontawesome
       collapse-callout:
         tip: true
-      logo: ofce_m.png
+      logo: img/ofce_m.png
     html:
-      theme:
-        - cosmo
-        - gow.scss
+      theme: 
+        - bootstrap
+        - ../ofce-website/sass/default.scss
+        - ../ofce-website/sass/rules.scss
+        - ofce.scss
       mainfont: Open Sans
       number-sections: false
+      html-math-method: katex
       fig-dpi: 600
       fig-format: svg
       reference-location: margin
@@ -80,12 +83,15 @@ contributes:
       template-partials:
         - html/title-block.html
         - html/title-metadata.html
+      include-in-header: 
+        # - ../ofce-website/analytics.html
+        - blog-nav-active.html
       filters:
         - voir-aussi.lua
     typst:
       fig-dpi: 600
       fig-format: svg
-      mainfont: Open sans
+      mainfont: Helvetica Neue
       keep-typ: false
       toc: false
       callout-icon: false

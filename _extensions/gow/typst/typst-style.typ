@@ -8,7 +8,4 @@
   #let scpodarkred = rgb("#770C19")
   #let colourtype = rgb("#EEC900")
 
-  // Font definition
-  #let main_title_font = "Helvetica"
-  #let serif_font = "Palatino"
 

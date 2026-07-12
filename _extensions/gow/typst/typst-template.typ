@@ -10,9 +10,9 @@
 #let scpodarkred = rgb("#770C19")
 #let colourtype = rgb("#DB2E43")
 
-// Font definition
-#let main_title_font = "Open sans"
-#let serif_font = "Open sans"
+  // Font definition
+  #let main_title_font = ("Open Sans", "Helvetica Neue", "Arial")
+  #let serif_font = ("Open Sans", "Helvetica Neue", "Arial")
 
 #let single-page-blog(
   title: [],
@@ -24,7 +24,7 @@
   year: [],
   number: none,
   language: "fr",
-  font: ("Times", "Times New Roman", "Arial"),
+  font: ("Helvetica Neue", "Arial"),
   fontsize: 11pt,
   linkcolor: rgb(0, 0, 0),
   linky: none,
@@ -123,10 +123,10 @@ let myCustomBlock = extract-div(doc, "myCustomBlock")
   
   
   place(top + left, dx: 0cm,dy: 0cm,
-        image("/_extensions/ofce/blog/ofce_m.png", width: 2cm)
+        image("/_extensions/ofce-gow/img/ofce_m.png", width: 2cm)
         )
   place(top + left, dx: 0cm,dy: 0.75cm,
-        image("/_extensions/ofce/blog/sciencespo.png", width: 2cm)
+        image("/_extensions/ofce-gow/img/sciencespo.png", width: 2cm)
         )
       
   place(top+right ,dy:-0cm,dx: marge ,

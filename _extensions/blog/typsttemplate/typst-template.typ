@@ -16,18 +16,13 @@
   #let colourtype = rgb("#EEC900")
 
   // Font definition
-  #let main_title_font = "Open sans"
-  #let serif_font = "Open sans"
+  #let main_title_font = ("Helvetica Neue", "Arial")
+  #let serif_font = ("Helvetica Neue", "Arial")
 
-#let title-page(
-  title:[],
-  subtitle:[],
-  authors: none, email:[],
-  first_publish: none,
-  abstract: none, year:[],
-  number:[],
-  language: "fr",
-  body) = {
+#let title-page(title:[],subtitle:[], authors: none, email:[], first_publish: datetime.today(),
+abstract: none, year:[],
+number:[], language: "fr",
+body) = {
 
   let marge = 3.5cm
   let ph = 29.7cm // page height for a4
@@ -63,27 +58,31 @@ if authors != none {
 
   // Date formatting
 
+  let main_date = none
 
+  if first_publish != none {
 
-  let main_date = if first_publish != none {
-  first_publish.text
-  } else {
-  none }
-
-
- let pretty_date =   if main_date != none {
-
-    let date_decomp = main_date.split("-")
-    let year_fp = int(date_decomp.at(0))
-    let month_fp = int(date_decomp.at(1))
-    let day_fp = int(date_decomp.at(2))
-    let date_formatted = datetime(year: year_fp, month: month_fp, day: day_fp)
-
-    fmt-date(date_formatted, length: "long", locale: language)
+   let main_date = first_publish.text
 
   }
 
-    // Page formatting
+  let pretty_date = none
+
+  if main_date != none {
+
+    let date_decomp = main_date.split("-")
+
+    let year_fp = int(date_decomp.at(0))
+    let month_fp = int(date_decomp.at(1))
+    let day_fp = int(date_decomp.at(2))
+
+    let date_formatted = datetime(year: year_fp, month: month_fp, day: day_fp)
+
+    let pretty_date = fmt-date(date_formatted, length: "long", locale: language)
+
+  }
+
+
 
   set page(margin: (top: marge, rest: marge))
 
@@ -95,11 +94,11 @@ if authors != none {
   /////// 1. logo position and line
 
   place(top + left, dx: -marge+lc_space,dy:-2cm,
-        image("/_extensions/ofce/blog/ofce_m.png", width: logo_column)
+        image("/_extensions/ofce-blog/img/ofce_m.png", width: logo_column)
         )
 
   place(bottom + left, dx: -marge+lc_space,dy: 2cm,
-        image("/_extensions/ofce/blog/sciencespo.png", width: logo_column)
+        image("/_extensions/ofce-blog/img/sciencespo.png", width: logo_column)
       )
   place(left,
         line(start: (line_x, 0cm), end: (line_x,  ph - 2*marge),
@@ -255,30 +254,33 @@ if authors != none {
   let colourtype = rgb("#EEC900")
 
   // Font definition
-  let main_title_font = "Open sans"
-  let serif_font = "Open sans"
+  let main_title_font = ("Helvetica Neue", "Arial")
+  let serif_font = ("Helvetica Neue", "Arial")
 
 
-  // Date formatting
+let main_date = none
 
-    let main_date = if first_publish != none {
-  first_publish.text
-  } else {
-  none }
+  if first_publish != none {
 
-
- let pretty_date =   if main_date != none {
-
-    let date_decomp = main_date.split("-")
-    let year_fp = int(date_decomp.at(0))
-    let month_fp = int(date_decomp.at(1))
-    let day_fp = int(date_decomp.at(2))
-    let date_formatted = datetime(year: year_fp, month: month_fp, day: day_fp)
-
-    fmt-date(date_formatted, length: "long", locale: language)
+   let main_date = first_publish.text
 
   }
 
+  let pretty_date = none
+
+  if main_date != none {
+
+    let date_decomp = main_date.split("-")
+
+    let year_fp = int(date_decomp.at(0))
+    let month_fp = int(date_decomp.at(1))
+    let day_fp = int(date_decomp.at(2))
+
+    let date_formatted = datetime(year: year_fp, month: month_fp, day: day_fp)
+
+    let pretty_date = fmt-date(date_formatted, length: "long", locale: language)
+
+  }
 
 
   // Set link and cite colors
@@ -312,7 +314,7 @@ if authors != none {
           grid(
           columns: (1fr, 1fr),
           align(left+ bottom)[#text([Blog OFCE nº #number\ publié le #pretty_date], style: "italic")],
-          align(right + bottom)[#image("/_extensions/ofce/blog/ofce_m.png", width: 1cm) ]
+          align(right + bottom)[#image("/_extensions/ofce-blog/img/ofce_m.png", width: 1cm) ]
 
           )
 
@@ -324,14 +326,14 @@ if authors != none {
             grid(
             columns: (1fr, 1fr),
             align(left + bottom)[#counter(page).display()],
-            align(right + bottom)[#image("/_extensions/ofce/blog/ofce_m.png", width: 1cm) ]
+            align(right + bottom)[#image("/_extensions/ofce-blog/img/ofce_m.png", width: 1cm) ]
 
           )
 
           } else {
           grid(
             columns: (1fr, 1fr),
-            align(left)[#image("/_extensions/ofce/blog/ofce_m.png", width: 1cm) ],
+            align(left)[#image("/_extensions/ofce-blog/img/ofce_m.png", width: 1cm) ],
             align(right)[#counter(page).display()]
           )
 

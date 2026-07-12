@@ -9,6 +9,7 @@
   #let colourtype = rgb("#EEC900")
 
   // Font definition
-  #let main_title_font = "Helvetica"
-  #let serif_font = "Palatino"
+  #let main_title_font = ("Helvetica Neue", "Arial")
+  #let serif_font = ("Helvetica Neue", "Arial")
+
 

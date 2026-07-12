@@ -56,9 +56,9 @@ contributes:
     html:
       theme:
         - bootstrap
-        - ../ofce-website/sass/default.scss
-        - ../ofce-website/sass/rules.scss
-        - ofce.scss
+        - ../share/sass/default.scss
+        - ../share/sass/rules.scss
+        - ../share/ofce.scss
       mainfont: Open Sans
       toc-location: left
       toc-title: Sur cette page
@@ -75,7 +75,7 @@ contributes:
       template-partials:
         - html_template/title-metadata.html
       include-in-header:
-        - blog-nav-active.html
+        - ../share/url-nav-active.html
       include-after-body:
         - encadre.js
 

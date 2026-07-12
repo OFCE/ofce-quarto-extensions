@@ -1,15 +1,4 @@
 
-/*-- scss:defaults --*/
-  // fonts
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap');
-// Fonts (CSS rules)
-//$font-family-sans-serif: 'Nunito Sans', sans-serif;
-//$font-family-monospace: 'Roboto Mono', monospace;
-//$font-family-serif: 'Merriweather', serif;
-$font-family-sans-serif: 'Open Sans', sans-serif;
-$font-family-monospace: 'Fira Code', monospace;
-
 // couleurs
   $scpored: #e6142d;
   $scpodarkred: #770C19;
@@ -56,11 +45,6 @@ h1, h2, h3, h4, h5, h6,
   color: $darkgrey;
 }
 
-.navbar {
-  background-color: $white;
-  
-}
-
 main {
   margin-top: .25em;
   margin-bottom: .25em
@@ -95,25 +79,8 @@ padding-top: 0px
   line-height: 1rem !important;
 }
 
-.navbar-title {
-  font-style: italic;
-  font-weight: bold;
-}
-  
-.quarto-secondary-nav,
-nav.quarto-secondary-nav,
-.quarto-banner {
-  color: white;
-  background-color: transparent !important;
-}
-
 .breadcrumb-item,
 .breadcrumb {
-  font-size: 0.8rem !important;
-}
-
-.nav-page-text,
-.dropdown-item {
   font-size: 0.8rem !important;
 }
 
@@ -183,10 +150,6 @@ h2,.h2 {
 
 .header-section-number {
   font-weight: bold;
-}
-
-.nav-link {
-  font-size: .8rem;
 }
 
 .theorem {

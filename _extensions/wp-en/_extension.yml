@@ -50,7 +50,9 @@ contributes:
       csl: csl/apa-6th-edition.csl
     html:
       theme:
-        - cosmo
+        - bootstrap
+        - /_extensions/ofce-website/sass/default.scss
+        - /_extensions/ofce-website/sass/rules.scss
         - html_template/ofcewp.scss
       mainfont: Open Sans
       toc-location: left
