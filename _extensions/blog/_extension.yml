@@ -82,7 +82,6 @@ contributes:
       logo: ../ofce/img/logo.png
       title-block-style: default
       image-lazy-loading: true
-      number-sections: false
       hide-description: true
       template-partials:
         - html/title-metadata.html
