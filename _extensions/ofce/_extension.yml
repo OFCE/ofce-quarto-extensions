@@ -4,12 +4,106 @@ version: 0.5.0
 quarto-required: ">=1.9.38"
 contributes:
   formats:
-    share-html:
+    common:
+      toc: true
+      lang: fr
+      french: true
+      authors-title: "Autrices, auteurs & résumé"
+      language:
+        fr:
+          section-title-references: "Bibliograhie"
+          title-block-author-single: "Par"
+          title-block-author-plural: "Par"
+          title-block-published: "Publié le"
+          title-block-modified: "Modifié le"
+          toc-title: "Sur cette page"
+        en:
+          section-title-references: "Bibilography"
+          title-block-author-single: "Author"
+          title-block-author-plural: "Authors"
+          title-block-published: "Published on"
+          title-block-modified: "Modified on"
+          callout-tip-title: "Box"
+          toc-title: "On this page"
+      fig-asp: 0.61
+      cap-location: top
+      crossref:
+        chapters: false
+        fig-prefix: graphique
+        tbl-prefix: tableau
+        eq-prefix: équation
+        sec-prefix: section
+        tip-prefix: encadré
+        fig-title: "**Graphique**"
+        tip-title: "**Encadré**"
+        title-delim: "**.**"
+        tbl-title: "**Tableau**"
+        lof-title: Graphiques
+        lot-title: Tableaux
+        fr:
+          title-delim: "**.**"
+        en:
+          title-delim: "**.**"
+      logo: img/logo.png
+      filters:
+        - quotes
+        - collapse-callout
+        - nbsp
+        - quarto
+        - comments
+      collapse-callout:
+        tip: true
+      shortcodes:
+        - fontawesome
+      csl: ../ofce/csl/revue-francaise-de-gestion.csl
+      license: CC BY
+
+    html:
+      theme:
+        - bootstrap
+        - ../ofce/sass/default.scss
+        - ../ofce/sass/rules.scss
+        - ../ofce/ofce.scss
+      include-in-header: 
+        - ../ofce/html/url-nav-active.html
+        - html/encadre.js
+      number-sections: false
+      html-math-method: katex
+      lightbox: true
+      link-external-icon: true
+      mainfont: Open Sans
+      toc-location: left
+      toc-title: Sur cette page
+      number-depth: 3
+      html-math-method: katex
+      fig-dpi: 1200
+      fig-format: svg
+      reference-location: margin
+      fig-width: 6
+      callout-icon: false
+      logo: img/logo.png
+      title-block-style: default
+      image-lazy-loading: true
+      number-sections: false
+      hide-description: true
       template-partials:
-        - html_template/title-metadata.html
-      include-after-body:
-        - encadre.js
-    share-pdf:
+        - html/title-metadata.html
+    pdf:
+      documentclass: scrartcl
+      toc-depth: 1
+      pdffont: Open Sans
+      number-sections: true
+      number-depth: 3
+      classoption:
+        - DIV=11
+      papersize: a4
+      fontsize: 9pt
+      extra_dependencies: ["float"]
+      fig-dpi: 1200
+      fig-width: 5
+      fig-format: svg
+      logo: img/ofce.png
+      logo2: img/sciencespo.png
       template-partials:
-        - pdf_template/title.tex
-        - pdf_template/before-body.tex
+        - pdf/title.tex
+        - pdf/before-body.tex

@@ -3,7 +3,6 @@ author: Anissa Saumtally et Xavier Timbeau
 version: 0.5.0
 quarto-required: ">=1.9.36"
 contributes:
-  contributes:
   formats:
     common:
       toc: true
@@ -26,7 +25,7 @@ contributes:
         tbl-title: Tableau
         lof-title: Figures
         lot-title: Tableaux
-        logo: ofce.png
+      logo: ../ofce/img/ofce_m.png
       filters:
         - nameref
         - fr-nbsp
@@ -37,7 +36,7 @@ contributes:
       shortcodes:
         - fontawesome
     revealjs:
-      logo: ofce_m.png
+      logo: ../ofce/img/ofce_m.png
       language:
         fr:
           toc-title-document: "Plan de la présentation"

@@ -3,41 +3,104 @@ author: Anissa Saumtally et Xavier Timbeau
 version: 0.5.0
 quarto-required: ">=1.9.38"
 contributes:
+
   formats:
     common:
+      toc: true
+      lang: fr
+      french: true
+      authors-title: "Autrices, auteurs & résumé"
+      language:
+        fr:
+          section-title-references: "Bibliograhie"
+          title-block-author-single: "Par"
+          title-block-author-plural: "Par"
+          title-block-published: "Publié le"
+          title-block-modified: "Modifié le"
+          toc-title: "Sur cette page"
+        en:
+          section-title-references: "Bibilography"
+          title-block-author-single: "Author"
+          title-block-author-plural: "Authors"
+          title-block-published: "Published on"
+          title-block-modified: "Modified on"
+          callout-tip-title: "Box"
+          toc-title: "On this page"
+      fig-asp: 0.61
+      cap-location: top
+      crossref:
+        chapters: false
+        fig-prefix: graphique
+        tbl-prefix: tableau
+        eq-prefix: équation
+        sec-prefix: section
+        tip-prefix: encadré
+        fig-title: "**Graphique**"
+        tip-title: "**Encadré**"
+        title-delim: "**.**"
+        tbl-title: "**Tableau**"
+        lof-title: Graphiques
+        lot-title: Tableaux
+        fr:
+          title-delim: "**.**"
+        en:
+          title-delim: "**.**"
+      logo: img/logo.png
       filters:
         - wordcount
-        - nameref
         - quotes
-        - fr-nbsp
         - collapse-callout
+        - nbsp
+        - quarto
+        - comments
       quot-lang: fr
       collapse-callout:
         tip: true
       shortcodes:
         - fontawesome
-        - downloadthis
+      csl: ../ofce/csl/revue-francaise-de-gestion.csl
       google-scholar: true
       appendix-style: default
       appendix-cite-as: [display, bibtex]
       license: CC BY
-    share-html:
-      fig-dpi: 600
-      fig-format: png
-      fig-width: 6
-      reference-location: margin
-      callout-icon: false
+
+    html:
+      theme:
+        - bootstrap
+        - ../ofce/sass/default.scss
+        - ../ofce/sass/rules.scss
+        - ../ofce/ofce.scss
+      include-in-header: 
+        - ../ofce/html/url-nav-active.html
+        - html/encadre.js
+      number-sections: false
+      html-math-method: katex
       lightbox: true
-      title-block-style: default
       link-external-icon: true
+      mainfont: Open Sans
+      toc-location: left
+      toc-title: Sur cette page
+      number-depth: 3
+      html-math-method: katex
+      fig-dpi: 1200
+      fig-format: svg
+      reference-location: margin
+      fig-width: 6
+      callout-icon: false
+      logo: img/logo.png
+      title-block-style: default
+      image-lazy-loading: true
+      number-sections: false
+      hide-description: true
       template-partials:
         - html/title-block.html
         - html/title-metadata.html
         - html/toc.html
+
     pdf:
       toc-depth: 1
       date-format: "D MMMM YYYY"
-      pdffont: OpenSans
+      mainfont: Open Sans
       number-sections: true
       number-depth: 3
       geometry:
@@ -59,7 +122,7 @@ contributes:
         - pdf/toc.tex
         - pdf/biblio.tex
     typst:
-      mainfont: Arial
+      mainfont: Open Sans
       keep-typ: true
       toc: false
       callout-icon: false

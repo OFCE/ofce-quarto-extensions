@@ -128,7 +128,7 @@
     columns: (1fr, 1fr),
     column-gutter: 1em,
     align(left + top)[
-      #image("/_extensions/ofce/note/logos/ofce_m.png", width: 3cm)
+      #image("/_extensions/ofce/ofce/img/ofce_m.png", width: 3cm)
     ],
     align(right + top)[
       #if pretty_date != none {
