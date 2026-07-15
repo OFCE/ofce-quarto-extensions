@@ -98,7 +98,7 @@ if authors != none {
         )
 
   place(bottom + left, dx: -marge+lc_space,dy: 2cm,
-        image("/_extensions/ofce/share/ofce_m.png", width: logo_column)
+        image("/_extensions/ofce/share/sciencespo.png", width: logo_column)
       )
   place(left,
         line(start: (line_x, 0cm), end: (line_x,  ph - 2*marge),
