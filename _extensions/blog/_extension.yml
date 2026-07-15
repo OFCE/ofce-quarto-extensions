@@ -65,7 +65,7 @@ contributes:
         - ../ofce/ofce.scss
       include-in-header: 
         - ../ofce/html/url-nav-active.html
-      number-sections: false
+      number-sections: true
       html-math-method: katex
       lightbox: true
       link-external-icon: true
