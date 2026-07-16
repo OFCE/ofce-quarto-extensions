@@ -47,7 +47,6 @@ contributes:
           title-delim: "**.**"
       logo: img/logo.png
       filters:
-        - wordcount
         - quotes
         - collapse-callout
         - nbsp
