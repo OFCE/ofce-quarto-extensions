@@ -55,7 +55,7 @@ return {
   ['focus'] = function(args, kwargs, meta) 
     -- see https://quarto.org/docs/extensions/shortcodes.html
     -- for documentation on shortcode development
-    local focus_data = meta["extensions.ofcewebsite.focus"]
+    local focus_data = meta["extensions.ofce-website.focus"]
 
     if not focus_data then
         return pandoc.Str("")

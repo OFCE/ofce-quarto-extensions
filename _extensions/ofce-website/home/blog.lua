@@ -58,7 +58,7 @@ end
 
 return {
     ['blog'] = function(args, kwargs, meta)
-        local blog_data = meta["extensions.ofcewebsite.blog"]
+        local blog_data = meta["extensions.ofce-website.blog"]
 
         if not blog_data then
             return pandoc.Str("")
