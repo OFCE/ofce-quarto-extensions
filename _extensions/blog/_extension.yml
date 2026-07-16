@@ -44,7 +44,7 @@ contributes:
           title-delim: "**.**"
         en:
           title-delim: "**.**"
-      logo: ofce_m.png
+      logo: ../ofce/img/ofce_m.png
       filters:
         - quotes
         - collapse-callout
@@ -64,20 +64,18 @@ contributes:
         - ../ofce/ofce.scss
       include-in-header: 
         - ../ofce/html/url-nav-active.html
-      number-sections: true
+      number-sections: false
       lightbox: true
       link-external-icon: true
       mainfont: Open Sans
       toc-location: left
       toc-title: Sur cette page
-      number-depth: 3
       html-math-method: katex
       fig-dpi: 1200
       fig-format: svg
       reference-location: margin
       fig-width: 6
       callout-icon: false
-      logo: ../ofce/img/logo.png
       title-block-style: default
       image-lazy-loading: true
       hide-description: true
@@ -97,7 +95,6 @@ contributes:
       fig-dpi: 1200
       fig-width: 5
       fig-format: svg
-      logo: ../ofce/img/ofce.png
       logo2: ../ofce/img/sciencespo.png
     typst:
       mainfont: Open Sans
