@@ -1,0 +1,135 @@
+title: Format document de travail OFCE
+author: Anissa Saumtally et Xavier Timbeau
+version: 0.5.0
+quarto-required: ">=1.9.38"
+contributes:
+
+  formats:
+    common:
+      toc: true
+      lang: fr
+      french: true
+      authors-title: "Autrices, auteurs & résumé"
+      language:
+        fr:
+          section-title-references: "Bibliograhie"
+          title-block-author-single: "Par"
+          title-block-author-plural: "Par"
+          title-block-published: "Publié le"
+          title-block-modified: "Modifié le"
+          toc-title: "Sur cette page"
+        en:
+          section-title-references: "Bibilography"
+          title-block-author-single: "Author"
+          title-block-author-plural: "Authors"
+          title-block-published: "Published on"
+          title-block-modified: "Modified on"
+          callout-tip-title: "Box"
+          toc-title: "On this page"
+      fig-asp: 0.61
+      cap-location: top
+      crossref:
+        chapters: false
+        fig-prefix: graphique
+        tbl-prefix: tableau
+        eq-prefix: équation
+        sec-prefix: section
+        tip-prefix: encadré
+        fig-title: "**Graphique**"
+        tip-title: "**Encadré**"
+        title-delim: "**.**"
+        tbl-title: "**Tableau**"
+        lof-title: Graphiques
+        lot-title: Tableaux
+        fr:
+          title-delim: "**.**"
+        en:
+          title-delim: "**.**"
+      logo: img/logo.png
+      filters:
+        - wordcount
+        - quotes
+        - collapse-callout
+        - nbsp
+        - quarto
+        - comments
+      quot-lang: fr
+      collapse-callout:
+        tip: true
+      shortcodes:
+        - fontawesome
+      csl: ../ofce/csl/revue-francaise-de-gestion.csl
+      google-scholar: true
+      appendix-style: default
+      appendix-cite-as: [display, bibtex]
+      license: CC BY
+
+    html:
+      theme:
+        - bootstrap
+        - ../ofce/sass/default.scss
+        - ../ofce/sass/rules.scss
+        - ../ofce/ofce.scss
+      include-in-header: 
+        - ../ofce/html/url-nav-active.html
+        - html/encadre.js
+      number-sections: false
+      html-math-method: katex
+      lightbox: true
+      link-external-icon: true
+      mainfont: Open Sans
+      toc-location: left
+      toc-title: Sur cette page
+      number-depth: 3
+      html-math-method: katex
+      fig-dpi: 1200
+      fig-format: svg
+      reference-location: margin
+      fig-width: 6
+      callout-icon: false
+      logo: img/logo.png
+      title-block-style: default
+      image-lazy-loading: true
+      number-sections: false
+      hide-description: true
+      template-partials:
+        - html/title-block.html
+        - html/title-metadata.html
+        - html/toc.html
+
+    pdf:
+      toc-depth: 1
+      date-format: "D MMMM YYYY"
+      mainfont: Open Sans
+      number-sections: true
+      number-depth: 3
+      geometry:
+        - top = 3cm
+        - bottom = 2.5cm
+        - left = 2.5cm
+        - right = 2.5cm
+      linestretch: 1.25
+      extra_dependencies: ["float"]
+      fig-dpi: 600
+      fig-width: 5
+      fig-format: svg
+      callout-icon: false
+      template-partials:
+        - pdf/before-title.tex
+        - pdf/title.tex
+        - pdf/before-body.tex
+        - pdf/after-body.tex
+        - pdf/toc.tex
+        - pdf/biblio.tex
+    typst:
+      mainfont: Open Sans
+      keep-typ: true
+      toc: false
+      callout-icon: false
+      section-numbering: 1.1.a
+      citeproc: true
+      papersize: a4
+      logo: false
+      template-partials:
+        - typst/typst-template.typ
+        - typst/typst-show.typ
