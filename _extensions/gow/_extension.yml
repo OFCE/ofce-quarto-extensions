@@ -75,7 +75,6 @@ contributes:
       toc-location: left
       toc-title: Sur cette page
       number-depth: 3
-      html-math-method: katex
       fig-dpi: 1200
       fig-format: svg
       reference-location: margin
