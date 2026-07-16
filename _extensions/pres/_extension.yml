@@ -27,7 +27,6 @@ contributes:
         lot-title: Tableaux
       logo: ../ofce/img/ofce_m.png
       filters:
-        - nameref
         - nbsp
         - quotes
         - reveal-auto-agenda
