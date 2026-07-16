@@ -67,7 +67,6 @@ contributes:
       include-in-header: 
         - ../ofce/html/url-nav-active.html
         - html/encadre.js
-      tml-math-method: katex
       lightbox: true
       link-external-icon: true
       mainfont: Open Sans
