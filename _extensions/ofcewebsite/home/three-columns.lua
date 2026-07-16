@@ -91,7 +91,7 @@ return {
     ['three-columns'] = function(args, kwargs, meta) 
         -- see https://quarto.org/docs/extensions/shortcodes.html
         -- for documentation on shortcode development
-        local three_columns_data = meta["extensions.ofce-website.three-columns"]
+        local three_columns_data = meta["extensions.ofcewebsite.three-columns"]
     
         if not three_columns_data then
             return pandoc.Str("")
