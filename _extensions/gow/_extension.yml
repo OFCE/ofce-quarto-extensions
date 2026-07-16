@@ -70,7 +70,6 @@ contributes:
         - ../ofce/html/url-nav-active.html
       lightbox: true
       link-external-icon: true
-      hide-description: true
       mainfont: Open Sans
       toc-location: left
       toc-title: Sur cette page
