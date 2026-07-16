@@ -44,7 +44,7 @@ contributes:
           title-delim: "**.**"
         en:
           title-delim: "**.**"
-      logo: ../ofce/img/ofce_m.png
+      logo: ../website/img/ofce.png
       filters:
         - quotes
         - collapse-callout
@@ -59,11 +59,11 @@ contributes:
     html:
       theme:
         - bootstrap
-        - ../ofce/sass/default.scss
-        - ../ofce/sass/rules.scss
-        - ../ofce/ofce.scss
+        - ../website/sass/default.scss
+        - ../website/sass/rules.scss
+        - ../website/ofce.scss
       include-in-header: 
-        - ../ofce/html/url-nav-active.html
+        - ../website/url-nav-active.html
       number-sections: false
       lightbox: true
       link-external-icon: true
@@ -95,7 +95,7 @@ contributes:
       fig-dpi: 1200
       fig-width: 5
       fig-format: svg
-      logo2: ../ofce/img/sciencespo.png
+      logo2: ../website/img/sciencespo.png
     typst:
       mainfont: Open Sans
       keep-typ: true

@@ -61,13 +61,13 @@ contributes:
     html:
       theme:
         - bootstrap
-        - ../ofce/sass/default.scss
-        - ../ofce/sass/rules.scss
-        - ../ofce/ofce.scss
+        - ../website/sass/default.scss
+        - ../website/sass/rules.scss
+        - ../website/ofce.scss
       number-sections: false
       html-math-method: katex
       include-in-header: 
-        - ../ofce/html/url-nav-active.html
+        - ../website/url-nav-active.html
       lightbox: true
       link-external-icon: true
       mainfont: Open Sans
@@ -79,7 +79,7 @@ contributes:
       reference-location: margin
       fig-width: 6
       callout-icon: false
-      logo: ../ofce/img/logo.png
+      logo: ../website/img/logo.png
       title-block-style: default
       image-lazy-loading: true
       hide-description: true

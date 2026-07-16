@@ -45,7 +45,7 @@ contributes:
           title-delim: "**.**"
         en:
           title-delim: "**.**"
-      logo: img/logo.png
+      logo: ../website/img/logo.png
       filters:
         - quotes
         - collapse-callout
@@ -65,12 +65,12 @@ contributes:
     html:
       theme:
         - bootstrap
-        - ../ofce/sass/default.scss
-        - ../ofce/sass/rules.scss
-        - ../ofce/ofce.scss
+        - ../website/sass/default.scss
+        - ../website/sass/rules.scss
+        - ../website/ofce.scss
       include-in-header: 
-        - ../ofce/html/url-nav-active.html
-        - html/encadre.js
+        - ../website/url-nav-active.html
+        - ../ofce/html/encadre.js
       number-sections: false
       html-math-method: katex
       lightbox: true
@@ -84,7 +84,7 @@ contributes:
       reference-location: margin
       fig-width: 6
       callout-icon: false
-      logo: img/logo.png
+      logo: ../website/img/logo.png
       title-block-style: default
       image-lazy-loading: true
       hide-description: true
