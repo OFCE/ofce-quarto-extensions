@@ -123,10 +123,10 @@ let myCustomBlock = extract-div(doc, "myCustomBlock")
   
   
   place(top + left, dx: 0cm,dy: 0cm,
-        image("/_extensions/ofce/ofce/img/ofce_m.png", width: 2cm)
+        image("/_extensions/ofce/ofce-website/img/ofce_m.png", width: 2cm)
         )
   place(top + left, dx: 0cm,dy: 0.75cm,
-        image("/_extensions/ofce/ofce/img/sciencespo.png", width: 2cm)
+        image("/_extensions/ofce/ofce-website/img/sciencespo.png", width: 2cm)
         )
       
   place(top+right ,dy:-0cm,dx: marge ,

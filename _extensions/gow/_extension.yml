@@ -49,7 +49,7 @@ contributes:
         tip: true
       shortcodes:
         - fontawesome
-      csl: ../ofce/csl/revue-francaise-de-gestion.csl
+      # csl: ../ofce/csl/revue-francaise-de-gestion.csl
       filters:
         - extract-year.lua
         - quotes

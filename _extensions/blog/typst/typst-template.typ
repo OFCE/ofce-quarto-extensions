@@ -94,11 +94,11 @@ if authors != none {
   /////// 1. logo position and line
 
   place(top + left, dx: -marge+lc_space,dy:-2cm,
-        image("/_extensions/ofce/ofce/img/ofce_m.png", width: logo_column)
+        image("/_extensions/ofce/ofce-website/img/ofce_m.png", width: logo_column)
         )
 
   place(bottom + left, dx: -marge+lc_space,dy: 2cm,
-        image("/_extensions/ofce/ofce/img/sciencespo.png", width: logo_column)
+        image("/_extensions/ofce/ofce-website/img/sciencespo.png", width: logo_column)
       )
   place(left,
         line(start: (line_x, 0cm), end: (line_x,  ph - 2*marge),
@@ -314,7 +314,7 @@ let main_date = none
           grid(
           columns: (1fr, 1fr),
           align(left+ bottom)[#text([Blog OFCE nº #number\ publié le #pretty_date], style: "italic")],
-          align(right + bottom)[#image("/_extensions/ofce/ofce/img/ofce_m.png", width: 1cm) ]
+          align(right + bottom)[#image("/_extensions/ofce/ofce-website/img/ofce_m.png", width: 1cm) ]
 
           )
 
@@ -326,14 +326,14 @@ let main_date = none
             grid(
             columns: (1fr, 1fr),
             align(left + bottom)[#counter(page).display()],
-            align(right + bottom)[#image("/_extensions/ofce/ofce/img/ofce_m.png", width: 1cm) ]
+            align(right + bottom)[#image("/_extensions/ofce/ofce-website/img/ofce_m.png", width: 1cm) ]
 
           )
 
           } else {
           grid(
             columns: (1fr, 1fr),
-            align(left)[#image("/_extensions/ofce/ofce/img/ofce_m.png", width: 1cm) ],
+            align(left)[#image("/_extensions/ofce/ofce-website/img/ofce_m.png", width: 1cm) ],
             align(right)[#counter(page).display()]
           )
 
