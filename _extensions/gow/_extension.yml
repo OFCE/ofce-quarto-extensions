@@ -56,7 +56,6 @@ contributes:
         - collapse-callout
         - nbsp
         - quarto
-        - comments
       license: CC BY
 
     html:

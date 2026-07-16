@@ -28,10 +28,8 @@ contributes:
       logo: ../ofce/img/ofce_m.png
       filters:
         - nameref
-        - fr-nbsp
-       #- custom-numbered-blocks
+        - nbsp
         - quotes
-       #- search-replace
         - reveal-auto-agenda
       shortcodes:
         - fontawesome

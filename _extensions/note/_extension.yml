@@ -50,7 +50,6 @@ contributes:
         - collapse-callout
         - nbsp
         - quarto
-        - comments
       collapse-callout:
         tip: true
       shortcodes:

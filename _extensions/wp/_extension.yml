@@ -52,7 +52,6 @@ contributes:
         - collapse-callout
         - nbsp
         - quarto
-        - comments
       quot-lang: fr
       collapse-callout:
         tip: true
