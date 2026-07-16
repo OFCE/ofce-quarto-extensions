@@ -25,7 +25,7 @@ contributes:
         tbl-title: Tableau
         lof-title: Figures
         lot-title: Tableaux
-      logo: ../website/img/ofce.png
+      logo: ../ofce-website/img/ofce.png
       filters:
         - nbsp
         - quotes
@@ -33,7 +33,7 @@ contributes:
       shortcodes:
         - fontawesome
     revealjs:
-      logo: ../website/img/ofce.png
+      logo: ../ofce-website/img/ofce.png
       language:
         fr:
           toc-title-document: "Plan de la présentation"
