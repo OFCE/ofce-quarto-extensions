@@ -2,7 +2,7 @@
 .navbar {
     border-bottom: 2px solid $primary;
     background-color: $white;
-    .nav-item {
+    .nav-item .nav-link {
         font-weight: bold;
         text-transform: uppercase;
     }
