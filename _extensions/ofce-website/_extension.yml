@@ -23,19 +23,6 @@ contributes:
         title: false
         background: white
 
-  formats:
-    html:
-      template: template.html
-      title-block-banner: true
-      template-partials:
-        - title-block.html
-      lang: fr
-      theme:
-        - bootstrap
-        - sass/default.scss
-        - sass/rules.scss
-      anchor-sections: false
-
   shortcodes:
     - home/focus.lua
     - home/blog.lua

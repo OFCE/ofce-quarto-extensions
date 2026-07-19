@@ -44,7 +44,7 @@ contributes:
           title-delim: "**.**"
         en:
           title-delim: "**.**"
-      logo: ../ofce/img/logo.png
+      logo: ../ofce-website/img/logo.png
       collapse-callout:
         tip: true
       shortcodes:
@@ -61,13 +61,13 @@ contributes:
     html:
       theme:
         - bootstrap
-        - ../ofce-website/sass/default.scss
-        - ../ofce-website/sass/rules.scss
-        - ../ofce-website/ofce.scss
+        - ../ofce/sass/default.scss
+        - ../ofce/sass/rules.scss
+        - ../ofce/ofce.scss
       number-sections: false
       html-math-method: katex
       include-in-header: 
-        - ../ofce-website/url-nav-active.html
+        - ../ofce/html/url-nav-active.html
       lightbox: true
       link-external-icon: true
       mainfont: Open Sans

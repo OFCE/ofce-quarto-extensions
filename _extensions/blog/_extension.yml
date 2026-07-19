@@ -59,11 +59,11 @@ contributes:
     html:
       theme:
         - bootstrap
-        - ../ofce-website/sass/default.scss
-        - ../ofce-website/sass/rules.scss
-        - ../ofce-website/ofce.scss
+        - ../ofce/sass/default.scss
+        - ../ofce/sass/rules.scss
+        - ../ofce/ofce.scss
       include-in-header: 
-        - ../ofce-website/url-nav-active.html
+        - ../ofce/html/url-nav-active.html
       number-sections: false
       lightbox: true
       link-external-icon: true
@@ -95,7 +95,7 @@ contributes:
       fig-dpi: 1200
       fig-width: 5
       fig-format: svg
-      logo2: ../ofce-website/img/sciencespo.png
+      logo2: ../ofce/img/sciencespo.png
     typst:
       mainfont: Open Sans
       keep-typ: true

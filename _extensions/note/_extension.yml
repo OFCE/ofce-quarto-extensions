@@ -58,11 +58,11 @@ contributes:
     html:
       theme:
         - bootstrap
-        - ../ofce-website/sass/default.scss
-        - ../ofce-website/sass/rules.scss
-        - ../ofce-website/ofce.scss
+        - ../ofce/sass/default.scss
+        - ../ofce/sass/rules.scss
+        - ../ofce/ofce.scss
       include-in-header: 
-        - ../ofce-website/url-nav-active.html
+        - ../ofce/html/url-nav-active.html
         - ../ofce/html/encadre.js
       toc-location: left
       toc-title: Sur cette page
@@ -77,7 +77,6 @@ contributes:
       reference-location: margin
       fig-width: 6
       callout-icon: false
-      logo: ../ofce-website/img/logo.png
       title-block-style: default
       image-lazy-loading: true
       hide-description: true
@@ -101,7 +100,6 @@ contributes:
       fig-dpi: 600
       fig-width: 5
       fig-format: png
-      logo: ../ofce-website/img/ofce.png
       logo2: ../ofce-website/img/sciencespo.png
       template-partials:
         - pdf/title.tex

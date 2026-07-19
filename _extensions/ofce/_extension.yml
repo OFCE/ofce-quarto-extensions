@@ -54,17 +54,17 @@ contributes:
         tip: true
       shortcodes:
         - fontawesome
-      csl: ../ofce/csl/revue-francaise-de-gestion.csl
+      csl: csl/revue-francaise-de-gestion.csl
       license: CC BY
 
     html:
       theme:
         - bootstrap
-        - ../ofce-website/sass/default.scss
-        - ../ofce-website/sass/rules.scss
-        - ../ofce-website/ofce.scss
+        - sass/default.scss
+        - sass/rules.scss
+        - ofce.scss
       include-in-header: 
-        - ../ofce-website/url-nav-active.html
+        - html/url-nav-active.html
         - html/encadre.js
       lightbox: true
       link-external-icon: true

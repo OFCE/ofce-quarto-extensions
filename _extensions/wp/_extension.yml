@@ -65,11 +65,11 @@ contributes:
     html:
       theme:
         - bootstrap
-        - ../ofce-website/sass/default.scss
-        - ../ofce-website/sass/rules.scss
-        - ../ofce-website/ofce.scss
+        - ../ofce/sass/default.scss
+        - ../ofce/sass/rules.scss
+        - ../ofce/ofce.scss
       include-in-header: 
-        - ../ofce-website/url-nav-active.html
+        - ../ofce/html/url-nav-active.html
         - ../ofce/html/encadre.js
       number-sections: false
       html-math-method: katex
@@ -117,6 +117,7 @@ contributes:
         - pdf/after-body.tex
         - pdf/toc.tex
         - pdf/biblio.tex
+        
     typst:
       mainfont: Open Sans
       keep-typ: true
