@@ -69,7 +69,7 @@ contributes:
       include-in-header: 
         - ../ofce/html/url-nav-active.html
       lightbox: true
-      link-external-icon: true
+      link-external-icon: false
       mainfont: Open Sans
       toc-location: left
       toc-title: Sur cette page
