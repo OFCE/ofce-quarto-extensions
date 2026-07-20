@@ -111,10 +111,13 @@ main.content > section:first-of-type > .h2:nth-child(1) {
 // Quarto title block
 .quarto-title-block {
   background-color: $white;
-  margin: 6px -1px 1em 0 !important;
-  padding: 0 12px 0 12px !important;
-  border-left: 1px solid $scpored !important;
-}
+  margin-left: -1px !important;
+  padding-left: 12px !important;
+  margin-right: 12px !important;
+  margin-top: 6px !important;
+  margin-bottom: 6px !important;
+  border-left-width: 0px !important;
+ }
 
 .quarto-title-banner {
   background-color: $white;
