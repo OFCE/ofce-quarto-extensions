@@ -7,7 +7,7 @@ PANDOC_VERSION:must_be_at_least '2.9.2'
 
 local function add_non_breaking_spaces(inlines)
     local i = 1
-    
+
     while inlines[i+2] do
         if inlines[i].t == 'Str' and inlines[i+1].t == 'Space' and inlines[i+2].t == 'Str' then
             if string.match(inlines[i+2].text,  '^[;!%?%%:€]')
@@ -31,7 +31,7 @@ local function add_non_breaking_spaces(inlines)
             i = i+1
         end
     end
-  
+
     return inlines
 end
 
@@ -50,16 +50,18 @@ local function wrap_nnbsp_in_span(inlines)
 end
 
 
-if quarto.doc.is_format("html") then
+if FORMAT:match 'html' or FORMAT:match 'html5' then
     return {
         {
             Inlines = function(inlines)
                 inlines = add_non_breaking_spaces(inlines)
-                -- inlines = wrap_nnbsp_in_span(inlines)
+                inlines = wrap_nnbsp_in_span(inlines)
                 return inlines
             end
         }
     }
+elseif FORMAT:match 'latex' or FORMAT:match 'pdf' then
+    return {}
 else
     return {
         {
@@ -70,4 +72,3 @@ else
         }
     }
 end
-

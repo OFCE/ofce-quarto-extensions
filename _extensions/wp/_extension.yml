@@ -110,6 +110,7 @@ contributes:
       fig-width: 5
       fig-format: svg
       callout-icon: false
+      logo2: ../ofce-website/img/sciencespo.png
       template-partials:
         - pdf/before-title.tex
         - pdf/title.tex
