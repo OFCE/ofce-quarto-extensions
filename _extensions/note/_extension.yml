@@ -44,7 +44,7 @@ contributes:
           title-delim: "**.**"
         en:
           title-delim: "**.**"
-      logo: ../ofce-website/img/logo.png
+      logo: ../ofce/img/logo.png
       filters:
         - quotes
         - collapse-callout
@@ -100,7 +100,7 @@ contributes:
       fig-dpi: 600
       fig-width: 5
       fig-format: png
-      logo2: ../ofce-website/img/sciencespo.png
+      logo2: ../ofce/img/sciencespo.png
       template-partials:
         - pdf/title.tex
         - pdf/before-body.tex

@@ -44,7 +44,7 @@ contributes:
           title-delim: "**.**"
         en:
           title-delim: "**.**"
-      logo: ../ofce-website/img/logo.png
+      logo: ../ofce/img/logo.png
       collapse-callout:
         tip: true
       shortcodes:
@@ -79,7 +79,7 @@ contributes:
       reference-location: margin
       fig-width: 6
       callout-icon: false
-      logo: ../ofce-website/img/logo.png
+      logo: ../ofce/img/logo.png
       title-block-style: default
       image-lazy-loading: true
       hide-description: true

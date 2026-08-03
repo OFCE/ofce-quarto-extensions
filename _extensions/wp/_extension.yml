@@ -45,7 +45,7 @@ contributes:
           title-delim: "**.**"
         en:
           title-delim: "**.**"
-      logo: ../ofce-website/img/logo.png
+      logo: ../ofce/img/logo.png
       filters:
         - quotes
         - collapse-callout
@@ -84,7 +84,7 @@ contributes:
       reference-location: margin
       fig-width: 6
       callout-icon: false
-      logo: ../ofce-website/img/logo.png
+      logo: ../ofce/img/logo.png
       title-block-style: default
       image-lazy-loading: true
       hide-description: true
@@ -110,7 +110,7 @@ contributes:
       fig-width: 5
       fig-format: svg
       callout-icon: false
-      logo2: ../ofce-website/img/sciencespo.png
+      logo2: ../ofce/img/sciencespo.png
       template-partials:
         - pdf/before-title.tex
         - pdf/title.tex
