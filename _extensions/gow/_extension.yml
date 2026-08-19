@@ -45,7 +45,8 @@ contributes:
           title-delim: "**.**"
         en:
           title-delim: "**.**"
-      logo: ../ofce/img/logo.png
+      logo: /www/logo.png
+      favicon: /www/fofce.png
       collapse-callout:
         tip: true
       shortcodes:
