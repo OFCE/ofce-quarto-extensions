@@ -17,7 +17,6 @@ contributes:
           title-block-published: "Publié le"
           title-block-modified: "Modifié le"
           toc-title: "Sur cette page"
-          authors-title: "Autrices, auteurs & résumé"
         en:
           section-title-references: "Bibilography"
           title-block-author-single: "Author"
@@ -26,7 +25,6 @@ contributes:
           title-block-modified: "Modified on"
           callout-tip-title: "Box"
           toc-title: "On this page"
-          authors-title: "Authors & summary"
       fig-asp: 0.61
       cap-location: top
       crossref:

@@ -10,7 +10,11 @@ $endif$
 
 $if(author)$
   <details class="details-box">
-    <summary class ="quarto-title-meta-heading"><b>$authors-title$</b></summary>
+    $if(french)$
+      <summary class ="quarto-title-meta-heading"><b>Auteurs&résumé</b></summary>
+    $else$
+      <summary class ="quarto-title-meta-heading"><b>Authors&Summary</b></summary>
+    $endif$
 
     $if(by-affiliation/first)$
     <div class="quarto-title-meta-author">
