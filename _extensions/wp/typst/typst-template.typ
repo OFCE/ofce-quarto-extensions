@@ -78,7 +78,20 @@ body_background_color: white) = {
   let lc_space = 0.75cm
   let line_x = -0.5cm + (logo_column - marge) + lc_space*2
 
+  let grey0 =  rgb("#030303")
+  let grey1 =  rgb("#6B6B6B")
+  let grey2 =  rgb("#A6A6A6")
+  let grey3 =  rgb("#D6D6D6")
+  let scpored = rgb("#e6142d")
+  let scpodarkred = rgb("#770C19")
+  let colourtype = rgb("#EEC900")
+  let ife1 = rgb("#7D0000")
+  let ife2 = rgb("#21606E")
+  let ifegrey = rgb("#DDDBDB")
 
+  // Font definition
+  let main_title_font = "Arimo"
+  let serif_font = "Merriweather"
 
 // Author block
 
@@ -194,7 +207,7 @@ if authors != none {
       )
   }
 
-  place(top + right, dx:+1.25cm,dy:-1.5cm, align(horizon,text(fill: gray ,size:1cm,weight: "bold",font: serif_font,style:"italic","Document de travail")))
+  place(top + right, dx:+1.25cm,dy:-1.5cm, align(horizon,text(fill: gray ,size:1cm,weight: "bold", font: serif_font,style:"italic","Document de travail")))
 
 
   place(bottom + right, dx: 1.5cm,
@@ -309,8 +322,8 @@ if authors != none {
   let colourtype = rgb("#EEC900")
 
   // Font definition
-  let main_title_font = "Open sans"
-  let serif_font = "Open sans"
+  let main_title_font = "Arimo"
+  let serif_font = "Merriweather"
 
 
   // Date formatting
@@ -436,7 +449,7 @@ if authors != none {
   show heading.where(
     level: 1
   ): it => block(width: 100%, below: 1em, above: 1.25em)[
-    #set text(size: fontsize*1.3, weight: "bold", font: "serif_font")
+    #set text(size: fontsize*1.3, weight: "bold", font: serif_font)
     #it
   ]
   // Level 2 headers
@@ -480,7 +493,7 @@ v(4cm)
 
 
 
-text(title, size: 24pt, weight: "bold", font: "serif_font")
+text(title, size: 24pt, weight: "bold", font: serif_font)
 
 if subtitle != none {
 v(1em)
