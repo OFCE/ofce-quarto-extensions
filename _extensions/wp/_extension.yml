@@ -74,7 +74,7 @@ contributes:
       html-math-method: katex
       lightbox: true
       link-external-icon: true
-      mainfont: Open Sans
+      mainfont: Arimo
       toc-location: left
       number-depth: 3
       fig-dpi: 1200
@@ -118,7 +118,7 @@ contributes:
         - pdf/biblio.tex
         
     typst:
-      mainfont: Open Sans
+      mainfont: Arimo
       keep-typ: true
       toc: false
       callout-icon: false

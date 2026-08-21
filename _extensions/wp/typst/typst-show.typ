@@ -13,7 +13,9 @@
     $endfor$
   ),
   abstract: [$description$],
-  year: [2024],
+$if(annee)$
+  year: [$annee$],
+$endif$
   number:[$wp$],
 
 $if(date)$

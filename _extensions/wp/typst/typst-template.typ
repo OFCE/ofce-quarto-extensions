@@ -14,10 +14,13 @@
   #let scpored = rgb("#e6142d")
   #let scpodarkred = rgb("#770C19")
   #let colourtype = rgb("#EEC900")
+  #let ife1 = rgb("#7D0000")
+  #let ife2 = rgb("#21606E")
+  #let ifegrey = rgb("#DDDBDB")
 
   // Font definition
-  #let main_title_font = "Open sans"
-  #let serif_font = "Open sans"
+  #let main_title_font = "Arimo"
+  #let serif_font = "Merriweather"
 
  // Callout settings
   
@@ -63,7 +66,7 @@ body_background_color: white) = {
   subtitle:[],
   authors: none, email:[],
   first_publish: none,
-  abstract: none, year:[],
+  abstract: none, year: none,
   number:[],
   language: "fr",
   body) = {
@@ -72,8 +75,8 @@ body_background_color: white) = {
   let ph = 29.7cm // page height for a4
   let pw = 21.0cm // page width for a4
   let logo_column = 4cm
-  let lc_space = 0.5cm
-  let line_x = 0cm + (logo_column - marge) + lc_space*2
+  let lc_space = 0.75cm
+  let line_x = -0.5cm + (logo_column - marge) + lc_space*2
 
 
 
@@ -122,6 +125,16 @@ if authors != none {
 
   }
 
+  // Année affichée : on privilégie `annee` (yaml) ; à défaut on extrait
+  // l'année de la date de première publication.
+  let display_year = if year != none {
+    year
+  } else if main_date != none {
+    main_date.split("-").at(0)
+  } else {
+    none
+  }
+
     // Page formatting
 
   set page(margin: (top: marge, rest: marge))
@@ -134,11 +147,11 @@ if authors != none {
   /////// 1. logo position and line
 
   place(top + left, dx: -marge+lc_space,dy:-2cm,
-        image("/_extensions/ofce/ofce/img/ofce.png", width: logo_column)
+        image("/_extensions/ofce/ofce/img/ofce_m.png", width: logo_column*0.7)
         )
 
   place(bottom + left, dx: -marge+lc_space,dy: 2cm,
-        image("/_extensions/ofce/ofce/img/sciencespo.png", width: logo_column)
+        image("/_extensions/ofce/ofce/img/sciencespo.png", width: logo_column*0.7)
       )
   place(left,
         line(start: (line_x, 0cm), end: (line_x,  ph - 2*marge),
@@ -151,7 +164,7 @@ if authors != none {
   place(dx: 2cm,dy: 4cm,
     box(width: 13cm,
       align(horizon + left)[
-        #text(size: 24pt, title, fill:  scpored,weight: "bold" )
+        #text(size: 24pt, title, fill: ife2, weight: "bold", font: serif_font)
         #v(1em)
         #text(subtitle,fill: grey1)
         #v(2em)
@@ -172,14 +185,16 @@ if authors != none {
   //// 3. Publishing date And Issue number
 
   place(top+right ,dy:-2cm,dx: marge ,
-        square(fill: colourtype, size: 2cm,align(center+horizon,text(fill: white,size: 1cm,number)))
+        square(fill: ife1, size: 2cm,align(center+horizon,text(fill: white,size: 1.5cm,number)))
       )
 
+  if display_year != none {
   place(top+right ,dy:0cm,dx: marge ,
-        text(fill: colourtype, size: 0.9cm,text(year))
+        text(fill: ife1, size: 0.9cm,text(display_year))
       )
+  }
 
-  place(top + right, dx:+1.25cm,dy:-1.5cm, align(horizon,text(fill: gray ,size:2cm,font: serif_font,style:"italic","Document de travail")))
+  place(top + right, dx:+1.25cm,dy:-1.5cm, align(horizon,text(fill: gray ,size:1cm,weight: "bold",font: serif_font,style:"italic","Document de travail")))
 
 
   place(bottom + right, dx: 1.5cm,
@@ -421,7 +436,7 @@ if authors != none {
   show heading.where(
     level: 1
   ): it => block(width: 100%, below: 1em, above: 1.25em)[
-    #set text(size: fontsize*1.1, weight: "bold")
+    #set text(size: fontsize*1.3, weight: "bold", font: "serif_font")
     #it
   ]
   // Level 2 headers
@@ -465,7 +480,7 @@ v(4cm)
 
 
 
-text(title, size: 20pt, weight: "bold")
+text(title, size: 24pt, weight: "bold", font: "serif_font")
 
 if subtitle != none {
 v(1em)
