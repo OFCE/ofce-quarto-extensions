@@ -67,6 +67,7 @@ contributes:
         - ../ofce/sass/default.scss
         - ../ofce/sass/rules.scss
         - ../ofce/ofce.scss
+        - wp.scss
       include-in-header: 
         - ../ofce/html/url-nav-active.html
         - ../ofce/html/encadre.js
