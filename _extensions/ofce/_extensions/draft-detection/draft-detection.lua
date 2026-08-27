@@ -1,12 +1,13 @@
--- Detect draft status based on website configuration
--- Sets stage-draft to true if website.site-path contains "staging"
+-- Detect draft status based on project configuration
+-- Sets stage-draft to true if a top-level "draft" key is set in _quarto.yml
 
 function Pandoc(doc)
-  local site_path = quarto.project.config["website"]["site-path"]
-  
-  if site_path and string.find(site_path, "staging") then
+  local config = quarto.project and quarto.project.config
+  local draft = config and config["draft"]
+
+  if draft then
     doc.meta["stage-draft"] = true
   end
-  
+
   return doc
 end
