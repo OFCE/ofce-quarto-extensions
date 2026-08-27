@@ -10,6 +10,12 @@
       &nbsp;working paper<br>
       n°$annee$-$wp$</p>
     $endif$
+  $else$
+    $if(french)$
+      <span class="badge-draft">Brouillon</span>
+    $else$
+      <span class="badge-draft">Draft</span>
+    $endif$
   $endif$
   </a>
   $if(toc-title)$

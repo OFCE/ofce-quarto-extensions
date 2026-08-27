@@ -216,6 +216,20 @@ main.content > section:first-of-type > .h2:nth-child(1) {
   }
 }
 
+// Draft badge, shown in place of the working-paper number when the
+// `wp` project variable is unset (i.e. the document has no wp number yet).
+.badge-draft {
+  display: inline-block;
+  background-color: $scpored;
+  color: $white;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
 // Math
 .katex {
   font-size: 1.1em !important;

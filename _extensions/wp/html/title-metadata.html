@@ -95,6 +95,20 @@ $if(author)$
       </div>
       $endif$
 
+      $if(wp)$
+      $else$
+      <div>
+        <div class="quarto-title-meta-heading">Status</div>
+        <div class="quarto-title-meta-contents">
+          $if(french)$
+          <span class="badge-draft">Brouillon</span>
+          $else$
+          <span class="badge-draft">Draft</span>
+          $endif$
+        </div>
+      </div>
+      $endif$
+
       $if(published)$
       <div>
         <div class="quarto-title-meta-heading">Status</div>

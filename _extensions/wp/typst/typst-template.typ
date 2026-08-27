@@ -68,6 +68,7 @@ body_background_color: white) = {
   first_publish: none,
   abstract: none, year: none,
   number:[],
+  draft: false,
   language: "fr",
   body) = {
 
@@ -197,6 +198,7 @@ if authors != none {
 
   //// 3. Publishing date And Issue number
 
+  if not draft {
   place(top+right ,dy:-2cm,dx: marge ,
         square(fill: ife1, size: 2cm,align(center+horizon,text(fill: white,size: 1.5cm,number)))
       )
@@ -204,6 +206,12 @@ if authors != none {
   if display_year != none {
   place(top+right ,dy:0cm,dx: marge ,
         text(fill: ife1, size: 0.9cm,text(display_year))
+      )
+  }
+  } else {
+  place(top+right ,dy:-2cm,dx: marge ,
+        box(fill: ife1, inset: 8pt, radius: 2pt,
+          align(center+horizon,text(fill: white,size: 0.9cm, weight: "bold","BROUILLON")))
       )
   }
 
@@ -304,6 +312,7 @@ if authors != none {
   toc_depth: none,
   toc_indent: 1.5em,
   number: none,
+  draft: false,
   bibliography-title: "Références",
   bibliography-style: "apa",
   cols: 1,
@@ -381,7 +390,7 @@ if authors != none {
 
           grid(
           columns: (1fr, 1fr),
-          align(left+ bottom)[#text([Document de travail OFCE nº #number\ publié le #pretty_date], style: "italic")],
+          align(left+ bottom)[#text(if draft [Document de travail OFCE — brouillon] else [Document de travail OFCE nº #number\ publié le #pretty_date], style: "italic")],
           align(right + bottom)[#image("/_extensions/ofce/ofce/img/ofce.png", width: 1cm) ]
 
           )
