@@ -8,6 +8,20 @@ $if(categories)$
   </div>
 $endif$
 
+$if(wp)$
+$else$
+<div>
+  <div class="quarto-title-meta-heading">Status</div>
+  <div class="quarto-title-meta-contents">
+    $if(french)$
+    <span class="badge-draft">Version provisoire, ne pas citer, ne pas diffuser</span>
+    $else$
+    <span class="badge-draft">Preliminary version, do not quote, do not disseminate</span>
+    $endif$
+  </div>
+</div>
+$endif$
+
 $if(author)$
   <details class="details-box">
     $if(french)$
@@ -92,20 +106,6 @@ $if(author)$
         <div class="quarto-title-meta-contents">
           <p class="date">draft</p>
           </div>
-      </div>
-      $endif$
-
-      $if(wp)$
-      $else$
-      <div>
-        <div class="quarto-title-meta-heading">Status</div>
-        <div class="quarto-title-meta-contents">
-          $if(french)$
-          <span class="badge-draft">Brouillon</span>
-          $else$
-          <span class="badge-draft">Draft</span>
-          $endif$
-        </div>
       </div>
       $endif$
 
