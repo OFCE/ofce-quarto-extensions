@@ -47,6 +47,7 @@ contributes:
           title-delim: "**.**"
       logo: ../ofce/img/logo.png
       filters:
+        - draft-detection
         - quotes
         - collapse-callout
         - nbsp
