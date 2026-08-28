@@ -66,6 +66,7 @@ contributes:
         - sass/default.scss
         - sass/rules.scss
         - ofce.scss
+        - newfont.scss
       include-in-header:
         - html/url-nav-active.html
         - html/encadre.js
