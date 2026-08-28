@@ -68,16 +68,17 @@ contributes:
         - ../ofce/sass/rules.scss
         - ../ofce/ofce.scss
         - wp.scss
-      include-in-header: 
+      include-in-header:
         - ../ofce/html/url-nav-active.html
         - ../ofce/html/encadre.js
-      number-sections: false
+      number-sections: true
+      number-depth: 3
       html-math-method: katex
       lightbox: true
       link-external-icon: true
       mainfont: Arimo
+      toc-depth: 1
       toc-location: left
-      number-depth: 3
       fig-dpi: 1200
       fig-format: svg
       reference-location: margin
@@ -117,7 +118,7 @@ contributes:
         - pdf/after-body.tex
         - pdf/toc.tex
         - pdf/biblio.tex
-        
+
     typst:
       mainfont: Arimo
       keep-typ: true

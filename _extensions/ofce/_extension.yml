@@ -80,7 +80,7 @@ contributes:
       callout-icon: false
       title-block-style: default
       image-lazy-loading: true
-      number-sections: false
+      number-sections: true
       hide-description: true
       template-partials:
         - html/title-metadata.html
