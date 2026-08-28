@@ -47,7 +47,6 @@ contributes:
           title-delim: "**.**"
       logo: ../ofce/img/logo.png
       filters:
-        - draft-detection
         - quotes
         - collapse-callout
         - nbsp
@@ -65,7 +64,7 @@ contributes:
         - sass/default.scss
         - sass/rules.scss
         - ofce.scss
-      include-in-header: 
+      include-in-header:
         - html/url-nav-active.html
         - html/encadre.js
       lightbox: true
