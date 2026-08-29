@@ -31,8 +31,12 @@ $else$
       \draw [thick,black](-5.75,-13) -- (-5.75,13);
       \draw [color = white, fill=ofcepbbleu] (8.7,11.4) rectangle (10.45,13.15);
       \draw [color = white, fill=ofcepbbleu, very thick] (8.75-.5,11.25-.5) rectangle (8.75+.6,11.25+.6);
+      $if(wp)$
       \node [anchor = east] at (11-0.7,13-0.7){\textcolor{white}{\huge\textbf{$wp$}}};
       \node [anchor = east] at (10-0.74,12-0.67){\textcolor{white}{\textbf{$annee$}}};
+$else$
+      \node [anchor = east] at (11.35-0.7,12.3-0.7){\textcolor{white}{\Large\textbf{Brouillon}}};
+$endif$
     \end{tikzpicture}
   }
 }

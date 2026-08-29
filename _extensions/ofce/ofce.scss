@@ -552,3 +552,16 @@ div.callout-tip {
     font-weight: bold;
   }
 }
+
+// Draft badge for staging/preview content
+.badge-draft {
+  display: inline-block;
+  background-color: $scpored;
+  color: $white;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}

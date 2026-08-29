@@ -17,6 +17,11 @@ $if(annee)$
   year: [$annee$],
 $endif$
   number:[$wp$],
+$if(wp)$
+  draft: false,
+$else$
+  draft: true,
+$endif$
 
 $if(date)$
   first_publish: [$date$],
@@ -36,6 +41,11 @@ $if(subtitle)$
   subtitle: [$subtitle$],
 $endif$
   number:[$wp$],
+$if(wp)$
+  draft: false,
+$else$
+  draft: true,
+$endif$
 $if(running-head)$
   running-head: [$running-head$],
 $endif$

@@ -1,7 +1,7 @@
 title: Format OFCE
 author: Anissa Saumtally et Xavier Timbeau
-version: 0.5.0
-quarto-required: ">=1.9.38"
+version: 0.6.0
+quarto-required: ">=1.10.18"
 contributes:
   formats:
     common:
@@ -17,6 +17,7 @@ contributes:
           title-block-modified: "Modifié le"
           toc-title: "Sur cette page"
           authors-title: "Autrices, auteurs & résumé"
+          draft: "Préliminaire"
         en:
           section-title-references: "Bibilography"
           title-block-author-single: "Author"
@@ -26,6 +27,7 @@ contributes:
           callout-tip-title: "Box"
           toc-title: "On this page"
           authors-title: "Authors & summary"
+          draft: "Preliminary"
       fig-asp: 0.61
       cap-location: top
       crossref:
@@ -64,7 +66,8 @@ contributes:
         - sass/default.scss
         - sass/rules.scss
         - ofce.scss
-      include-in-header: 
+        - newfont.scss
+      include-in-header:
         - html/url-nav-active.html
         - html/encadre.js
       lightbox: true
@@ -80,7 +83,7 @@ contributes:
       callout-icon: false
       title-block-style: default
       image-lazy-loading: true
-      number-sections: false
+      number-sections: true
       hide-description: true
       template-partials:
         - html/title-metadata.html

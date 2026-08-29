@@ -13,6 +13,12 @@
 $if(draft)$
 \usepackage[stamp,color=red!10]{draftwatermark}
 $endif$
+$if(wp)$
+$else$
+\usepackage[stamp,color=red!10]{draftwatermark}
+\SetWatermarkText{BROUILLON}
+\SetWatermarkFontSize{5cm}
+$endif$
 \usepackage{lipsum}
 \usepackage{caption}
 \usepackage{datetime}
@@ -54,7 +60,11 @@ $endif$
 \pagestyle{scrheadings}
 \setkomafont{pageheadfoot}{\small}
 
+$if(wp)$
 \rehead{Document de travail n°$annee$-$wp$}
+$else$
+\rehead{Document de travail --- Brouillon}
+$endif$
 \lohead{\includegraphics[height=0.25cm]{$logo$}}
 
 \lofoot*{\thepage}
