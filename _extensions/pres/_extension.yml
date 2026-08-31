@@ -4,7 +4,7 @@ version: 0.5.0
 quarto-required: ">=1.9.36"
 contributes:
   formats:
-    common:ce
+    common:
       toc: true
       lang: fr
       date-format: "dddd D MMMM YYYY"
