@@ -77,7 +77,7 @@ contributes:
       lightbox: true
       link-external-icon: true
       mainfont: Arimo
-      toc-depth: 2
+      toc-depth: 3
       toc-location: left
       fig-dpi: 1200
       fig-format: svg

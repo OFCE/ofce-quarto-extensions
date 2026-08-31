@@ -73,6 +73,7 @@ contributes:
       link-external-icon: true
       mainfont: Open Sans
       toc-location: left
+      toc-depth: 3
       number-depth: 3
       html-math-method: katex
       fig-dpi: 1200
