@@ -565,3 +565,37 @@ div.callout-tip {
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
+
+// encadré avec 3 lignes et un boutton spécifique
+.callout-tip .callout-body-container {
+  max-height: 7.5em;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+  transition: max-height 0.35s ease;
+}
+.callout-tip.enc-expanded .callout-body-container {
+  max-height: 9999px;
+  overflow: visible;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+.enc-preview-btn {
+  display: inline-block;
+  margin: 0.2em 0 0.5em 0.1em;
+  font-size: 0.85em;
+  cursor: pointer;
+  color: #0d6efd;
+  background: none;
+  border: none;
+  padding: 0;
+}
+.enc-preview-btn.enc-close-btn {
+  display: none;
+}
+.callout-tip.enc-expanded .enc-preview-btn.enc-open-btn {
+  display: none;
+}
+.callout-tip.enc-expanded .enc-preview-btn.enc-close-btn {
+  display: inline-block;
+}
