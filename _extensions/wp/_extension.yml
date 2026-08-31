@@ -3,7 +3,6 @@ author: Anissa Saumtally et Xavier Timbeau
 version: 0.6.0
 quarto-required: ">=1.9.38"
 contributes:
-
   formats:
     common:
       toc: true
@@ -52,9 +51,8 @@ contributes:
         - collapse-callout
         - nbsp
         - quarto
+        - wordcount
       quot-lang: fr
-      collapse-callout:
-        tip: true
       shortcodes:
         - fontawesome
       csl: ../ofce/csl/revue-francaise-de-gestion.csl

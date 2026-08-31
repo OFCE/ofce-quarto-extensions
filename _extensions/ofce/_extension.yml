@@ -53,8 +53,7 @@ contributes:
         - collapse-callout
         - nbsp
         - quarto
-      collapse-callout:
-        tip: true
+        - wordcount
       shortcodes:
         - fontawesome
       csl: csl/revue-francaise-de-gestion.csl
