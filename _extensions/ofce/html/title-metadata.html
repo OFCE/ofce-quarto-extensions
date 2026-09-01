@@ -12,9 +12,9 @@ $if(draft)$
 <div>
   <div class="quarto-title-meta-contents">
     $if(french)$
-    <span class="badge-draft" id="ofce-badge-draft">Version préliminaire ($version$), ne pas citer, ne pas diffuser</span>
+    <span class="badge-draft" id="ofce-badge-draft">Version préliminaire ($version$)\u00b7ne pas citer\u00b7ne pas diffuser</span>
     $else$
-    <span class="badge-draft" id="ofce-badge-draft">Preliminary version ($version$), do not quote, do not disseminate</span>
+    <span class="badge-draft" id="ofce-badge-draft">Preliminary version ($version$)\u00b7do not quote\u00b7do not disseminate</span>
     $endif$
   </div>
 </div>
@@ -25,14 +25,13 @@ $if(draft)$
     .then(function (data) {
       var el = document.getElementById("ofce-badge-draft");
       if (el && data && data.count != null) {
-        el.textContent += " \u00b7 d\u00e9ploiement n\u00b0" + data.count;
+        el.textContent += "<br>\u21ba d\u00e9ploiement n\u00b0" + data.count;
       }
     })
     .catch(function () { /* push-count.json absent (ex. production) — ignoré */ });
 })();
 </script>
 $endif$
-
 
 $if(author)$
   <details class="details-box">
