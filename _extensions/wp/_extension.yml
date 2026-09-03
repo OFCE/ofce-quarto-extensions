@@ -111,7 +111,6 @@ contributes:
       fig-format: png
       callout-icon: false
       logo2: ../ofce/img/sciencespo.png
-      pdf-standard: ua-2
       template-partials:
         - pdf/before-title.tex
         - pdf/title.tex
@@ -129,7 +128,6 @@ contributes:
       citeproc: true
       papersize: a4
       logo: false
-      pdf-standard: ua-1
       template-partials:
         - typst/typst-template.typ
         - typst/typst-show.typ
