@@ -92,6 +92,8 @@ contributes:
         - html/title-block.html
         - html/title-metadata.html
         - html/toc.html
+      axe:
+        output: document
 
     pdf:
       toc-depth: 1
