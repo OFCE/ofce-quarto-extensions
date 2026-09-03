@@ -106,11 +106,12 @@ contributes:
         - right = 2.5cm
       linestretch: 1.25
       extra_dependencies: ["float"]
-      fig-dpi: 600
+      fig-dpi: 1200
       fig-width: 5
-      fig-format: svg
+      fig-format: png
       callout-icon: false
       logo2: ../ofce/img/sciencespo.png
+      pdf-standard: ua-2
       template-partials:
         - pdf/before-title.tex
         - pdf/title.tex
@@ -128,6 +129,7 @@ contributes:
       citeproc: true
       papersize: a4
       logo: false
+      pdf-standard: ua-1
       template-partials:
         - typst/typst-template.typ
         - typst/typst-show.typ
