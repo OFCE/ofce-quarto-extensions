@@ -18,6 +18,7 @@ contributes:
           toc-title: "Sur cette page"
           authors-title: "Autrices, auteurs & résumé"
           draft: "Préliminaire"
+          callout-tip-title: "Encadré"
         en:
           section-title-references: "Bibilography"
           title-block-author-single: "Author"

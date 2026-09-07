@@ -17,6 +17,7 @@ contributes:
           title-block-modified: "Modifié le"
           toc-title: "Sur cette page"
           draft: "Préliminaire"
+          callout-tip-title: "Encadré"
         en:
           section-title-references: "Bibilography"
           title-block-author-single: "Author"
