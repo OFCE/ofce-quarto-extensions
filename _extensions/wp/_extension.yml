@@ -15,9 +15,9 @@ contributes:
           title-block-author-plural: "Par"
           title-block-published: "Publié le"
           title-block-modified: "Modifié le"
+          callout-tip-title: "Encadré"
           toc-title: "Sur cette page"
           draft: "Préliminaire"
-          callout-tip-title: "Encadré"
         en:
           section-title-references: "Bibilography"
           title-block-author-single: "Author"
@@ -122,13 +122,16 @@ contributes:
 
     typst:
       mainfont: Arimo
-      keep-typ: true
-      toc: false
+      keep-typ: false
+      toc: true
+      toc-depth: 1
       callout-icon: false
       section-numbering: 1.1.a
       citeproc: true
       papersize: a4
       logo: false
+      thanks-title-fr: "Remerciements"
+      thanks-title-en: "Acknowledgements"
       template-partials:
         - typst/typst-template.typ
         - typst/typst-show.typ
