@@ -496,6 +496,7 @@ if authors != none {
    }
  }
  show figure.where(kind: table): set block(breakable: true)
+ show figure.where(kind: "quarto-float-tbl"): set block(breakable: true)
 
   // Allow custom title for bibliography section
   set bibliography(title: bibliography-title, style: bibliography-style, )
