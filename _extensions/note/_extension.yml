@@ -108,7 +108,7 @@ contributes:
         - pdf/before-body.tex
     typst:
       mainfont: Open Sans
-      keep-typ: true
+      keep-typ: false
       toc: false
       callout-icon: false
       papersize: a4
