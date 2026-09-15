@@ -85,6 +85,7 @@ contributes:
       template-partials:
         - html/title-metadata.html
         - html/title-block.html
+      html-table-processing: none
     pdf:
       documentclass: scrreprt
       toc-depth: 1

@@ -88,6 +88,7 @@ contributes:
       hide-description: true
       template-partials:
         - html/title-metadata.html
+      html-table-processing: none
     pdf:
       documentclass: scrartcl
       toc-depth: 1

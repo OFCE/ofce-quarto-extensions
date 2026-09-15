@@ -67,7 +67,7 @@ contributes:
         - ../ofce/ofce.scss
       number-sections: false
       html-math-method: katex
-      include-in-header: 
+      include-in-header:
         - ../ofce/html/url-nav-active.html
       lightbox: true
       link-external-icon: false
@@ -88,6 +88,7 @@ contributes:
         - html/title-metadata.html
       filters:
         - voir-aussi.lua
+      html-table-processing: none
 
     typst:
       fig-dpi: 1200

@@ -93,6 +93,7 @@ contributes:
         - html/title-block.html
         - html/title-metadata.html
         - html/toc.html
+      html-table-processing: none
 
     pdf:
       toc-depth: 1
