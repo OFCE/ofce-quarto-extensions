@@ -124,6 +124,8 @@ contributes:
     typst:
       mainfont: Arimo
       keep-typ: false
+      fig-format: svg
+      fig-dpi: 1200
       toc: true
       toc-depth: 1
       callout-icon: false
