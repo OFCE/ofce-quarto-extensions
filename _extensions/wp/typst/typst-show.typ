@@ -53,6 +53,9 @@ $endif$
 $if(thanks-title-en)$
   thanks-title-en: "$thanks-title-en$",
 $endif$
+$if(institut)$
+  institut: "$institut$",
+$endif$
   number:[$wp$],
 $if(draft)$
   draft: true,
@@ -82,6 +85,9 @@ $if(title)$
 $endif$
 $if(subtitle)$
   subtitle: [$subtitle$],
+$endif$
+$if(institut)$
+  institut: "$institut$",
 $endif$
   number:[$wp$],
 $if(draft)$

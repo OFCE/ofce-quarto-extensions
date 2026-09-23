@@ -41,6 +41,48 @@
 // Choisit entre deux libellés (chaîne ou contenu) selon la langue.
 #let tr(language, fr, en) = if is_en(language) { en } else { fr }
 
+//// Instituts
+
+// `institut` dans le yaml choisit le logo (couverture et entêtes de page) et
+// le nom du document de travail dans la citation suggérée. Valeur par défaut :
+// « ofce », c'est-à-dire le comportement d'avant l'ajout de cet argument.
+// Le logo Sciences Po du bas de couverture ne dépend pas de l'institut.
+// `revue_fr` / `revue_en` : nom de la série tel qu'il paraît dans la citation.
+#let instituts = (
+  "ofce": (
+    logo: "ofce_m.png", logo_entete: "ofce.png", nom: [OFCE],
+    revue_fr: [Document de travail OFCE], revue_en: [OFCE working paper]),
+  "ife": (
+    logo: "IFE_Institut_logo_noir.png", logo_entete: "IFE_Institut_logo_noir.png", nom: [Institut français d'économie],
+    revue_fr: [Document de travail de l'Institut français d'économie], revue_en: [Institut français d'économie working paper]),
+  "ife-ofce": (
+    logo: "IFE-OFCE_logo_noir.png", logo_entete: "IFE-OFCE_logo_noir.png", nom: [IFE|OFCE],
+    revue_fr: [Document de travail IFE|OFCE], revue_en: [IFE|OFCE working paper]),
+  "ife-cepii": (
+    logo: "IFE-CEPII_logo_noir.png", logo_entete: "IFE-CEPII_logo_noir.png", nom: [IFE|CEPII],
+    revue_fr: [Document de travail IFE|CEPII], revue_en: [IFE|CEPII working paper]),
+  "ife-ofce-cepii": (
+    logo: "IFE-OFCE-CEPII_logo_noir.png", logo_entete: "IFE-OFCE-CEPII_logo_noir.png", nom: [IFE|OFCE|CEPII],
+    revue_fr: [Document de travail IFE|OFCE|CEPII], revue_en: [IFE|OFCE|CEPII working paper]),
+)
+
+// Les logos n'ont pas le même format : ils sont dimensionnés en hauteur, pour
+// un poids visuel identique d'un institut à l'autre. Ces hauteurs sont celles
+// du logo OFCE tel qu'il était posé en largeur (2,8 cm et 1 cm).
+#let hauteur_logo_couverture = 1.28cm
+#let hauteur_logo_entete = 0.46cm
+
+// Fiche de l'institut demandé ; erreur explicite si la valeur est inconnue.
+#let fiche_institut(institut) = {
+  let cle = if institut == none { "ofce" } else { lower(str(institut).trim()) }
+  if cle not in instituts {
+    panic("institut inconnu : « " + cle + " ». Valeurs possibles : " + instituts.keys().join(", ") + ".")
+  }
+  instituts.at(cle)
+}
+
+#let chemin_logo(fichier) = "/_extensions/ofce/ofce/img/" + fichier
+
 //// Fonctions communes
 
 /// Pseudo-notes des encadrés
@@ -149,6 +191,7 @@
   thanks: none,
   thanks-title-fr: "Remerciements",
   thanks-title-en: "Acknowledgements",
+  institut: none,
   draft: false,
   doc_version: none,
   language: "fr",
@@ -156,6 +199,8 @@
 ) = {
 
   //// Valeurs dérivées des métadonnées
+
+  let fiche = fiche_institut(institut)
 
   // « (v0) » accolé à la mention de version préliminaire, si `version` est
   // renseignée dans le yaml ; rien sinon.
@@ -207,7 +252,7 @@
   //// Logos et filet vertical
 
   place(top + left, dx: -marge + lc_space, dy: -2cm,
-    image("/_extensions/ofce/ofce/img/ofce_m.png", width: logo_column * 0.7))
+    image(chemin_logo(fiche.logo), height: hauteur_logo_couverture))
 
   place(bottom + left, dx: -marge + lc_space, dy: 2cm,
     image("/_extensions/ofce/ofce/img/sciencespo.png", width: logo_column * 0.7))
@@ -335,7 +380,11 @@
   // formatée par citeproc en typst.
   if authors != none and authors.len() > 0 and title != [] {
     let auteurs = authors.map(a => [#a.name]).join(", ", last: " & ")
-    let revue = if citation != none and citation.container-title != "" { citation.container-title } else { none }
+    let revue = if institut != none {
+      tr(language, fiche.revue_fr, fiche.revue_en)
+    } else if citation != none and citation.container-title != "" {
+      citation.container-title
+    } else { none }
     let titre_cite = if url_stable != none { link(url_stable)[#title] } else { title }
 
     v(1em)
@@ -380,6 +429,7 @@
   modified: none,
   number: none,
   year: none,
+  institut: none,
   draft: false,
   doc_version: none,
   leading: 0.6em,
@@ -407,6 +457,8 @@
 
   let pretty_date = fmt_date_iso(first_publish, language)
   let pretty_modified = fmt_date_iso(modified, language)
+
+  let logo_entete = chemin_logo(fiche_institut(institut).logo_entete)
 
   // Noms d'auteurs, réutilisés sous le titre et dans la note d'auteur.
   let author_strings = ()
@@ -452,7 +504,7 @@
             #tr(language, [Document de travail OFCE nº], [OFCE working paper no.]) #numero \
             #tr(language, [Publié le], [Published]) #pretty_date#if pretty_modified != none [ \- #tr(language, [modifié le], [modified]) #pretty_modified]
           ], style: "italic")],
-          align(right + bottom)[#image("/_extensions/ofce/ofce/img/ofce.png", width: 1cm)],
+          align(right + bottom)[#image(logo_entete, height: hauteur_logo_entete)],
         )
 
       /// Page(s) de table des matières : entête sans numéro de page
@@ -460,7 +512,7 @@
         grid(
           columns: (1fr, auto),
           align(left)[#text(if draft [#tr(language, [Document de travail], [Working paper]) #text(fill: ife1, weight: "bold")[#tr(language, [Version préliminaire], [Preliminary version])#version_suffix]] else [#tr(language, [Document de travail nº], [Working paper no.]) #numero - #annee], style: "italic")],
-          align(right)[#image("/_extensions/ofce/ofce/img/ofce.png", width: 1cm)],
+          align(right)[#image(logo_entete, height: hauteur_logo_entete)],
         )
         line(start: (0cm, -0.5em), end: (15cm, -0.5em), stroke: (thickness: 0.25pt, paint: grey1))
 
@@ -470,7 +522,7 @@
           grid(
             columns: (1fr, 1fr),
             align(left + bottom)[#counter(page).display()],
-            align(right + bottom)[#image("/_extensions/ofce/ofce/img/ofce.png", width: 1cm)],
+            align(right + bottom)[#image(logo_entete, height: hauteur_logo_entete)],
           )
         } else {
           grid(
