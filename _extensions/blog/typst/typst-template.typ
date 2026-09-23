@@ -20,10 +20,17 @@
 #let scpored = rgb("#e6142d")
 #let scpodarkred = rgb("#770C19")
 #let colourtype = rgb("#EEC900")
+#let ife1 = rgb("#7D0000")
+#let ife2 = rgb("#21606E")
+#let ifegrey = rgb("#DDDBDB")
 
 /// Polices
-#let main_title_font = ("Helvetica Neue", "Arial")
-#let serif_font = ("Helvetica Neue", "Arial")
+//
+// Mêmes polices que le document de travail : Arimo pour la couverture et le
+// corps du texte (posé par `mainfont` dans le yaml), Merriweather pour les
+// titres de niveau 1, la table des matières et les guillemets de citation.
+#let main_title_font = "Arimo"
+#let serif_font = "Merriweather"
 
 /// Tableaux : pas de filets, ce sont les tableaux gt qui posent les leurs
 #set table(inset: 6pt, stroke: none)
@@ -278,7 +285,7 @@
     box(width: 13cm,
       align(horizon + left)[
         #set par(justify: false)
-        #text(size: 24pt, title, fill: scpored, weight: "bold")
+        #text(size: 24pt, title, fill: ife2, weight: "bold", font: serif_font)
         #v(1em)
         #text(subtitle, fill: grey1)
         #v(2em)
@@ -291,7 +298,7 @@
           #v(1.5em)
           #text(size: 10pt, fill: grey1)[
             #tr(language, [Version en ligne du billet :], [Online version of this post:])
-            #link(url_stable)[#text(fill: scpored, url_stable)]
+            #link(url_stable)[#text(fill: ife2, url_stable)]
           ]
         ]
       ]))
@@ -299,12 +306,12 @@
   //// Numéro, année et mention « Blog »
 
   place(top + right, dy: -2cm, dx: marge,
-    square(fill: colourtype, size: 2cm, align(center + horizon, text(fill: white, size: 1cm, number))))
+    square(fill: ife1, size: 2cm, align(center + horizon, text(fill: white, size: 1cm, number))))
 
   // L'année n'est affichée que si elle est connue (`annee` dans le yaml, ou
   // déduite de la date de publication).
   if annee != none {
-    place(top + right, dy: 0cm, dx: marge, text(fill: colourtype, size: 0.9cm, annee))
+    place(top + right, dy: 0cm, dx: marge, text(fill: ife1, size: 0.9cm, annee))
   }
 
   place(top + right, dx: 1.25cm, dy: -1.5cm,
@@ -553,7 +560,7 @@
       // `top-edge`/`bottom-edge` sur la ligne de base : les guillemets ne
       // comptent pas dans la hauteur, ils ne déforment donc ni une citation
       // d'une seule ligne ni la dernière ligne d'une longue citation.
-      text(size: 2.5em, fill: scpored, font: serif_font, top-edge: "baseline", bottom-edge: "baseline", baseline: 0.72em)[“],
+      text(size: 2.5em, fill: ife2, font: serif_font, top-edge: "baseline", bottom-edge: "baseline", baseline: 0.72em)[“],
       {
         set text(size: 0.95em, fill: grey1)
         // Le guillemet fermant est placé à la suite du texte, et non dans une
@@ -561,7 +568,7 @@
         // bonne page quand la citation se répartit sur plusieurs pages.
         it.body
         h(0.15em)
-        text(size: 2.5em, fill: scpored, font: serif_font, top-edge: "baseline", bottom-edge: "baseline", baseline: 0.5em)[”]
+        text(size: 2.5em, fill: ife2, font: serif_font, top-edge: "baseline", bottom-edge: "baseline", baseline: 0.5em)[”]
       },
     ),
   )
@@ -572,7 +579,7 @@
 
   if toc {
     v(2cm)
-    text(titre_toc, size: 18pt, weight: "bold", font: serif_font, fill: scpored)
+    text(titre_toc, size: 18pt, weight: "bold", font: serif_font, fill: ife2)
     v(1em)
     outline(title: none, depth: toc_depth, indent: toc_indent)
     pagebreak()

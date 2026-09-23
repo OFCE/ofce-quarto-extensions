@@ -99,7 +99,7 @@ contributes:
       fig-format: svg
       logo2: ../ofce/img/sciencespo.png
     typst:
-      mainfont: Open Sans
+      mainfont: Arimo
       keep-typ: false
       toc: false
       callout-icon: false
