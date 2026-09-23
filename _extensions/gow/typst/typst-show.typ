@@ -22,13 +22,21 @@ $endif$
 $if(date)$
   first_publish: [$date$],
 $endif$
+$if(date-modified)$
+  modified: "$date-modified$",
+$endif$
 $if(lang)$
   language: "$lang$",
 $endif$
 $if(nb)$
   number: [$nb$],
 $endif$
-  year: [2024],
+$if(institut)$
+  institut: "$institut$",
+$endif$
+$if(annee)$
+  year: [$annee$],
+$endif$
 
 $if(mainfont)$
   font: ("$mainfont$",),

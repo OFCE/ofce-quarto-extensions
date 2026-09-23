@@ -1,4 +1,4 @@
-#show: doc => note(
+#show: doc => note_ofce(
 $if(title)$
   title: [$title$],
 $endif$
@@ -7,6 +7,9 @@ $if(subtitle)$
 $endif$
 $if(wp)$
   number: [$wp$],
+$endif$
+$if(institut)$
+  institut: "$institut$",
 $endif$
 $if(by-author)$
   authors: (
@@ -22,8 +25,22 @@ $endif$
 $if(date)$
   first_publish: [$date$],
 $endif$
+$if(date-modified)$
+  modified: "$date-modified$",
+$endif$
 $if(abstract)$
   abstract: [$abstract$],
+$else$
+$if(description)$
+  abstract: [$description$],
+$endif$
+$endif$
+$if(stable-url)$
+  stable-url: "$stable-url$",
+$else$
+$if(citation.url)$
+  stable-url: "$citation.url$",
+$endif$
 $endif$
 $if(lang)$
   language: "$lang$",

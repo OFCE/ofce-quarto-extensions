@@ -1,7 +1,6 @@
 
 #show: body => title-page(
   title: [$title$],
-  email: "mailto: student@youraddress.com",
   subtitle: [$subtitle$],$if(by-author)$
   authors: (
     $for(by-author)$
@@ -12,21 +11,39 @@
       $endif$
     $endfor$
   ),
+$endif$
+$if(abstract)$
+  abstract: [$abstract$],
+$else$
+$if(description)$
   abstract: [$description$],
+$endif$
+$endif$
 $if(annee)$
   year: [$annee$],
 $endif$
-  number:[$pb$],
+$if(stable-url)$
+  stable-url: "$stable-url$",
+$else$
+$if(citation.url)$
+  stable-url: "$citation.url$",
+$endif$
+$endif$
+$if(institut)$
+  institut: "$institut$",
+$endif$
+  number: [$pb$],
 $if(pb)$
   draft: false,
 $else$
   draft: true,
 $endif$
-
 $if(date)$
   first_publish: [$date$],
 $endif$
-
+$if(date-modified)$
+  modified: "$date-modified$",
+$endif$
 $if(lang)$
   language: "$lang$",
 $endif$
@@ -40,11 +57,17 @@ $endif$
 $if(subtitle)$
   subtitle: [$subtitle$],
 $endif$
-  number:[$pb$],
+$if(institut)$
+  institut: "$institut$",
+$endif$
+  number: [$pb$],
 $if(pb)$
   draft: false,
 $else$
   draft: true,
+$endif$
+$if(annee)$
+  year: [$annee$],
 $endif$
 $if(running-head)$
   running-head: [$running-head$],
@@ -58,9 +81,11 @@ $endif$
       $endif$
     $endfor$
   ),
-$endif$
 $if(date)$
   first_publish: [$date$],
+$endif$
+$if(date-modified)$
+  modified: "$date-modified$",
 $endif$
 $if(leading)$
   leading: $leading$,
