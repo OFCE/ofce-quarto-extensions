@@ -31,6 +31,16 @@
 /// Tableaux : pas de filets, ce sont les tableaux gt qui posent les leurs
 #set table(inset: 6pt, stroke: none)
 
+//// Libellés du gabarit
+
+// Le français est la langue par défaut ; `lang: en` dans le yaml bascule
+// l'ensemble des textes inscrits en dur. Les variantes régionales (en-GB,
+// fr-BE, ...) sont ramenées à leur langue.
+#let is_en(language) = language != none and lower(language).starts-with("en")
+
+// Choisit entre deux libellés (chaîne ou contenu) selon la langue.
+#let tr(language, fr, en) = if is_en(language) { en } else { fr }
+
 //// Fonctions communes
 
 /// Pseudo-notes des encadrés
@@ -223,7 +233,7 @@
         #if url_stable != none [
           #v(1.5em)
           #text(size: 10pt, fill: grey1)[
-            Version en ligne du document :
+            #tr(language, [Version en ligne du document :], [Online version of this paper:])
             #link(url_stable)[#text(fill: ife2, url_stable)]
           ]
         ]
@@ -232,11 +242,11 @@
         // dans le yaml, date de dernière modification juste en dessous.
         #v(1.5em)
         #if pretty_date != none [
-          #text(weight: "semibold", size: 10pt)[Première publication : ]
+          #text(weight: "semibold", size: 10pt)[#tr(language, [Première publication : ], [First published: ])]
           #text(size: 10pt)[#pretty_date \ ]
         ]
         #if pretty_modified != none [
-          #text(weight: "semibold", size: 10pt)[Dernière modification : ]
+          #text(weight: "semibold", size: 10pt)[#tr(language, [Dernière modification : ], [Last modified: ])]
           #text(size: 10pt)[#pretty_modified \ ]
         ]
       ]))
@@ -257,16 +267,16 @@
     // numéro et de l'année.
     place(top + right, dy: 0cm, dx: marge,
       box(fill: ife1, inset: 8pt, radius: 2pt,
-        text(fill: white, size: 20pt, weight: "bold")[Version préliminaire#version_suffix — non publiée]))
+        text(fill: white, size: 20pt, weight: "bold")[#tr(language, [Version préliminaire#version_suffix — non publiée], [Preliminary version#version_suffix — unpublished])]))
 
     place(top + right, dy: 1.2cm, dx: marge - 3cm,
       box(fill: white, inset: 8pt, radius: 2pt,
-        text(fill: ife1, size: 14pt, weight: "bold", "NE PAS DIFFUSER NE PAS CITER")))
+        text(fill: ife1, size: 14pt, weight: "bold", tr(language, "NE PAS DIFFUSER NE PAS CITER", "DO NOT CIRCULATE DO NOT CITE"))))
   }
 
   // Posé après le numéro pour rester au-dessus du bandeau de brouillon.
   place(top + right, dx: 1.25cm, dy: -1.5cm,
-    align(horizon, text(fill: gray, size: 1cm, weight: "bold", font: serif_font, style: "italic", "Document de travail")))
+    align(horizon, text(fill: gray, size: 1cm, weight: "bold", font: serif_font, style: "italic", tr(language, "Document de travail", "Working paper"))))
 
   //// Coordonnées, en bas à droite
 
@@ -276,7 +286,7 @@
       Institut Français d'économie \
       10 place de Catalogne \
       75014 Paris, FRANCE \
-      Tel : +33 1 44 18 54 24 \
+      #tr(language, [Tel : +33 1 44 18 54 24], [Tel: +33 1 44 18 54 24]) \
       #link("https://www.ofce.fr")
     ])
 
@@ -293,7 +303,7 @@
 
   if abstract != none and abstract != [] {
     v(2cm)
-    text("Résumé", font: serif_font, size: 18pt, weight: "bold", fill: ife2)
+    text(tr(language, "Résumé", "Abstract"), font: serif_font, size: 18pt, weight: "bold", fill: ife2)
     v(0.5em)
     block(fill: white, width: 100%, inset: 0em, text(abstract, size: 10pt))
   }
@@ -305,7 +315,7 @@
     v(1em)
     block(width: 100%, text(size: 10pt)[
       #set par(justify: false)
-      #text(weight: "bold", font: serif_font, fill: ife2)[Mots-clés : ]#keywords
+      #text(weight: "bold", font: serif_font, fill: ife2)[#tr(language, [Mots-clés : ], [Keywords: ])]#keywords
     ])
   }
 
@@ -313,7 +323,7 @@
     v(0.5em)
     block(width: 100%, text(size: 10pt)[
       #set par(justify: false)
-      #text(weight: "bold", font: serif_font, fill: ife2)[Codes JEL : ]#jel
+      #text(weight: "bold", font: serif_font, fill: ife2)[#tr(language, [Codes JEL : ], [JEL codes: ])]#jel
     ])
   }
 
@@ -329,11 +339,11 @@
     let titre_cite = if url_stable != none { link(url_stable)[#title] } else { title }
 
     v(1em)
-    text(weight: "bold", font: serif_font, size: 10pt, fill: ife2)[Veuillez citer ce travail comme suit : ]
+    text(weight: "bold", font: serif_font, size: 10pt, fill: ife2)[#tr(language, [Veuillez citer ce travail comme suit : ], [For attribution, please cite this work as: ])]
     block(width: 100%, fill: white, stroke: 0.5pt + grey2, radius: 2pt, inset: 0.75em,
       text(size: 9pt)[
         #set par(justify: false)
-        #auteurs#if year != none and year != [] [ (#year)]. «~#titre_cite~»#if revue != none [, #emph(revue)]#if number != [] [, nº #number].
+        #auteurs#if year != none and year != [] [ (#year)]. #tr(language, [«~#titre_cite~»], [“#titre_cite”])#if revue != none [, #emph(revue)]#if number != [] [#tr(language, [, nº #number], [, no. #number])].
       ])
   }
 
@@ -343,9 +353,7 @@
     place(bottom + left,
       box(fill: rgb("#EDEAEA"), baseline: 100%, inset: 0.5em)[
         #set par(leading: 0.35em)
-        // Titre toujours en français pour l'instant ; la sélection par langue
-        // attend le remaniement du template.
-        #text(thanks-title-fr, size: 9pt, fill: ife2, weight: "bold", font: serif_font)
+        #text(tr(language, thanks-title-fr, thanks-title-en), size: 9pt, fill: ife2, weight: "bold", font: serif_font)
         #linebreak()
         #text(thanks, size: 8pt, fill: grey1, style: "italic")
       ])
@@ -385,10 +393,10 @@
   fontsize: 11pt,
   section-numbering: none,
   toc: false,
-  toc_title: "Table des matières",
+  toc_title: none,
   toc_depth: none,
   toc_indent: 1.5em,
-  bibliography-title: "Références",
+  bibliography-title: none,
   bibliography-style: "apa",
   cols: 1,
   col-gutter: 4.2%,
@@ -418,6 +426,10 @@
   // Année, « ???? » tant que `annee` n'est pas renseignée.
   let annee = if year != none and year != [] { year } else { [????] }
 
+  // Titres transmis par quarto s'ils sont définis, sinon repli selon la langue.
+  let titre_toc = if toc_title != none { toc_title } else { tr(language, "Table des matières", "Contents") }
+  let titre_biblio = if bibliography-title != none { bibliography-title } else { tr(language, [Références], [References]) }
+
   //// Mise en page : entêtes et pieds de page
 
   set page(
@@ -433,7 +445,13 @@
       if here().page() == debut {
         grid(
           columns: (3fr, 1fr),
-          align(left + bottom)[#text(if draft [Document de travail IFE \ #text(fill: ife1, weight: "bold")[Version préliminaire#version_suffix  #if pretty_modified != none [#pretty_modified] else [#pretty_date]  — non publiée ]] else [Document de travail OFCE nº #numero\ Publié le #pretty_date#if pretty_modified != none [ \- modifié le #pretty_modified]], style: "italic")],
+          align(left + bottom)[#text(if draft [
+            #tr(language, [Document de travail IFE], [IFE working paper]) \
+            #text(fill: ife1, weight: "bold")[#tr(language, [Version préliminaire], [Preliminary version])#version_suffix  #if pretty_modified != none [#pretty_modified] else [#pretty_date]  #tr(language, [— non publiée ], [— unpublished ])]
+          ] else [
+            #tr(language, [Document de travail OFCE nº], [OFCE working paper no.]) #numero \
+            #tr(language, [Publié le], [Published]) #pretty_date#if pretty_modified != none [ \- #tr(language, [modifié le], [modified]) #pretty_modified]
+          ], style: "italic")],
           align(right + bottom)[#image("/_extensions/ofce/ofce/img/ofce.png", width: 1cm)],
         )
 
@@ -441,7 +459,7 @@
       } else if here().page() < debut {
         grid(
           columns: (1fr, auto),
-          align(left)[#text(if draft [Document de travail #text(fill: ife1, weight: "bold")[Version préliminaire#version_suffix]] else [Document de travail nº #numero - #annee], style: "italic")],
+          align(left)[#text(if draft [#tr(language, [Document de travail], [Working paper]) #text(fill: ife1, weight: "bold")[#tr(language, [Version préliminaire], [Preliminary version])#version_suffix]] else [#tr(language, [Document de travail nº], [Working paper no.]) #numero - #annee], style: "italic")],
           align(right)[#image("/_extensions/ofce/ofce/img/ofce.png", width: 1cm)],
         )
         line(start: (0cm, -0.5em), end: (15cm, -0.5em), stroke: (thickness: 0.25pt, paint: grey1))
@@ -459,7 +477,7 @@
             // `auto` pour le numéro : la mention de version garde toute la
             // largeur restante et tient sur une seule ligne.
             columns: (1fr, auto),
-            align(left)[#text(if draft [Document de travail #text(fill: ife1, weight: "bold")[Version préliminaire#version_suffix]] else [Document de travail nº #numero - #annee], style: "italic")],
+            align(left)[#text(if draft [#tr(language, [Document de travail], [Working paper]) #text(fill: ife1, weight: "bold")[#tr(language, [Version préliminaire], [Preliminary version])#version_suffix]] else [#tr(language, [Document de travail nº], [Working paper no.]) #numero - #annee], style: "italic")],
             align(right)[#counter(page).display()],
           )
         }
@@ -475,7 +493,7 @@
 
   set par(justify: true, leading: leading, first-line-indent: first-line-indent, spacing: spacing)
   set text(region: region, font: font, size: fontsize)
-  set bibliography(title: bibliography-title, style: bibliography-style)
+  set bibliography(title: titre_biblio, style: bibliography-style)
 
   show link: set text(fill: linkcolor)
   show cite: set text(fill: linkcolor)
@@ -575,7 +593,7 @@
 
   if toc {
     v(2cm)
-    text(toc_title, size: 18pt, weight: "bold", font: serif_font, fill: ife2)
+    text(titre_toc, size: 18pt, weight: "bold", font: serif_font, fill: ife2)
     v(1em)
     outline(title: none, depth: toc_depth, indent: toc_indent)
     pagebreak()
