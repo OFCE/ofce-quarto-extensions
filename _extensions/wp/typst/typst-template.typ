@@ -400,7 +400,7 @@
 
   if thanks != none and thanks != [] {
     place(bottom + left,
-      box(fill: rgb("#EDEAEA"), baseline: 100%, inset: 0.5em)[
+      block(fill: white, inset: 0.5em, stroke: 0.5pt + grey2)[
         #set par(leading: 0.35em)
         #text(tr(language, thanks-title-fr, thanks-title-en), size: 9pt, fill: ife2, weight: "bold", font: serif_font)
         #linebreak()
