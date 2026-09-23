@@ -68,7 +68,7 @@
 
 // Fiche de l'institut demandé ; erreur explicite si la valeur est inconnue.
 #let fiche_institut(institut) = {
-  let cle = if institut == none { "ofce" } else { lower(str(institut).trim()) }
+  let cle = if institut == none { "ife" } else { lower(str(institut).trim()) }
   if cle not in instituts {
     panic("institut inconnu : « " + cle + " ». Valeurs possibles : " + instituts.keys().join(", ") + ".")
   }
@@ -212,13 +212,13 @@
     image(chemin_logo("sciencespo.png"), width: 2cm))
 
   place(top + right, dy: 0cm, dx: marge,
-    square(fill: ife1, size: 1cm, align(center + horizon, text(fill: white, size: 0.8cm, number))))
+    square(fill: ife2, size: 1cm, align(center + horizon, text(fill: white, size: 0.8cm, number))))
 
   // L'année n'est affichée que si elle est connue (`annee` dans le yaml, ou
   // déduite de la date de publication).
   if annee != none {
     place(top + right, dy: 1.05cm, dx: marge,
-      text(fill: ife1, size: 0.43cm, align(right + horizon, annee)))
+      text(fill: ife2, size: 0.43cm, align(right + horizon, annee)))
   }
 
   place(top + right, dx: -0.5cm, dy: 0.25cm,
@@ -228,7 +228,7 @@
 
   //// Titre
 
-  block(text(size: 16pt, weight: "bold", fill: ife2, font: serif_font, title))
+  block(text(size: 16pt, weight: "bold", fill: ife1, font: serif_font, title))
 
   v(1em)
 
