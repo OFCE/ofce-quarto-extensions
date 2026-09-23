@@ -271,7 +271,11 @@
       #v(0.5em)
 
       #if abstract != none and abstract != [] {
-        block(fill: grey3, inset: 1em, radius: 3pt, width: 100%, text(size: 10pt, abstract))
+        // Résumé justifié : c'est un bloc de texte suivi, pas un titre.
+        block(fill: grey3, inset: 1em, radius: 3pt, width: 100%, {
+          set par(justify: true)
+          text(size: 10pt, abstract)
+        })
       }
 
       // Lien vers le billet en ligne, si `urlblog` est renseignée dans le yaml.

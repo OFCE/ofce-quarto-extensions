@@ -415,11 +415,15 @@
   //// Résumé
 
   if abstract != none and abstract != [] {
+    // Résumé justifié : c'est un bloc de texte suivi, pas un titre.
     block(
       fill: ifegrey,
       inset: 1em,
       width: 100%,
-      text(abstract, style: "italic", size: 9.5pt),
+      {
+        set par(justify: true)
+        text(abstract, style: "italic", size: 9.5pt)
+      },
     )
   }
 

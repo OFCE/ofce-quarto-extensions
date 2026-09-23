@@ -334,8 +334,11 @@
 
   if abstract != none and abstract != [] {
     place(bottom, dx: 2 * lc_space + line_x, dy: -1 * line_x, clearance: 4cm,
-      box(fill: grey3, baseline: 100%, width: 13cm, inset: 1em,
-        text(style: "italic", abstract, size: 10pt)))
+      // Résumé justifié : c'est un bloc de texte suivi, pas un titre.
+      box(fill: grey3, baseline: 100%, width: 13cm, inset: 1em, {
+        set par(justify: true)
+        text(style: "italic", abstract, size: 10pt)
+      }))
   }
 
   ///// PAGE 2 — OURS
