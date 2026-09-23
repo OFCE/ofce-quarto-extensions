@@ -20,17 +20,31 @@ $if(description)$
   abstract: [$description$],
 $endif$
 $endif$
+$if(keywords)$
+  keywords: [$for(keywords)$$it$$sep$, $endfor$],
+$endif$
+$if(jel)$
+  jel: [$for(jel)$$it$$sep$, $endfor$],
+$endif$
+$if(citation)$
+  citation: (
+    type: "$citation.type$",
+    container-title: "$citation.container-title$",
+    doi: "$citation.doi$",
+    url: "$citation.url$"
+  ),
+$endif$
 $if(annee)$
   year: [$annee$],
 $endif$
 $if(thanks)$
   thanks: [$thanks$],
 $endif$
-$if(site-url)$
-  site-url: "$site-url$",
+$if(stable-url)$
+  stable-url: "$stable-url$",
 $else$
 $if(citation.url)$
-  site-url: "$citation.url$",
+  stable-url: "$citation.url$",
 $endif$
 $endif$
 $if(thanks-title-fr)$
@@ -51,6 +65,9 @@ $endif$
 
 $if(date)$
   first_publish: [$date$],
+$endif$
+$if(date-modified)$
+  modified: "$date-modified$",
 $endif$
 
 $if(lang)$
@@ -92,6 +109,9 @@ $endif$
   ),
 $if(date)$
   first_publish: [$date$],
+$endif$
+$if(date-modified)$
+  modified: "$date-modified$",
 $endif$
 $if(leading)$
   leading: $leading$,

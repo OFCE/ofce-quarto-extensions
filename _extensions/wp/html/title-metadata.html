@@ -129,15 +129,29 @@ $if(author)$
       </div>
       $endif$
 
-      $if(keywords)$
+    </div>
+
+    $if(keywords)$
       <div>
-        <div class="keywords">
+        <div class="abstract keywords">
           <div class="quarto-title-meta-heading">$labels.keywords$</div>
-          <p>$for(keywords)$$it$$sep$, $endfor$</p>
+          $for(keywords)$$it$$sep$, $endfor$
         </div>
       </div>
-      $endif$
-    </div>
+    $endif$
+
+    $if(jel)$
+      <div>
+        <div class="abstract jel">
+          $if(french)$
+          <div class="quarto-title-meta-heading">Codes JEL</div>
+          $else$
+          <div class="quarto-title-meta-heading">JEL codes</div>
+          $endif$
+          $for(jel)$$it$$sep$, $endfor$
+        </div>
+      </div>
+    $endif$
 
     $if(abstract)$
       <div>
