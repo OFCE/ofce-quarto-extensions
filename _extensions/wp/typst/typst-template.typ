@@ -482,7 +482,11 @@
     v(2cm)
     text(tr(language, "Résumé", "Abstract"), font: serif_font, size: 18pt, weight: "bold", fill: ife2)
     v(0.5em)
-    block(fill: white, width: 100%, inset: 0em, text(abstract, size: 10pt))
+  // Résumé justifié : c'est un bloc de texte suivi, pas un titre.
+    block(fill: white, width: 100%, inset: 0em, {
+      set par(justify: true)
+      text(abstract, size: 10pt)
+    })
   }
 
   //// Mots-clés et codes JEL
