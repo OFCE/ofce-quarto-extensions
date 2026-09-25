@@ -23,19 +23,151 @@
 #let ife1 = rgb("#7D0000")
 #let ife2 = rgb("#21606E")
 #let ifegrey = rgb("#DDDBDB")
+#let ifeanthracite = rgb("#28252F")
+
 
 /// Polices
 #let main_title_font = "Arimo"
 #let serif_font = "Merriweather"
 
-/// Tableaux : pas de filets, ce sont les tableaux gt qui posent les leurs
-#set table(inset: 6pt, stroke: none)
+/// Filets des tableaux
+//
+// Trois sources dessinaient des filets d'épaisseurs et de couleurs
+// différentes dans un même tableau :
+//   - pandoc pose un `table.hline()` sans argument sous l'en-tête et au-dessus
+//     du pied de tableau ; sans stroke explicite, typst les trace en 1pt noir ;
+//   - les bordures des groupes de lignes viennent de la CSS de gt, converties
+//     en `stroke:` sur les cellules : gris clair (#d3d3d3) et 1,5pt ;
+//   - le filet du haut n'était pas tracé du tout : gt le dessine en html, mais
+//     ni `table.border.top` ni `column_labels.border.top` ne survivent à la
+//     conversion html -> pandoc -> typst.
+//
+// Tout est ramené à `filet_tableau` ici, sans rien changer du côté R
+#let filet_tableau = 0.4pt + ifeanthracite
+
+// Les filets de pandoc (sous l'en-tête, au-dessus du pied).
+#set table.hline(stroke: filet_tableau)
+
+// Le filet du haut, que gt ne transmet pas : il est posé ici, sur le bord
+// supérieur des cellules de la première ligne. Les autres bords restent nus —
+// les filets intérieurs sont ceux de gt et de pandoc, pas ceux du `table`.
+#set table(
+  inset: 6pt,
+  stroke: (x, y) => if y == 0 { (top: filet_tableau) },
+)
+
+/// Reprise des traits que gt pose lui-même
+//
+// Les bordures des groupes de lignes arrivent en argument explicite sur la
+// cellule (`table.cell(stroke: (top: ..., bottom: ...))`), gris clair et en
+// 1,5pt. Un argument explicite l'emporte sur toute règle `set`, et une règle
+// `show table.cell` ne peut remplacer que le contenu d'une cellule, pas ses
+// traits : il faut reconstruire les enfants du tableau.
+//
+// Chaque côté effectivement dessiné prend `filet_tableau` ; les côtés nus le
+// restent. `auto` et `none` sont laissés tels quels : ils relèvent du `set
+// table` ci-dessus, qui a déjà la bonne épaisseur.
+//
+// Le trait est lu par `fields()`, et non par `enfant.stroke` : une cellule qui
+// n'en porte pas explicitement fait échouer l'accès direct au champ
+// (« field "stroke" in cell is not known at this point »).
+#let trait_cellule(enfant) = enfant.fields().at("stroke", default: auto)
+
+#let filet_normalise(trait) = {
+  if type(trait) == dictionary {
+    let sortie = (:)
+    for (cote, valeur) in trait {
+      sortie.insert(cote, if valeur == none { none } else { filet_tableau })
+    }
+    sortie
+  } else if trait == none or trait == auto {
+    trait
+  } else {
+    filet_tableau
+  }
+}
+
+#let cellule_a_reprendre(enfant) = {
+  enfant.func() == table.cell and filet_normalise(trait_cellule(enfant)) != trait_cellule(enfant)
+}
+
+// Le filet sous un libellé de regroupement de colonnes (`tab_spanner`), que gt
+// dessine en html et que la conversion perd, comme celui du haut. La cellule
+// du libellé se reconnaît à son `colspan` : dans un en-tête gt, seul un
+// spanner couvre plusieurs colonnes. Le trait ne court alors que sur les
+// colonnes regroupées, puisqu'il est porté par cette cellule.
+//
+// La cellule du pied de tableau porte elle aussi un `colspan`, mais le pied
+// n'est pas parcouru : seuls les enfants de `table.header` le sont.
+// Les parenthèses sont nécessaires : typst ne poursuit pas une expression
+// d'une ligne sur l'autre, que l'opérateur soit en fin ou en début de ligne.
+#let spanner_a_reprendre(enfant) = (
+  enfant.func() == table.cell
+    and enfant.fields().at("colspan", default: 1) >= 2
+    and trait_cellule(enfant) == auto
+)
+
+#let reprendre_cellule(enfant, trait) = {
+  let cf = enfant.fields()
+  let corps = cf.remove("body")
+  // `default` est indispensable : une cellule de spanner n'a pas de champ
+  // `stroke`, et `remove` sur une clé absente est une erreur.
+  let _ = cf.remove("stroke", default: none)
+  table.cell(..cf, stroke: trait, corps)
+}
+
+#let reprendre_entete(entete) = {
+  if not entete.children.any(spanner_a_reprendre) { return entete }
+  let champs = entete.fields()
+  let _ = champs.remove("children")
+  table.header(
+    ..champs,
+    ..entete.children.map(enfant => {
+      if spanner_a_reprendre(enfant) {
+        reprendre_cellule(enfant, (bottom: filet_tableau))
+      } else {
+        enfant
+      }
+    }),
+  )
+}
+
+// La règle se rappelle sur le tableau qu'elle reconstruit ; elle s'arrête au
+// second passage, où plus rien n'est à reprendre.
+#show table: it => {
+  let entete_a_faire = it.children.any(enfant => {
+    enfant.func() == table.header and enfant.children.any(spanner_a_reprendre)
+  })
+  if not it.children.any(cellule_a_reprendre) and not entete_a_faire {
+    return it
+  }
+  let champs = it.fields()
+  let _ = champs.remove("children")
+  table(
+    ..champs,
+    ..it.children.map(enfant => {
+      if enfant.func() == table.header {
+        reprendre_entete(enfant)
+      } else if cellule_a_reprendre(enfant) {
+        reprendre_cellule(enfant, filet_normalise(trait_cellule(enfant)))
+      } else {
+        enfant
+      }
+    }),
+  )
+}
+
+/// Air entre la légende et le flottant
+#set figure(gap: 1.1em)
+
+/// Air au-dessus et en dessous des graphiques et des tableaux
+#let espacement_flottant = 3em
 
 //// Libellés du gabarit
 
 // Le français est la langue par défaut ; `lang: en` dans le yaml bascule
-// l'ensemble des textes inscrits en dur. Les variantes régionales (en-GB,
-// fr-BE, ...) sont ramenées à leur langue.
+// l'ensemble des textes inscrits en dur.
+
 #let is_en(language) = language != none and lower(language).starts-with("en")
 
 // Choisit entre deux libellés (chaîne ou contenu) selon la langue.
@@ -350,11 +482,7 @@
     v(2cm)
     text(tr(language, "Résumé", "Abstract"), font: serif_font, size: 18pt, weight: "bold", fill: ife2)
     v(0.5em)
-    // Résumé justifié : c'est un bloc de texte suivi, pas un titre.
-    block(fill: white, width: 100%, inset: 0em, {
-      set par(justify: true)
-      text(abstract, size: 10pt)
-    })
+    block(fill: white, width: 100%, inset: 0em, text(abstract, size: 10pt))
   }
 
   //// Mots-clés et codes JEL
@@ -404,7 +532,7 @@
 
   if thanks != none and thanks != [] {
     place(bottom + left,
-      block(fill: white, inset: 0.5em, stroke: 0.5pt + grey2)[
+      block(fill: white, inset: 0.5em, stroke: 0.5pt + grey2, radius: 2pt)[
         #set par(leading: 0.35em)
         #text(tr(language, thanks-title-fr, thanks-title-en), size: 9pt, fill: ife2, weight: "bold", font: serif_font)
         #linebreak()
@@ -590,17 +718,62 @@
   // Les callouts référençables sont enveloppés dans un `figure`, dont le bloc
   // n'est pas sécable : un encadré long refusait alors de se répartir sur
   // deux pages. On rend sécables les figures de type callout.
+  //
+  // Les graphiques et les tableaux, eux, sont entourés d'`espacement_flottant`.
+  // L'espacement est posé par un bloc enveloppant, et non par un `set block`
+  // sur la figure : celui-ci vaudrait aussi pour les blocs intérieurs, et
+  // écarterait la légende de son contenu.
   show figure: it => {
     if type(it.kind) == str and it.kind.starts-with("quarto-callout") {
       set block(breakable: true)
       it
     } else {
-      it
+      block(above: espacement_flottant, below: espacement_flottant, it)
     }
   }
   show figure.where(kind: table): set block(breakable: true)
   show figure.where(kind: "quarto-float-tbl"): set block(breakable: true)
   show figure.where(kind: "quarto-float-apptbl"): set block(breakable: true)
+
+  // Légendes des graphiques et des tableaux
+  //
+  // Alignées à gauche (et non centrées, comme le veut le défaut de typst),
+  // avec l'appel « Graphique 3 : » en gras et le libellé en romain.
+  //
+  // Le deux-points est précédé d'une espace fine insécable en français, et
+  // d'aucune espace en anglais. L'espace est posée par `h()` plutôt que par le
+  // caractère U+202F : elle ne dépend alors pas de la fonte, et n'offre aucune
+  // occasion de retour à la ligne.
+  //
+  // Les légendes placées au-dessus du contenu sont `sticky`, pour ne pas
+  // rester seules en bas de page. `cap-location: top` dans _extension.yml les
+  // met toutes au-dessus, graphiques compris ; la condition sur `position`
+  // n'est là que pour le jour où ce réglage changerait, `sticky` rattachant un
+  // bloc à ce qui le suit et non à ce qui le précède.
+  //
+  // Seules les figures sécables en tirent parti — les tableaux, rendus tels
+  // ci-dessus —, une figure insécable emportant déjà sa légende avec elle.
+  show figure.caption: it => block(
+    width: 100%,
+    sticky: it.position == top,
+    {
+      set par(justify: false)
+      set align(left)
+      // Pas de numérotation (figure non référençable) : il n'y a pas d'appel
+      // à composer, seul le libellé est rendu.
+      if it.numbering != none {
+        text(weight: "bold", {
+          it.supplement
+          [ ]
+          context it.counter.display(it.numbering)
+          tr(language, h(0.16em), none)
+          [:]
+        })
+        [ ]
+      }
+      it.body
+    },
+  )
 
   // Bandeau de titre des encadrés (seuls blocs à porter `below: 0pt`) :
   // en gras, et `sticky` pour qu'il ne reste pas seul en bas de page.

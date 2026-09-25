@@ -222,7 +222,7 @@
   }
 
   place(top + right, dx: -0.5cm, dy: 0.25cm,
-    align(horizon, text(fill: gray, size: 0.9cm, font: serif_font, style: "italic", "L'ÉcoGraphe ")))
+    align(horizon, text(fill: gray, size: 0.9cm, font: serif_font, style: "italic", "EcoGraph ")))
 
   v(5em)
 
