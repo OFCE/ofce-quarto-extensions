@@ -30,8 +30,8 @@
 /// Polices
 //
 // Mêmes polices que les autres gabarits OFCE : Arimo pour le texte, posé par
-// `mainfont` dans le yaml, Merriweather pour le titre et la mention du format.
-#let main_title_font = "Arimo"
+// `mainfont` dans le yaml, Merriweather pour les titres — titre du bandeau,
+// mention du format et titres de section.
 #let serif_font = "Merriweather"
 
 /// Tableaux : pas de filets, ce sont les tableaux gt qui posent les leurs
@@ -190,7 +190,9 @@
   show link: set text(fill: linkcolor)
   show cite: set text(fill: linkcolor)
 
-  /// Titres de section : la page est courte, deux niveaux suffisent
+  /// Titres de section : Merriweather à tous les niveaux, comme le titre ;
+  /// la page est courte, seuls les deux premiers niveaux sont mis en forme.
+  show heading: set text(font: serif_font)
   show heading.where(level: 1): it => block(width: 100%, below: 0.8em, above: 1em)[
     #set text(size: fontsize * 1.1, weight: "bold")
     #it

@@ -67,13 +67,14 @@ contributes:
         - ../ofce/sass/default.scss
         - ../ofce/sass/rules.scss
         - ../ofce/ofce.scss
+        - ../ofce/newfont.scss
       number-sections: false
       html-math-method: katex
       include-in-header:
         - ../ofce/html/url-nav-active.html
       lightbox: true
       link-external-icon: false
-      mainfont: Open Sans
+      mainfont: Arimo
       toc-location: left
       number-depth: 3
       fig-dpi: 1200
