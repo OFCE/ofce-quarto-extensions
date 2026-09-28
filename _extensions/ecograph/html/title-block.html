@@ -4,7 +4,7 @@ $if(title)$
 <div class="quarto-title">
 <h1 class="title">$title$</h1>
 $if(nb)$
-<p class="subtitle ecographe-number">L'ÉcoGraphe n°$nb$ (<span id="pub-year"></span>)</p>
+<p class="subtitle ecographe-number">EcoGraph n°$nb$ (IFE - <span id="pub-year"></span>)</p>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     var dateEl = document.querySelector('.date');
@@ -16,7 +16,7 @@ $if(nb)$
     var formatLinks = document.querySelectorAll('.quarto-alternate-formats a');
     formatLinks.forEach(function(link) {
       if (link.textContent.includes('Typst')) {
-        link.innerHTML = link.innerHTML.replace(/Typst \(gow\)/i, 'PDF du Graphique');
+        link.innerHTML = link.innerHTML.replace(/Typst \(ecograph\)/i, 'PDF du Graphique');
       }
     });
   });

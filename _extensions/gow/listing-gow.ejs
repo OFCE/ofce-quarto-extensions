@@ -5,7 +5,7 @@
 <p><a href="<%= item.path %>"><% if (item.image) { %><img src="<%= item.image %>" class="thumbnail-image"><% } else { %><div class="listing-item-img-placeholder card-img-top" >&nbsp;</div><% } %></a></p>
 </div>
 <div class="body">
-<% if (item.gow && item.nb) { %>
+<% if ((item.gow || item.ecograph) && item.nb) { %>
 <%
   // Extract year from path (e.g., "./fr/2026/..." -> "2026")
   const itemPath = item.path.replace(/\\/g, '/');
