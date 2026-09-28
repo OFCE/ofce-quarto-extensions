@@ -6,8 +6,9 @@
 // Le fichier est traité comme un template pandoc : le signe dollar y est un
 // caractère d'échappement et doit être doublé (voir la regex de `fmt_date_iso`).
 //
-// Le format tient sur une seule page à l'italienne : un bandeau de titre, puis
-// deux colonnes — le graphique à gauche, le texte d'accompagnement à droite.
+// Le format tient sur deux pages à l'italienne : un bandeau de titre puis le
+// graphique centré, et en seconde page deux colonnes — résumé, dates et liens
+// à gauche, texte d'accompagnement à droite.
 
 #import "@preview/icu-datetime:0.1.2": fmt-datetime, fmt-date
 
@@ -65,6 +66,10 @@
 // un poids visuel identique d'un institut à l'autre. Cette hauteur est celle
 // du logo OFCE tel qu'il était posé en largeur (2 cm).
 #let hauteur_logo = 0.92cm
+
+// Le logo Sciences Po est posé à côté de celui de l'institut, et plus petit :
+// c'est la tutelle, pas l'émetteur.
+#let hauteur_sciencespo = hauteur_logo * 0.62
 
 // Fiche de l'institut demandé ; erreur explicite si la valeur est inconnue.
 #let fiche_institut(institut) = {
@@ -206,13 +211,12 @@
 
   //// Logos, numéro, année et mention du format
 
+  // Les deux logos sur une même ligne, alignés sur leur milieu : la grille
+  // s'adapte à la largeur du logo de l'institut, qui varie de l'un à l'autre.
   place(top + left, dx: 0cm, dy: 0cm,
-    image(chemin_logo(fiche.logo), height: hauteur_logo))
-
-  // Posé juste sous le logo de l'institut, quelle que soit sa hauteur : à une
-  // position fixe, les logos larges (IFE|OFCE, IFE|CEPII) le recouvraient.
-  place(top + left, dx: 0cm, dy: hauteur_logo + 0.05cm,
-    image(chemin_logo("sciencespo.png"), width: 2cm))
+    grid(columns: 2, column-gutter: 0.45cm, align: horizon,
+      image(chemin_logo(fiche.logo), height: hauteur_logo),
+      image(chemin_logo("sciencespo.png"), height: hauteur_sciencespo)))
 
   place(top + right, dy: 0cm, dx: marge,
     square(fill: ife2, size: 1cm, align(center + horizon, text(fill: white, size: 0.8cm, number))))
@@ -235,7 +239,7 @@
 
   v(1em)
 
-  //// Auteurs
+  //// Auteurs, puis date de publication
 
   if authors != none {
     for author in authors {
@@ -248,31 +252,42 @@
     }
   }
 
-  ///// CORPS — graphique à gauche, texte d'accompagnement à droite
+  // Dates sous la signature.
+  if pretty_date != none {
+    text(size: 10pt, fill: grey1, [#tr(language, [Publié le], [Published]) #pretty_date])
+    linebreak()
+  }
+  if pretty_modified != none {
+    text(size: 10pt, fill: grey1, [#tr(language, [Modifié le], [Modified]) #pretty_modified])
+    linebreak()
+  }
+
+  ///// PREMIÈRE PAGE — le graphique, centré
 
   // `scalepic` dans le yaml règle la part de la largeur occupée par le
-  // graphique ; le texte occupe ce qui reste.
-  let largeur_graphique = 70 * scalepic * 1%
+  // graphique ; à 1, il occupe toute la largeur du bloc de texte.
+  let largeur_graphique = 100 * scalepic * 1%
 
+  // Les deux ressorts centrent le graphique dans la hauteur restante ; ils se
+  // résorbent d'eux-mêmes si le graphique remplit la page.
+  v(1fr)
+
+  align(center, block(width: largeur_graphique, doc))
+
+  v(1fr)
+
+  ///// SECONDE PAGE — résumé et liens à gauche, texte d'accompagnement à droite
+
+  pagebreak()
+
+  // Colonne étroite à gauche : résumé, dates, liens. Le texte d'accompagnement
+  // occupe la colonne large.
   grid(
-    columns: (largeur_graphique, 1fr),
-    column-gutter: 0.5em,
+    columns: (30%, 1fr),
+    column-gutter: 1.5em,
 
-    /// Colonne de gauche : le graphique
-    [#doc],
-
-    /// Colonne de droite : dates, résumé, liens
+    /// Colonne de gauche : résumé, dates, liens
     [
-      #if pretty_date != none {
-        text(size: 10pt, fill: grey1, [#tr(language, [Publié le], [Published]) #pretty_date])
-      }
-      #if pretty_modified != none {
-        linebreak()
-        text(size: 10pt, fill: grey1, [#tr(language, [Modifié le], [Modified]) #pretty_modified])
-      }
-
-      #v(0.5em)
-
       #if abstract != none and abstract != [] {
         // Résumé justifié : c'est un bloc de texte suivi, pas un titre.
         block(fill: grey3, inset: 1em, radius: 3pt, width: 100%, {
@@ -281,17 +296,14 @@
         })
       }
 
-      // Texte d'accompagnement : le div `.analyse` du corps, sorti du fil par
-      // `analyse.lua`. Il suit le résumé, sans cadre : c'est le corps de texte
-      // de la colonne.
-      #if analyse != none and analyse != [] {
+      #if pretty_date != none {
         v(0.5em)
-        block(width: 100%, {
-          // Colonne étroite : sans césure, le texte justifié s'étire.
-          set par(justify: true)
-          set text(size: 10pt, lang: language, hyphenate: true)
-          analyse
-        })
+        text(size: 10pt, fill: grey1, [#tr(language, [Publié le], [Published]) #pretty_date])
+        linebreak()
+      }
+      #if pretty_modified != none {
+        text(size: 10pt, fill: grey1, [#tr(language, [Modifié le], [Modified]) #pretty_modified])
+        linebreak()
       }
 
       // Lien vers le billet en ligne, si `urlblog` est renseignée dans le yaml.
@@ -315,6 +327,18 @@
           }
           linebreak()
         }
+      }
+    ],
+
+    /// Colonne de droite : le texte d'accompagnement, sorti du corps du
+    /// document par `analyse.lua`.
+    [
+      #if analyse != none and analyse != [] {
+        block(width: 100%, {
+          set par(justify: true)
+          set text(size: 10pt, lang: language, hyphenate: true)
+          analyse
+        })
       }
     ],
   )
