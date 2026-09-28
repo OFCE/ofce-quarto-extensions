@@ -147,6 +147,7 @@
   authors: none,
   extrarefs: none,
   abstract: none,
+  analyse: none,
   first_publish: none,
   modified: none,
   year: none,
@@ -275,6 +276,19 @@
         block(fill: grey3, inset: 1em, radius: 3pt, width: 100%, {
           set par(justify: true)
           text(size: 10pt, abstract)
+        })
+      }
+
+      // Texte d'accompagnement : le div `.analyse` du corps, sorti du fil par
+      // `analyse.lua`. Il suit le résumé, sans cadre : c'est le corps de texte
+      // de la colonne.
+      #if analyse != none and analyse != [] {
+        v(0.5em)
+        block(width: 100%, {
+          // Colonne étroite : sans césure, le texte justifié s'étire.
+          set par(justify: true)
+          set text(size: 10pt, lang: language, hyphenate: true)
+          analyse
         })
       }
 

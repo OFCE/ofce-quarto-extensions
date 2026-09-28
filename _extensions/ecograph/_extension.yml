@@ -58,6 +58,7 @@ contributes:
         - collapse-callout
         - nbsp
         - quarto
+        - analyse.lua
       license: CC BY
 
     html:

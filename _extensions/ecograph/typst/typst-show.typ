@@ -19,6 +19,9 @@ $endif$
 $if(description)$
   abstract: [$description$],
 $endif$
+$if(analyse)$
+  analyse: [$analyse$],
+$endif$
 $if(date)$
   first_publish: [$date$],
 $endif$
