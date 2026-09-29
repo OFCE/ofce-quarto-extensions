@@ -16,7 +16,7 @@
 <a href="<%= item.path %>"><%= item.title %></a>
 </h3>
 <div class="listing-description">
-<a href="<%= item.path %>"><em> L'ÉcoGraphe n°<%= item.nb %> (<%= year %>)</em></a>
+<a href="<%= item.path %>"><em> <%= item.ecograph ? 'EcoGraph' : "L'ÉcoGraphe" %> n°<%= item.nb %> (<%= item.ecograph ? 'IFE - ' : '' %><%= year %>)</em></a>
 </div>
 <% } else { %>
 <h3 class="no-anchor listing-title">
