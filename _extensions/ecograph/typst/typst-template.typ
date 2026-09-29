@@ -67,9 +67,15 @@
 // du logo OFCE tel qu'il était posé en largeur (2 cm).
 #let hauteur_logo = 0.92cm
 
-// Le logo Sciences Po est posé à côté de celui de l'institut, et plus petit :
-// c'est la tutelle, pas l'émetteur.
-#let hauteur_sciencespo = hauteur_logo * 0.62
+// Le logo Sciences Po est posé à côté de celui de l'institut, et plus petit
+#let hauteur_sciencespo = hauteur_logo * 0.55
+
+// sciencespo.png porte une marge blanche d'environ 15 % de sa hauteur, en haut
+// comme en bas, là où le logo de l'institut est détouré au plus près. Aligner
+// les deux images par le bas laisse donc le Sciences Po flotter de cette marge
+// au-dessus de la ligne de base de l'autre ; on l'en redescend d'autant.
+// Mesuré sur le fichier : 13 pixels de blanc sous un visuel de 85 pixels.
+#let marge_basse_sciencespo = 13 / 85
 
 // Fiche de l'institut demandé ; erreur explicite si la valeur est inconnue.
 #let fiche_institut(institut) = {
@@ -207,16 +213,18 @@
     #it
   ]
 
-  ///// BANDEAU DE TITRE
+  ///// BANDEAU DE TITRE — compact, pour laisser la hauteur au graphique
 
   //// Logos, numéro, année et mention du format
 
-  // Les deux logos sur une même ligne, alignés sur leur milieu : la grille
-  // s'adapte à la largeur du logo de l'institut, qui varie de l'un à l'autre.
+  // Les deux logos sur une même ligne : la grille s'adapte à la largeur du logo
+  // de l'institut, qui varie de l'un à l'autre. Le logo Sciences Po, plus petit,
+  // est aligné sur le bas de la ligne et non sur son milieu.
   place(top + left, dx: 0cm, dy: 0cm,
-    grid(columns: 2, column-gutter: 0.45cm, align: horizon,
+    grid(columns: 2, column-gutter: 0.7cm, align: (horizon, bottom),
       image(chemin_logo(fiche.logo), height: hauteur_logo),
-      image(chemin_logo("sciencespo.png"), height: hauteur_sciencespo)))
+      move(dy: hauteur_sciencespo * marge_basse_sciencespo,
+        image(chemin_logo("sciencespo.png"), height: hauteur_sciencespo))))
 
   place(top + right, dy: 0cm, dx: marge,
     square(fill: ife2, size: 1cm, align(center + horizon, text(fill: white, size: 0.8cm, number))))
@@ -228,81 +236,138 @@
       text(fill: ife2, size: 0.43cm, align(right + horizon, annee)))
   }
 
-  place(top + right, dx: -0.5cm, dy: 0.25cm,
+  v(2em)
+  
+  place(top + right, dx: -0.5cm, dy: 0.15cm,
     align(horizon, text(fill: gray, size: 0.9cm, font: serif_font, style: "italic", "EcoGraph ")))
 
-  v(5em)
+  v(2em)
 
-  //// Titre
+  //// Titre, puis signature
+  //
+  // Le titre occupe toute la largeur, au-dessus des deux colonnes, et la
+  // signature se pose sous lui. Les dates, elles, restent dans la colonne de
+  // texte : sur une page unique, chaque ligne du bandeau est prise sur le
+  // graphique.
 
-  block(text(size: 16pt, weight: "bold", fill: ife1, font: serif_font, title))
+  block(text(size: 15pt, weight: "bold", fill: ife1, font: serif_font, title))
 
-  v(1em)
-
-  //// Auteurs, puis date de publication
+  v(0.55em)
 
   if authors != none {
     for author in authors {
-      text(author.name, weight: "bold", size: 11pt)
+      text(author.name, weight: "bold", size: 10pt)
       if author.affiliation != none and author.affiliation != "" {
-        text(", ", size: 11pt)
-        text(author.affiliation, style: "italic", size: 11pt)
+        text(", ", size: 10pt)
+        text(author.affiliation, style: "italic", size: 10pt, fill: grey1)
       }
       linebreak()
     }
   }
 
-  // Dates sous la signature.
-  if pretty_date != none {
-    text(size: 10pt, fill: grey1, [#tr(language, [Publié le], [Published]) #pretty_date])
-    linebreak()
-  }
-  if pretty_modified != none {
-    text(size: 10pt, fill: grey1, [#tr(language, [Modifié le], [Modified]) #pretty_modified])
-    linebreak()
-  }
+  v(0.5em)
 
-  ///// PREMIÈRE PAGE — le graphique, centré
+  ///// LES DEUX COLONNES — graphique à gauche, repères et texte à droite
 
-  // `scalepic` dans le yaml règle la part de la largeur occupée par le
-  // graphique ; à 1, il occupe toute la largeur du bloc de texte.
+  // Le graphique prend toute la largeur que la colonne de texte lui laisse ;
+  // celle-ci est dimensionnée au plus juste de ce qu'elle a à porter.
+  // `scalepic` reste disponible pour le réduire encore.
   let largeur_graphique = 100 * scalepic * 1%
 
-  // Les deux ressorts centrent le graphique dans la hauteur restante ; ils se
-  // résorbent d'eux-mêmes si le graphique remplit la page.
-  v(1fr)
+  // Quarto pose le graphique en largeur (`#box(image(.., width: 95%))`) : à
+  // fig-asp élevé, la hauteur obtenue dépasse celle de la page. On mesure donc
+  // sa taille naturelle à la largeur de la colonne et on le réduit du facteur
+  // qui le fait tenir dans la hauteur disponible. Le facteur est plafonné à 1 :
+  // un graphique qui tient déjà n'est jamais agrandi.
+  //
+  // Le bloc n'a pas de hauteur fixe : un bloc haut d'exactement la place
+  // restante ne tient pas toujours — au pt près, Typst le renvoie alors en
+  // entier sur la page suivante. Seul le facteur de réduction se calcule sur la
+  // hauteur disponible, et le bloc prend la hauteur du graphique réduit.
+  let graphique_ajuste(contenu, hauteur) = block(width: largeur_graphique,
+    layout(dispo => {
+      let bloc = box(width: dispo.width, contenu)
+      let naturel = measure(bloc)
+      let facteur = calc.min(1, hauteur / naturel.height) * 100%
+      align(center, scale(x: facteur, y: facteur, reflow: true, bloc))
+    }))
 
-  align(center, block(width: largeur_graphique, doc))
+  // Renvois « Voir aussi », si `extraref` est renseignée dans le yaml. Ils sont
+  // posés sous le graphique : la colonne de texte n'a ainsi à porter que le
+  // résumé, les dates et le texte d'accompagnement.
+  let renvois = if extrarefs == none { none } else {
+    block(width: 100%, {
+      text(size: 9pt, fill: ife2, weight: "bold", font: serif_font)[#tr(language, [Voir aussi :], [See also:])]
+      v(0.3em)
+      for ref in extrarefs {
+        let lien = ref.at("lien", default: "")
+        if lien != "" {
+          text(size: 8pt)[• #link(texte_brut(lien))[#ref.texte]]
+        } else {
+          text(size: 8pt)[• #ref.texte]
+        }
+        linebreak()
+      }
+    })
+  }
 
-  v(1fr)
+  // Hauteur laissée par le bandeau, mesurée sur la page plutôt que demandée en
+  // `fr` : un `1fr` posé ici n'est pas transmis aux cellules de la grille, et le
+  // graphique ne saurait pas de quelle hauteur il dispose. `here()` donne la
+  // position courante dans la page, d'où l'on déduit ce qui reste.
+  //
+  // /!\ La hauteur du bloc de texte vient de `layout` et non de `page.height` :
+  // en `flipped: true`, `page.height` renvoie la hauteur du papier avant
+  // bascule (841,89 pt pour l'A4), pas celle de la page. `zone.height` est la
+  // hauteur utile réelle ; `here().position().y` se compte depuis le haut de la
+  // page, d'où la marge haute rajoutée.
+  layout(zone => context {
+  let hauteur_dispo = zone.height + page.margin.top - here().position().y
 
-  ///// SECONDE PAGE — résumé et liens à gauche, texte d'accompagnement à droite
-
-  pagebreak()
-
-  // Colonne étroite à gauche : résumé, dates, liens. Le texte d'accompagnement
-  // occupe la colonne large.
   grid(
-    columns: (30%, 1fr),
-    column-gutter: 1.5em,
+    columns: (1fr, 29%),
+    column-gutter: 1.4em,
 
-    /// Colonne de gauche : résumé, dates, liens
+    /// Colonne de gauche : le graphique, aussi grand que la place le permet,
+    /// puis les renvois « Voir aussi ». La hauteur de ces derniers est mesurée
+    /// à la largeur de la colonne et retirée de celle offerte au graphique.
+    /// L'écart entre les deux est posé à la main : l'espacement que Typst
+    /// glisse entre deux blocs successifs n'entre pas dans la mesure, et le
+    /// graphique débordait alors de la hauteur de cet espacement — assez pour
+    /// renvoyer les renvois sur une seconde page.
+    layout(cellule => {
+      let ecart = 8pt
+      let hauteur_renvois = if renvois == none { 0pt } else {
+        measure(box(width: cellule.width, renvois)).height + ecart
+      }
+      block(width: 100%, {
+        set block(spacing: 0pt)
+        graphique_ajuste(doc, hauteur_dispo - hauteur_renvois)
+        v(ecart)
+        renvois
+      })
+    }),
+
+    /// Colonne de droite : signature, résumé, dates, lien, puis le texte
+    /// d'accompagnement sorti du corps du document par `analyse.lua`.
     [
+      #set text(size: 9pt)
+
       #if abstract != none and abstract != [] {
         // Résumé justifié : c'est un bloc de texte suivi, pas un titre.
-        block(fill: grey3, inset: 1em, radius: 3pt, width: 100%, {
+        block(fill: grey3, inset: 0.8em, radius: 3pt, width: 100%, {
           set par(justify: true)
-          text(size: 10pt, abstract)
+          text(size: 9pt, abstract)
         })
       }
 
       #if pretty_date != none {
         v(0.5em)
-        text(size: 10pt, fill: grey1, [#tr(language, [Publié le], [Published]) #pretty_date])
+        text(fill: grey1, [#tr(language, [Publié le], [Published]) #pretty_date])
         linebreak()
       }
       #if pretty_modified != none {
-        text(size: 10pt, fill: grey1, [#tr(language, [Modifié le], [Modified]) #pretty_modified])
+        text(fill: grey1, [#tr(language, [Modifié le], [Modified]) #pretty_modified])
         linebreak()
       }
 
@@ -310,36 +375,22 @@
       #if linky != none {
         v(0.5em)
         let url_str = texte_brut(linky)
-        align(left, text(size: 10pt, fill: ife2)[#tr(language, [Lien vers le billet sur le site de l'OFCE :], [Read this post on the OFCE website:]) #link(url_str)[#url_str]])
+        // Le libellé en gras et en serif, l'URL dans la graisse du texte
+        // courant : `align` ne prend qu'un seul corps, les deux sont donc
+        // réunis dans un même bloc de contenu.
+        align(left, text(fill: ife2)[
+          #text(weight: "bold", font: serif_font)[#tr(language, [Lien vers le billet sur le site de l'IFE|OFCE :], [Read this post on the IFE|OFCE website:])]
+          #link(url_str)[#url_str]
+        ])
       }
 
-      // Renvois « Voir aussi », si `extraref` est renseignée dans le yaml.
-      #if extrarefs != none {
-        v(0.5em)
-        text(size: 10pt, fill: ife2)[#tr(language, [Voir aussi :], [See also:])]
-        v(0.3em)
-        for ref in extrarefs {
-          let lien = ref.at("lien", default: "")
-          if lien != "" {
-            text(size: 9pt)[• #link(texte_brut(lien))[#ref.texte]]
-          } else {
-            text(size: 9pt)[• #ref.texte]
-          }
-          linebreak()
-        }
-      }
-    ],
-
-    /// Colonne de droite : le texte d'accompagnement, sorti du corps du
-    /// document par `analyse.lua`.
-    [
       #if analyse != none and analyse != [] {
-        block(width: 100%, {
-          set par(justify: true)
-          set text(size: 10pt, lang: language, hyphenate: true)
-          analyse
-        })
+        v(0.6em)
+        set par(justify: true, spacing: 0.75em)
+        set text(size: 8.5pt, lang: language, hyphenate: true)
+        analyse
       }
     ],
   )
+  })
 }
