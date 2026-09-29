@@ -11,6 +11,7 @@
 // à gauche, texte d'accompagnement à droite.
 
 #import "@preview/icu-datetime:0.1.2": fmt-datetime, fmt-date
+#import "@preview/fontawesome:0.5.0": fa-book, fa-globe
 
 ///// PRÉAMBULE — styles et fonctions communes
 
@@ -252,7 +253,7 @@
 
   block(text(size: 15pt, weight: "bold", fill: ife1, font: serif_font, title))
 
-  v(0.55em)
+  v(0.35em)
 
   if authors != none {
     for author in authors {
@@ -297,7 +298,7 @@
   // résumé, les dates et le texte d'accompagnement.
   let renvois = if extrarefs == none { none } else {
     block(width: 100%, {
-      text(size: 9pt, fill: ife2, weight: "bold", font: serif_font)[#tr(language, [Voir aussi :], [See also:])]
+      text(size: 9pt, fill: ife2, weight: "bold", font: serif_font)[#box(fa-book()) #tr(language, [Voir aussi :], [See also:])]
       v(0.3em)
       for ref in extrarefs {
         let lien = ref.at("lien", default: "")
@@ -371,24 +372,29 @@
         linebreak()
       }
 
-      // Lien vers le billet en ligne, si `urlblog` est renseignée dans le yaml.
-      #if linky != none {
-        v(0.5em)
-        let url_str = texte_brut(linky)
-        // Le libellé en gras et en serif, l'URL dans la graisse du texte
-        // courant : `align` ne prend qu'un seul corps, les deux sont donc
-        // réunis dans un même bloc de contenu.
-        align(left, text(fill: ife2)[
-          #text(weight: "bold", font: serif_font)[#tr(language, [Lien vers le billet sur le site de l'IFE|OFCE :], [Read this post on the IFE|OFCE website:])]
-          #link(url_str)[#url_str]
-        ])
-      }
-
       #if analyse != none and analyse != [] {
         v(0.6em)
         set par(justify: true, spacing: 0.75em)
         set text(size: 8.5pt, lang: language, hyphenate: true)
         analyse
+      }
+
+      // Lien vers le billet en ligne, sous l'analyse, si `urlblog` est
+      // renseignée dans le yaml. Le libellé tient dans une icône de globe :
+      // `box` la solidarise avec l'URL pour éviter une coupure de ligne
+      // juste après elle. Le tout est encadré d'un filet aux couleurs du lien.
+      #if linky != none {
+        v(0.6em)
+        let url_str = texte_brut(linky)
+        block(
+          width: 100%,
+          inset: 0.6em,
+          radius: 3pt,
+          stroke: 0.5pt + ife2,
+          text(fill: ife2)[
+            #box(fa-globe()) #link(url_str)[#url_str]
+          ],
+        )
       }
     ],
   )
