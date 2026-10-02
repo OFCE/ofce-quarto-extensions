@@ -10,7 +10,7 @@ contributes:
       french: true
       language:
         fr:
-          section-title-references: "Bibliograhie"
+          section-title-references: "Bibliographie"
           title-block-author-single: "Par"
           title-block-author-plural: "Par"
           title-block-published: "Publié le"
