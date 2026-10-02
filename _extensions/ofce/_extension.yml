@@ -20,7 +20,7 @@ contributes:
           draft: "Préliminaire"
           callout-tip-title: "Encadré"
         en:
-          section-title-references: "Bibilography"
+          section-title-references: "Bibliography"
           title-block-author-single: "Author"
           title-block-author-plural: "Authors"
           title-block-published: "Published on"
