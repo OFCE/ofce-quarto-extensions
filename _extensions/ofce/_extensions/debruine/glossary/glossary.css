@@ -1,0 +1,58 @@
+/* Style du bouton glossary */
+button.glossary {
+  position: relative;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+  padding: 0; /* neutralise le padding par défaut des navigateurs (~6px) */
+  text-decoration: underline;
+  text-decoration-style: dotted;
+}
+
+/* Style du tooltip personnalisé */
+.glossary-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: snow; /* Fond blanc cassé */
+  color: #333; /* Texte noir */
+  padding: 12px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  white-space: normal;
+  word-wrap: break-word;
+  z-index: 1000;
+  margin-bottom: 10px;
+  max-width: 450px !important; /* Largeur forcée */
+  width: max-content !important; /* Largeur adaptée au contenu */
+  text-align: left;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.1s ease, visibility 0.1s ease;
+}
+
+/* Titre du tooltip avec icône et terme défini */
+.glossary-tooltip-title {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Position alternative : en bas si pas assez de place en haut */
+.glossary-tooltip.glossary-tooltip-bottom {
+  bottom: auto;
+  top: 100%;
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+
+/* Apparition du tooltip au survol */
+button.glossary:hover .glossary-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
