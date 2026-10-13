@@ -1,0 +1,44 @@
+/* Barre de partage des pages de la prévision (partage.lua) : boutons ronds,
+   aux couleurs de chaque réseau, repris de la barre du blog. */
+.social-share {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 1em;
+}
+
+.social-share a {
+  --couleur: #555;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  border: 1px solid var(--couleur);
+  color: var(--couleur);
+  background: white;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background ease 0.3s, color ease 0.3s;
+}
+
+.social-share a:hover {
+  background: var(--couleur);
+  color: white;
+}
+
+.social-share .separateur {
+  width: 1em;
+}
+
+.social-share a.pdf { --couleur: #F40F02; }
+.social-share a.linkedin { --couleur: #2867B2; }
+.social-share a.facebook { --couleur: #4267B2; }
+.social-share a.mastodon { --couleur: #6364FF; }
+.social-share a.bluesky { --couleur: #1185FE; }
+.social-share a.reddit { --couleur: #FF4500; }
+.social-share a.twitter { --couleur: #000000; }
+.social-share a.email { --couleur: #00A4EF; }
