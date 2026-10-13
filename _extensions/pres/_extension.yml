@@ -25,7 +25,7 @@ contributes:
         tbl-title: Tableau
         lof-title: Figures
         lot-title: Tableaux
-      logo: ../ofce/img/ofce.png
+      logo: ../ofce/img/IFE-OFCE_logo_noir.png
       filters:
         - nbsp
         - quotes

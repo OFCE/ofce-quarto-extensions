@@ -46,7 +46,7 @@ contributes:
           title-delim: "**.**"
         en:
           title-delim: "**.**"
-      logo: ../ofce/img/logo.png
+      logo: ../ofce/img/IFE-OFCE_logo_noir.png
       filters:
         - quotes
         - collapse-callout
