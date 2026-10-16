@@ -66,6 +66,7 @@ contributes:
         - ../ofce/ofce.scss
       include-in-header:
         - ../ofce/html/url-nav-active.html
+        - ../ofce/html/encadre.js
       number-sections: false
       lightbox: true
       link-external-icon: false
