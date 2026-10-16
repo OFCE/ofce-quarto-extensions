@@ -57,7 +57,8 @@
 // supérieur des cellules de la première ligne. Les autres bords restent nus —
 // les filets intérieurs sont ceux de gt et de pandoc, pas ceux du `table`.
 #set table(
-  inset: 6pt,
+  // marge verticale réduite (4,5pt) : les tableaux, insécables, tiennent ainsi sur une page même quand ils sont longs
+  inset: (x: 6pt, y: 4.5pt),
   stroke: (x, y) => if y == 0 { (top: filet_tableau) },
 )
 
@@ -780,9 +781,12 @@
       block(above: espacement_flottant, below: espacement_flottant, it)
     }
   }
-  show figure.where(kind: table): set block(breakable: true)
-  show figure.where(kind: "quarto-float-tbl"): set block(breakable: true)
-  show figure.where(kind: "quarto-float-apptbl"): set block(breakable: true)
+  // Les tableaux de la prévision tiennent sur une page : on les rend insécables.
+  // Sécables, un tableau qui ne tenait pas en bas de page laissait seuls, sur la
+  // page, son en-tête et ses notes (répétés à chaque page), le corps passant à la suivante.
+  show figure.where(kind: table): set block(breakable: false)
+  show figure.where(kind: "quarto-float-tbl"): set block(breakable: false)
+  show figure.where(kind: "quarto-float-apptbl"): set block(breakable: false)
 
   // Corps des tableaux
   //
@@ -795,6 +799,9 @@
   // Pas de justification dans les cellules : sur une colonne étroite, elle
   // écarte les mots d'un en-tête qui passe à la ligne.
   show table: set par(justify: false)
+  // Les `figure` centrent leur contenu : sans cette règle, les cellules sans alignement
+  // propre (notes et sources du pied de tableau) héritaient du centrage.
+  show table: set align(left)
 
   // Légendes des graphiques et des tableaux
   //
