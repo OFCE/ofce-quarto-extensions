@@ -46,7 +46,7 @@ contributes:
           title-delim: "**.**"
         en:
           title-delim: "**.**"
-      logo: ../ofce/img/IFE-OFCE_logo_noir.png
+      logo: ../ofce/img/IFE_logo_noir.png
       filters:
         - quotes
         - collapse-callout
@@ -85,7 +85,7 @@ contributes:
       reference-location: margin
       fig-width: 6
       callout-icon: false
-      logo: ../ofce/img/logo.png
+      logo: ../ofce/img/IFE_logo_noir.png
       title-block-style: default
       image-lazy-loading: true
       hide-description: true
