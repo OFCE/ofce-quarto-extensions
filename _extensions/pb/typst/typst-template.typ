@@ -525,7 +525,7 @@
       10 place de Catalogne \
       75014 Paris, FRANCE \
       #tr(language, [Tel : +33 1 44 18 54 24], [Tel: +33 1 44 18 54 24]) \
-      #link("https://www.ofce.fr")
+      #link("https://ife.eco")
     ])
 
   //// Suite du document
