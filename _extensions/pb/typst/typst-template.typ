@@ -722,7 +722,7 @@
       set block(breakable: true)
       it
     } else {
-      block(above: espacement_flottant, below: espacement_flottant, it)
+      block(above: espacement_flottant, below: 1.5em, it)
     }
   }
   show figure.where(kind: table): set block(breakable: true)
