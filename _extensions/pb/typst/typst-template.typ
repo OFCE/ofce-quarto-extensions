@@ -23,6 +23,8 @@
 #let ife1 = rgb("#7D0000")
 #let ife2 = rgb("#21606E")
 #let ifegrey = rgb("#DDDBDB")
+// Gris des encadrés (callouts), repris pour le fond du résumé.
+#let grey_encadre = rgb("#EDEAEA")
 #let ifeanthracite = rgb("#28252F")
 
 /// Polices
@@ -474,7 +476,7 @@
   if abstract != none and abstract != [] {
     place(bottom, dx: 2 * lc_space + line_x, dy: -1 * line_x, clearance: 4cm,
       // Résumé justifié : c'est un bloc de texte suivi, pas un titre.
-      box(fill: grey3, baseline: 100%, width: 13cm, inset: 1em, {
+      box(fill: grey_encadre, baseline: 100%, width: 13cm, inset: 1em, {
         set par(justify: true)
         text(style: "italic", abstract, size: 10pt)
       }))

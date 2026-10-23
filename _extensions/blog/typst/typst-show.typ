@@ -1,50 +1,4 @@
 
-#show: body => title-page(
-  title: [$title$],
-  subtitle: [$subtitle$],$if(by-author)$
-  authors: (
-    $for(by-author)$
-      $if(it.name.literal)$(
-        name: [$it.name.literal$],
-        affiliation: [$for(it.affiliations)$$it.name$$sep$, $endfor$],
-        email: [$it.email$] ),
-      $endif$
-    $endfor$
-  ),
-$endif$
-$if(abstract)$
-  abstract: [$abstract$],
-$else$
-$if(description)$
-  abstract: [$description$],
-$endif$
-$endif$
-$if(annee)$
-  year: [$annee$],
-$endif$
-$if(stable-url)$
-  stable-url: "$stable-url$",
-$else$
-$if(citation.url)$
-  stable-url: "$citation.url$",
-$endif$
-$endif$
-$if(institut)$
-  institut: "$institut$",
-$endif$
-  number: [$wp$],
-$if(date)$
-  first_publish: [$date$],
-$endif$
-$if(date-modified)$
-  modified: "$date-modified$",
-$endif$
-$if(lang)$
-  language: "$lang$",
-$endif$
-  body
-)
-
 #show: doc => preprint(
 $if(title)$
   title: [$title$],
@@ -88,6 +42,19 @@ $if(spacing)$
 $endif$
 $if(linkcolor)$
   linkcolor: $linkcolor$,
+$endif$
+$if(stable-url)$
+  stable-url: "$stable-url$",
+$else$
+$if(citation.url)$
+  stable-url: "$citation.url$",
+$endif$
+$endif$
+$if(abstract)$
+$else$
+$if(description)$
+  abstract: [$description$],
+$endif$
 $endif$
 $if(citation)$
   citation: (

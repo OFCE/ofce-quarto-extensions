@@ -23,17 +23,149 @@
 #let ife1 = rgb("#7D0000")
 #let ife2 = rgb("#21606E")
 #let ifegrey = rgb("#DDDBDB")
+// Gris des encadrés (callouts), repris pour le fond du résumé.
+#let grey_encadre = rgb("#EDEAEA")
+#let ifeanthracite = rgb("#28252F")
 
 /// Polices
 //
-// Mêmes polices que le document de travail : Arimo pour la couverture et le
-// corps du texte (posé par `mainfont` dans le yaml), Merriweather pour les
+// Mêmes polices que le document de travail : Arimo pour le corps du texte (posé par `mainfont` dans le yaml), Merriweather pour les
 // titres de niveau 1, la table des matières et les guillemets de citation.
 #let main_title_font = "Arimo"
 #let serif_font = "Merriweather"
 
-/// Tableaux : pas de filets, ce sont les tableaux gt qui posent les leurs
-#set table(inset: 6pt, stroke: none)
+/// Filets des tableaux
+//
+// Trois sources dessinaient des filets d'épaisseurs et de couleurs
+// différentes dans un même tableau :
+//   - pandoc pose un `table.hline()` sans argument sous l'en-tête et au-dessus
+//     du pied de tableau ; sans stroke explicite, typst les trace en 1pt noir ;
+//   - les bordures des groupes de lignes viennent de la CSS de gt, converties
+//     en `stroke:` sur les cellules : gris clair (#d3d3d3) et 1,5pt ;
+//   - le filet du haut n'était pas tracé du tout : gt le dessine en html, mais
+//     ni `table.border.top` ni `column_labels.border.top` ne survivent à la
+//     conversion html -> pandoc -> typst.
+//
+// Tout est ramené à `filet_tableau` ici, sans rien changer du côté R
+#let filet_tableau = 0.4pt + ifeanthracite
+
+// Les filets de pandoc (sous l'en-tête, au-dessus du pied).
+#set table.hline(stroke: filet_tableau)
+
+// Le filet du haut, que gt ne transmet pas : il est posé ici, sur le bord
+// supérieur des cellules de la première ligne. Les autres bords restent nus —
+// les filets intérieurs sont ceux de gt et de pandoc, pas ceux du `table`.
+#set table(
+  inset: 6pt,
+  stroke: (x, y) => if y == 0 { (top: filet_tableau) },
+)
+
+/// Reprise des traits que gt pose lui-même
+//
+// Les bordures des groupes de lignes arrivent en argument explicite sur la
+// cellule (`table.cell(stroke: (top: ..., bottom: ...))`), gris clair et en
+// 1,5pt. Un argument explicite l'emporte sur toute règle `set`, et une règle
+// `show table.cell` ne peut remplacer que le contenu d'une cellule, pas ses
+// traits : il faut reconstruire les enfants du tableau.
+//
+// Chaque côté effectivement dessiné prend `filet_tableau` ; les côtés nus le
+// restent. `auto` et `none` sont laissés tels quels : ils relèvent du `set
+// table` ci-dessus, qui a déjà la bonne épaisseur.
+//
+// Le trait est lu par `fields()`, et non par `enfant.stroke` : une cellule qui
+// n'en porte pas explicitement fait échouer l'accès direct au champ
+// (« field "stroke" in cell is not known at this point »).
+#let trait_cellule(enfant) = enfant.fields().at("stroke", default: auto)
+
+#let filet_normalise(trait) = {
+  if type(trait) == dictionary {
+    let sortie = (:)
+    for (cote, valeur) in trait {
+      sortie.insert(cote, if valeur == none { none } else { filet_tableau })
+    }
+    sortie
+  } else if trait == none or trait == auto {
+    trait
+  } else {
+    filet_tableau
+  }
+}
+
+#let cellule_a_reprendre(enfant) = {
+  enfant.func() == table.cell and filet_normalise(trait_cellule(enfant)) != trait_cellule(enfant)
+}
+
+// Le filet sous un libellé de regroupement de colonnes (`tab_spanner`), que gt
+// dessine en html et que la conversion perd, comme celui du haut. La cellule
+// du libellé se reconnaît à son `colspan` : dans un en-tête gt, seul un
+// spanner couvre plusieurs colonnes. Le trait ne court alors que sur les
+// colonnes regroupées, puisqu'il est porté par cette cellule.
+//
+// La cellule du pied de tableau porte elle aussi un `colspan`, mais le pied
+// n'est pas parcouru : seuls les enfants de `table.header` le sont.
+// Les parenthèses sont nécessaires : typst ne poursuit pas une expression
+// d'une ligne sur l'autre, que l'opérateur soit en fin ou en début de ligne.
+#let spanner_a_reprendre(enfant) = (
+  enfant.func() == table.cell
+    and enfant.fields().at("colspan", default: 1) >= 2
+    and trait_cellule(enfant) == auto
+)
+
+#let reprendre_cellule(enfant, trait) = {
+  let cf = enfant.fields()
+  let corps = cf.remove("body")
+  // `default` est indispensable : une cellule de spanner n'a pas de champ
+  // `stroke`, et `remove` sur une clé absente est une erreur.
+  let _ = cf.remove("stroke", default: none)
+  table.cell(..cf, stroke: trait, corps)
+}
+
+#let reprendre_entete(entete) = {
+  if not entete.children.any(spanner_a_reprendre) { return entete }
+  let champs = entete.fields()
+  let _ = champs.remove("children")
+  table.header(
+    ..champs,
+    ..entete.children.map(enfant => {
+      if spanner_a_reprendre(enfant) {
+        reprendre_cellule(enfant, (bottom: filet_tableau))
+      } else {
+        enfant
+      }
+    }),
+  )
+}
+
+// La règle se rappelle sur le tableau qu'elle reconstruit ; elle s'arrête au
+// second passage, où plus rien n'est à reprendre.
+#show table: it => {
+  let entete_a_faire = it.children.any(enfant => {
+    enfant.func() == table.header and enfant.children.any(spanner_a_reprendre)
+  })
+  if not it.children.any(cellule_a_reprendre) and not entete_a_faire {
+    return it
+  }
+  let champs = it.fields()
+  let _ = champs.remove("children")
+  table(
+    ..champs,
+    ..it.children.map(enfant => {
+      if enfant.func() == table.header {
+        reprendre_entete(enfant)
+      } else if cellule_a_reprendre(enfant) {
+        reprendre_cellule(enfant, filet_normalise(trait_cellule(enfant)))
+      } else {
+        enfant
+      }
+    }),
+  )
+}
+
+/// Air entre la légende et le flottant
+#set figure(gap: 1.1em)
+
+/// Air au-dessus et en dessous des graphiques et des tableaux
+#let espacement_flottant = 3em
 
 //// Libellés du gabarit
 
@@ -47,17 +179,16 @@
 
 //// Rédaction du blog
 
-// Nom des rédacteurs en chef, imprimé au bas de la page 2.
+// Nom des rédacteurs en chef, imprimé en fin de billet, sous la citation suggérée.
 #let redaction_fr = "Rédacteurs en chef : Elliot Aurissergues & Paul Malliet"
 #let redaction_en = "Editors-in-chief: Elliot Aurissergues & Paul Malliet"
 
 //// Instituts
 
-// `institut` dans le yaml choisit le logo (couverture et entêtes de page) et
-// le sigle qui précède le numéro du billet dans les entêtes. Valeur par
-// défaut : « ofce », c'est-à-dire le comportement d'avant l'ajout de cet
-// argument. Le logo Sciences Po du bas de couverture ne dépend pas de
-// l'institut, et la mention « Blog » de la couverture non plus.
+// `institut` dans le yaml choisit le logo des entêtes de page et le sigle qui
+// précède le numéro du billet dans les entêtes et la citation suggérée. Valeur
+// par défaut : « ife », le blog paraissant sous la bannière de l'Institut
+// français d'économie.
 // `sigle` : forme courte, seule à tenir dans une entête de page.
 // `nom` : forme développée, pour les usages où la place ne manque pas.
 #let instituts = (
@@ -79,14 +210,18 @@
 )
 
 // Les logos n'ont pas le même format : ils sont dimensionnés en hauteur, pour
-// un poids visuel identique d'un institut à l'autre. Ces hauteurs sont celles
-// du logo OFCE tel qu'il était posé en largeur (4 cm et 1 cm).
-#let hauteur_logo_couverture = 1.83cm
+// un poids visuel identique d'un institut à l'autre. Cette hauteur est celle
+// du logo OFCE tel qu'il était posé en largeur (1 cm).
 #let hauteur_logo_entete = 0.46cm
+
+// Logos du haut de la première page : celui de l'institut, et en dessous celui
+// de Sciences Po, au tiers de sa hauteur majoré de 30 %.
+#let hauteur_logo_premiere = 1.3cm
+#let hauteur_sciencespo = hauteur_logo_premiere / 3 * 1.3
 
 // Fiche de l'institut demandé ; erreur explicite si la valeur est inconnue.
 #let fiche_institut(institut) = {
-  let cle = if institut == none { "ofce" } else { lower(str(institut).trim()) }
+  let cle = if institut == none { "ife" } else { lower(str(institut).trim()) }
   if cle not in instituts {
     panic("institut inconnu : « " + cle + " ». Valeurs possibles : " + instituts.keys().join(", ") + ".")
   }
@@ -99,6 +234,12 @@
 // « OFCE blog no. 12 » en anglais.
 #let mention_blog(language, sigle, numero) = {
   if is_en(language) [#sigle blog no. #numero] else [Blog #sigle nº #numero]
+}
+
+// Nom de la série tel qu'il paraît dans la citation suggérée : « Blog OFCE »
+// en français, « OFCE blog » en anglais.
+#let serie_blog(language, sigle) = {
+  if is_en(language) [#sigle blog] else [Blog #sigle]
 }
 
 //// Fonctions communes
@@ -190,7 +331,7 @@
   fmt-date(datetime(year: y, month: mo, day: d), length: "long", locale: language)
 }
 
-/// Année affichée sur la couverture et dans les entêtes
+/// Année affichée dans les entêtes et la citation suggérée
 //
 // `annee` dans le yaml si elle est renseignée ; à défaut, l'année de la date
 // de publication ; `none` si l'on ne dispose ni de l'une ni de l'autre.
@@ -200,161 +341,6 @@
   let raw = if type(first_publish) == str { first_publish } else if first_publish.has("text") { first_publish.text } else { "" }
   let m = raw.trim().match(regex("^(\\d{4})-"))
   if m == none { none } else { m.captures.at(0) }
-}
-
-///// PAGES 1 ET 2 — COUVERTURE ET OURS
-
-#let title-page(
-  title: [],
-  subtitle: [],
-  authors: none,
-  email: [],
-  first_publish: none,
-  modified: none,
-  abstract: none,
-  year: none,
-  number: [],
-  stable-url: none,
-  institut: none,
-  language: "fr",
-  body,
-) = {
-
-  //// Valeurs dérivées des métadonnées
-
-  let fiche = fiche_institut(institut)
-
-  let pretty_date = fmt_date_iso(first_publish, language)
-  let pretty_modified = fmt_date_iso(modified, language)
-  let annee = annee_doc(year, first_publish)
-
-  // Pandoc échappe « // » en « /\/ » à l'interpolation : on rétablit l'URL.
-  let url_stable = if stable-url != none and stable-url != "" { stable-url.replace("/\\/", "//") } else { none }
-
-  //// Géométrie de la couverture
-
-  let marge = 3.5cm
-  let ph = 29.7cm // hauteur de page A4
-  let pw = 21.0cm // largeur de page A4
-  let logo_column = 4cm
-  let lc_space = 0.5cm
-  let line_x = 0cm + (logo_column - marge) + lc_space * 2
-
-  //// Bloc auteurs
-
-  let authorblock() = {
-    if authors != none {
-      let nrows = calc.min(authors.len(), 3)
-      grid(
-        rows: nrows,
-        row-gutter: 0.5em,
-        ..authors.map(author => align(left)[
-          #text(author.name, weight: "bold", size: 11pt), #text(author.affiliation, style: "italic", size: 11pt)
-        ]),
-      )
-    }
-  }
-
-  //// Réglages de page communs aux pages 1 et 2
-
-  // Quarto pose un `set page(numbering: "1")` global qui régit les pages 1 et 2
-  // (celui de `preprint` ne prend effet qu'à partir de la page 3) : on le
-  // neutralise ici pour la couverture et l'ours.
-  set page(margin: (top: marge, rest: marge), numbering: none)
-  set text(font: main_title_font, size: 14pt)
-  set heading(numbering: "1.1.1")
-
-  // place(top + right, text(blue, "+")) // repère de position
-
-  ///// PAGE 1 — COUVERTURE
-
-  //// Logos et filet vertical
-
-  place(top + left, dx: -marge + lc_space, dy: -2cm,
-    image(chemin_logo(fiche.logo), height: hauteur_logo_couverture))
-
-  place(bottom + left, dx: -marge + lc_space, dy: 2cm,
-    image(chemin_logo("sciencespo.png"), width: logo_column))
-
-  place(left,
-    line(start: (line_x, 0cm), end: (line_x, ph - 2 * marge), stroke: (thickness: 1.25pt, paint: grey1)))
-
-  //// Titre, sous-titre, auteurs et lien
-
-  place(dx: 2cm, dy: 4cm,
-    box(width: 13cm,
-      align(horizon + left)[
-        #set par(justify: false)
-        #text(size: 24pt, title, fill: ife2, weight: "bold", font: serif_font)
-        #v(1em)
-        #text(subtitle, fill: grey1)
-        #v(2em)
-
-        #authorblock()
-
-        // Lien vers la version en ligne du billet, si `stable-url` (ou à
-        // défaut `citation.url`) est renseignée dans le yaml.
-        #if url_stable != none [
-          #v(1.5em)
-          #text(size: 10pt, fill: grey1)[
-            #tr(language, [Version en ligne du billet :], [Online version of this post:])
-            #link(url_stable)[#text(fill: ife2, url_stable)]
-          ]
-        ]
-      ]))
-
-  //// Numéro, année et mention « Blog »
-
-  place(top + right, dy: -2cm, dx: marge,
-    square(fill: ife1, size: 2cm, align(center + horizon, text(fill: white, size: 1cm, number))))
-
-  // L'année n'est affichée que si elle est connue (`annee` dans le yaml, ou
-  // déduite de la date de publication).
-  if annee != none {
-    place(top + right, dy: 0cm, dx: marge, text(fill: ife1, size: 0.9cm, annee))
-  }
-
-  place(top + right, dx: 1.25cm, dy: -1.5cm,
-    align(horizon, text(fill: gray, size: 2cm, font: serif_font, style: "italic", "Blog")))
-
-  //// Dates de publication et de dernière modification
-
-  place(bottom + right, dx: 1.5cm, [
-    #if pretty_date != none [
-      #text(weight: "semibold", size: 10pt)[#tr(language, [Première publication : ], [First published: ])]
-      #text(size: 10pt)[#pretty_date \ ]
-    ]
-    #if pretty_modified != none [
-      #text(weight: "semibold", size: 10pt)[#tr(language, [Dernière modification : ], [Last modified: ])]
-      #text(size: 10pt)[#pretty_modified \ ]
-    ]
-  ])
-
-  //// Résumé, dans le bandeau gris du bas de couverture
-
-  if abstract != none and abstract != [] {
-    place(bottom, dx: 2 * lc_space + line_x, dy: -1 * line_x, clearance: 4cm,
-      // Résumé justifié : c'est un bloc de texte suivi, pas un titre.
-      box(fill: grey3, baseline: 100%, width: 13cm, inset: 1em, {
-        set par(justify: true)
-        text(style: "italic", abstract, size: 10pt)
-      }))
-  }
-
-  ///// PAGE 2 — OURS
-
-  pagebreak()
-  set page(fill: none, margin: auto)
-
-  // Ancre invisible : sans contenu, le `set page` de `preprint` s'appliquerait
-  // à la page 2 elle-même et y ferait réapparaître le numéro.
-  box()
-
-  align(bottom, text(tr(language, redaction_fr, redaction_en)))
-
-  //// Suite du document
-
-  body
 }
 
 ///// PAGES DE TEXTE — CORPS DU BILLET
@@ -369,6 +355,7 @@
   keywords: none,
   authornote: none,
   citation: none,
+  stable-url: none,
   first_publish: none,
   modified: none,
   number: none,
@@ -420,6 +407,9 @@
     if a != none { a } else { [????] }
   }
 
+  // Pandoc échappe « // » en « /\/ » à l'interpolation : on rétablit l'URL.
+  let url_stable = if stable-url != none and stable-url != "" { stable-url.replace("/\\/", "//") } else { none }
+
   // Titres transmis par quarto s'ils sont définis, sinon repli selon la langue.
   let titre_toc = if toc_title != none { toc_title } else { tr(language, "Table des matières", "Contents") }
   let titre_biblio = if bibliography-title != none { bibliography-title } else { tr(language, [Références], [References]) }
@@ -433,18 +423,11 @@
     header-ascent: 50%,
     header: context {
       let repere = query(<ofce-main-start>)
-      let debut = if repere.len() > 0 { repere.first().location().page() } else { 3 }
+      let debut = if repere.len() > 0 { repere.first().location().page() } else { 1 }
 
-      /// Première page du texte principal : numéro du billet et dates
+      /// Première page du texte principal : pas d'entête, les logos, le
+      /// numéro et les dates sont posés dans la page elle-même
       if here().page() == debut {
-        grid(
-          columns: (3fr, 1fr),
-          align(left + bottom)[#text([
-            #mention_blog(language, fiche.sigle, numero) \
-            #tr(language, [Publié le], [Published]) #pretty_date#if pretty_modified != none [ \- #tr(language, [modifié le], [modified]) #pretty_modified]
-          ], style: "italic")],
-          align(right + bottom)[#image(logo_entete, height: hauteur_logo_entete)],
-        )
 
       /// Page(s) de table des matières : entête sans numéro de page
       } else if here().page() < debut {
@@ -475,7 +458,7 @@
     },
     footer-descent: 24pt,
     // Pied de page vide, conservé pour le `footer-descent`.
-    footer: context if here().page() == 3 { } else { },
+    footer: [],
   )
 
   //// Réglages de texte
@@ -523,17 +506,62 @@
   // Les callouts référençables sont enveloppés dans un `figure`, dont le bloc
   // n'est pas sécable : un encadré long refusait alors de se répartir sur
   // deux pages. On rend sécables les figures de type callout.
+  //
+  // Les graphiques et les tableaux, eux, sont entourés d'`espacement_flottant`.
+  // L'espacement est posé par un bloc enveloppant, et non par un `set block`
+  // sur la figure : celui-ci vaudrait aussi pour les blocs intérieurs, et
+  // écarterait la légende de son contenu.
   show figure: it => {
     if type(it.kind) == str and it.kind.starts-with("quarto-callout") {
       set block(breakable: true)
       it
     } else {
-      it
+      block(above: espacement_flottant, below: espacement_flottant, it)
     }
   }
   show figure.where(kind: table): set block(breakable: true)
   show figure.where(kind: "quarto-float-tbl"): set block(breakable: true)
   show figure.where(kind: "quarto-float-apptbl"): set block(breakable: true)
+
+  // Légendes des graphiques et des tableaux
+  //
+  // Alignées à gauche (et non centrées, comme le veut le défaut de typst),
+  // avec l'appel « Graphique 3 : » en gras et le libellé en romain.
+  //
+  // Le deux-points est précédé d'une espace fine insécable en français, et
+  // d'aucune espace en anglais. L'espace est posée par `h()` plutôt que par le
+  // caractère U+202F : elle ne dépend alors pas de la fonte, et n'offre aucune
+  // occasion de retour à la ligne.
+  //
+  // Les légendes placées au-dessus du contenu sont `sticky`, pour ne pas
+  // rester seules en bas de page. `cap-location: top` dans _extension.yml les
+  // met toutes au-dessus, graphiques compris ; la condition sur `position`
+  // n'est là que pour le jour où ce réglage changerait, `sticky` rattachant un
+  // bloc à ce qui le suit et non à ce qui le précède.
+  //
+  // Seules les figures sécables en tirent parti — les tableaux, rendus tels
+  // ci-dessus —, une figure insécable emportant déjà sa légende avec elle.
+  show figure.caption: it => block(
+    width: 100%,
+    sticky: it.position == top,
+    {
+      set par(justify: false)
+      set align(left)
+      // Pas de numérotation (figure non référençable) : il n'y a pas d'appel
+      // à composer, seul le libellé est rendu.
+      if it.numbering != none {
+        text(weight: "bold", {
+          it.supplement
+          [ ]
+          context it.counter.display(it.numbering)
+          tr(language, h(0.16em), none)
+          [:]
+        })
+        [ ]
+      }
+      it.body
+    },
+  )
 
   // Bandeau de titre des encadrés (seuls blocs à porter `below: 0pt`) :
   // en gras, et `sticky` pour qu'il ne reste pas seul en bas de page.
@@ -578,8 +606,8 @@
 
   ///// TABLE DES MATIÈRES — sur sa propre page, si `toc: true` dans le yaml
 
-  pagebreak()
-
+  // Pas de couverture : le billet commence en page 1, ou après la table des
+  // matières si elle est demandée.
   if toc {
     v(2cm)
     text(titre_toc, size: 18pt, weight: "bold", font: serif_font, fill: ife2)
@@ -595,27 +623,83 @@
   // pages occupées par la table des matières.
   [#metadata("start") <ofce-main-start>]
 
-  //// Titre, sous-titre et auteurs
+  //// Bandeau du haut : mention « Blog » et numéro, logos
 
-  v(4cm)
+  // À gauche, le logo de l'institut et celui de Sciences Po ; à droite,
+  // « Blog » suivi du carré portant le numéro, l'année en dessous.
+  //
+  // Le carré, l'année et la mention reprennent les cotes de la couverture du
+  // document de travail et du Policy Brief, mesurées depuis les bords de la
+  // page : carré de 2 cm contre le bord droit, à 1,5 cm du haut ; mention à
+  // 2,25 cm du bord droit et à 2 cm du haut ; année sous le carré. Les cotes
+  // sont ramenées ici à la zone de texte de la première page (marge haute de
+  // 3 cm, marge extérieure — à droite sur une page impaire — de 2,5 cm).
+  let marge_haute = 3cm
+  let marge_droite = 2.5cm
+  let annee_bandeau = annee_doc(year, first_publish)
 
-  // Les titres ne se justifient pas : ils restent au fer à gauche.
+  place(top + right, dx: marge_droite, dy: 1.5cm - marge_haute,
+    square(fill: ife1, size: 2cm, align(center + horizon, text(fill: white, size: 1.5cm, numero))))
+
+  if annee_bandeau != none {
+    place(top + right, dx: marge_droite, dy: 3.5cm - marge_haute,
+      text(fill: ife1, size: 0.9cm, annee_bandeau))
+  }
+
+  place(top + right, dx: marge_droite - 2.25cm, dy: 2cm - marge_haute,
+    text(fill: gray, size: 1cm, weight: "bold", font: serif_font, style: "italic", "Blog"))
+
+  // Logos à la hauteur du carré, légèrement sortis dans la marge de gauche.
+  place(top + left, dx: -1.5cm, dy: 1.5cm - marge_haute,
+    stack(
+      dir: ttb,
+      spacing: 0.25cm,
+      image(chemin_logo(fiche.logo), height: hauteur_logo_premiere),
+      image(chemin_logo("sciencespo.png"), height: hauteur_sciencespo),
+    ))
+
+  //// Titre, sous-titre, auteurs et dates
+
+  // Place laissée aux éléments posés ci-dessus, qui n'occupent pas de hauteur.
+  v(2.5cm)
+
+  // Les titres ne se justifient pas : ils restent au fer à gauche. Couleurs de
+  // l'ancienne couverture : titre en bleu, sous-titre en gris.
   block(width: 100%)[
     #set par(justify: false)
-    #text(title, size: 20pt, weight: "bold", font: serif_font)
+    #text(title, size: 20pt, weight: "bold", font: serif_font, fill: ife2)
     #if subtitle != none {
       v(1em)
-      text(subtitle, size: 16pt, weight: "semibold")
+      text(subtitle, size: 16pt, weight: "semibold", fill: grey1)
     }
   ]
 
   v(1em)
   text(author_strings.join(", ", last: " & "))
 
+  // Date de publication, et de dernière modification si `date-modified` est
+  // renseignée dans le yaml.
+  if pretty_date != none or pretty_modified != none {
+    v(0.5em)
+    text(size: 10pt, fill: grey1, style: "italic")[
+      #if pretty_date != none [#tr(language, [Publié le], [Published]) #pretty_date]#if pretty_date != none and pretty_modified != none [ — ]#if pretty_modified != none [#tr(language, [modifié le], [modified]) #pretty_modified]
+    ]
+  }
+
+  //// Résumé, dans un bandeau gris sous les auteurs
+
+  if abstract != none and abstract != [] {
+    v(1.5em)
+    // Résumé justifié : c'est un bloc de texte suivi, pas un titre.
+    block(fill: grey_encadre, width: 100%, inset: 1em, {
+      set par(justify: true)
+      text(style: "italic", abstract, size: 10pt)
+    })
+  }
+
   //// Corps du billet
 
-  // Séparation avec les pages liminaires
-  v(4em)
+  v(2em)
 
   if cols == 1 {
     doc
@@ -623,5 +707,37 @@
     columns(cols, gutter: col-gutter, doc)
   }
 
-  v(4cm)
+  //// Citation suggérée, en fin de billet
+
+  // Reprise de la mention « Veuillez citer ce travail comme suit » de la
+  // version html. Construite à partir des métadonnées (auteurs, année, titre,
+  // nom de la série, numéro du billet), faute d'une référence formatée par
+  // citeproc en typst. `citation.container-title` ne remplace le nom de la
+  // série que si `institut` n'est pas renseigné. Le titre renvoie à la version
+  // en ligne si `stable-url` (ou à défaut `citation.url`) est renseignée.
+  if authors != none and authors.len() > 0 and title != none and title != [] {
+    let auteurs = authors.map(a => [#a.name]).join(", ", last: " & ")
+    let revue = if institut == none and citation != none and citation.container-title != "" {
+      citation.container-title
+    } else {
+      serie_blog(language, fiche.sigle)
+    }
+    let titre_cite = if url_stable != none { link(url_stable)[#title] } else { title }
+    let annee_cite = annee_doc(year, first_publish)
+
+    // Le bloc reste entier : l'intitulé ne se sépare pas de la référence.
+    block(above: 3em, breakable: false, width: 100%, {
+      text(weight: "bold", font: serif_font, size: 10pt, fill: ife2)[#tr(language, [Veuillez citer ce travail comme suit : ], [For attribution, please cite this work as: ])]
+      block(width: 100%, fill: white, stroke: 0.5pt + grey2, radius: 2pt, inset: 0.75em,
+        text(size: 9pt)[
+          #set par(justify: false)
+          #auteurs#if annee_cite != none [ (#annee_cite)]. #tr(language, [«~#titre_cite~»], [“#titre_cite”]), #emph(revue)#if number != none and number != [] [#tr(language, [, nº #number], [, no. #number])].
+        ])
+    })
+  }
+
+  //// Rédaction du blog
+
+  v(1em)
+  text(size: 9pt, fill: grey1, tr(language, redaction_fr, redaction_en))
 }

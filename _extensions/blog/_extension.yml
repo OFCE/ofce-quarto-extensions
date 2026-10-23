@@ -102,6 +102,8 @@ contributes:
     typst:
       mainfont: Arimo
       keep-typ: false
+      fig-format: svg
+      fig-dpi: 1200
       toc: false
       callout-icon: false
       papersize: a4
