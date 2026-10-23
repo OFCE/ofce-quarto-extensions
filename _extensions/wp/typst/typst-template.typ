@@ -387,7 +387,7 @@
     image(chemin_logo(fiche.logo), height: hauteur_logo_couverture))
 
   place(bottom + left, dx: -marge + lc_space, dy: 2cm,
-    image("/_extensions/ofce/ofce/img/sciencespo.png", width: logo_column * 0.7))
+    image(chemin_logo("sciencespo.png"), width: logo_column * 0.7))
 
   place(left,
     line(start: (line_x, 0cm), end: (line_x, ph - 2 * marge), stroke: (thickness: 1.25pt, paint: grey1)))

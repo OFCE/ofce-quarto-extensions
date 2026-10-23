@@ -13,7 +13,7 @@
 $if(draft)$
 \usepackage[stamp,color=red!10]{draftwatermark}
 $endif$
-$if(pb)$
+$if(nb)$
 $else$
 \usepackage[stamp,color=red!10]{draftwatermark}
 \SetWatermarkText{BROUILLON}
@@ -60,8 +60,8 @@ $endif$
 \pagestyle{scrheadings}
 \setkomafont{pageheadfoot}{\small}
 
-$if(pb)$
-\rehead{Policy Brief n°$annee$-$pb$}
+$if(nb)$
+\rehead{Policy Brief n°$annee$-$nb$}
 $else$
 \rehead{Policy Brief --- Brouillon}
 $endif$

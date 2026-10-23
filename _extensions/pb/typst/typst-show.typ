@@ -29,11 +29,19 @@ $if(citation.url)$
   stable-url: "$citation.url$",
 $endif$
 $endif$
+$if(citation)$
+  citation: (
+    type: "$citation.type$",
+    container-title: "$citation.container-title$",
+    doi: "$citation.doi$",
+    url: "$citation.url$"
+  ),
+$endif$
 $if(institut)$
   institut: "$institut$",
 $endif$
-  number: [$pb$],
-$if(pb)$
+  number: [$nb$],
+$if(nb)$
   draft: false,
 $else$
   draft: true,
@@ -60,8 +68,8 @@ $endif$
 $if(institut)$
   institut: "$institut$",
 $endif$
-  number: [$pb$],
-$if(pb)$
+  number: [$nb$],
+$if(nb)$
   draft: false,
 $else$
   draft: true,
