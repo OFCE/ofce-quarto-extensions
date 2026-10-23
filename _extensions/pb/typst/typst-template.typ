@@ -161,7 +161,7 @@
 /// Air entre la légende et le flottant
 #set figure(gap: 1.1em)
 
-/// Air au-dessus et en dessous des graphiques et des tableaux
+/// Air au-dessus des graphiques et des tableaux (1,5em en dessous)
 #let espacement_flottant = 3em
 
 //// Libellés du gabarit
@@ -713,7 +713,7 @@
   // n'est pas sécable : un encadré long refusait alors de se répartir sur
   // deux pages. On rend sécables les figures de type callout.
   //
-  // Les graphiques et les tableaux, eux, sont entourés d'`espacement_flottant`.
+  // Les graphiques et les tableaux, eux, sont précédés d'`espacement_flottant` et suivis de 1,5em.
   // L'espacement est posé par un bloc enveloppant, et non par un `set block`
   // sur la figure : celui-ci vaudrait aussi pour les blocs intérieurs, et
   // écarterait la légende de son contenu.
