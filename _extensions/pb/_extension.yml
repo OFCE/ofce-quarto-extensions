@@ -73,12 +73,12 @@ contributes:
         - ../ofce/html/url-nav-active.html
         - ../ofce/html/encadre.js
       number-sections: true
-      number-depth: 3
+      number-depth: 4
       html-math-method: katex
       lightbox: true
       link-external-icon: true
       mainfont: Arimo
-      toc-depth: 3
+      toc-depth: 4
       toc-location: left
       fig-dpi: 1200
       fig-format: svg
@@ -100,7 +100,7 @@ contributes:
       date-format: "D MMMM YYYY"
       mainfont: Arimo
       number-sections: true
-      number-depth: 3
+      number-depth: 4
       geometry:
         - top = 3cm
         - bottom = 2.5cm
