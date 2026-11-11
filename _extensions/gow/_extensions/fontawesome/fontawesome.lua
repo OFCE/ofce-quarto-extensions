@@ -69,6 +69,12 @@ return {
         'html',
         "<i class=\"fa-" .. group .. " fa-" .. icon .. size .. "\"" .. title .. label .. "></i>"
       )
+    elseif quarto.doc.is_format("typst") then
+      local solid = (group ~= "regular") and "true" or "false"
+      return pandoc.RawInline(
+        'typst',
+        '#{import "@preview/fontawesome:0.5.0": fa-icon; fa-icon("' .. icon .. '", solid: ' .. solid .. ')}'
+      )
     -- detect pdf / beamer / latex / etc
     elseif quarto.doc.is_format("pdf") then
       ensureLatexDeps()
