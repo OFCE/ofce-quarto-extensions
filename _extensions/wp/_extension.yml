@@ -25,7 +25,7 @@ contributes:
           title-block-author-single: "Author"
           title-block-author-plural: "Authors"
           title-block-published: "Published on"
-          title-block-modified: "Udpated on"
+          title-block-modified: "Updated on"
           callout-tip-title: "Box"
           toc-title: "On this page"
           draft: "Preliminary version"
