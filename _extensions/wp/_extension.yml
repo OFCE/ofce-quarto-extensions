@@ -8,44 +8,54 @@ contributes:
       toc: true
       lang: fr
       french: true
+      fig-asp: 0.61
+      cap-location: top
       language:
         fr:
           section-title-references: "Bibliographie"
           title-block-author-single: "Par"
           title-block-author-plural: "Par"
           title-block-published: "Publié le"
-          title-block-modified: "Modifié le"
+          title-block-modified: "Màj le"
           callout-tip-title: "Encadré"
           toc-title: "Sur cette page"
-          draft: "Préliminaire"
+          draft: "Version préliminaire"
         en:
           section-title-references: "Bibliography"
           title-block-author-single: "Author"
           title-block-author-plural: "Authors"
           title-block-published: "Published on"
-          title-block-modified: "Modified on"
+          title-block-modified: "Udpated on"
           callout-tip-title: "Box"
           toc-title: "On this page"
-          draft: "Preliminary"
-      fig-asp: 0.61
-      cap-location: top
+          draft: "Preliminary version"
       crossref:
         chapters: false
-        fig-prefix: graphique
-        tbl-prefix: tableau
-        eq-prefix: équation
-        sec-prefix: section
-        tip-prefix: encadré
-        fig-title: "**Graphique**"
-        tip-title: "**Encadré**"
         title-delim: "**.**"
-        tbl-title: "**Tableau**"
-        lof-title: Graphiques
-        lot-title: Tableaux
         fr:
+          fig-prefix: graphique
+          tbl-prefix: tableau
+          eq-prefix: équation
+          sec-prefix: section
+          tip-prefix: encadré
+          fig-title: "**Graphique**"
+          tip-title: "**Encadré**"
           title-delim: "**.**"
+          tbl-title: "**Tableau**"
+          lof-title: Graphiques
+          lot-title: Tableaux
         en:
+          fig-prefix: figure
+          tbl-prefix: table
+          eq-prefix: equation
+          sec-prefix: section
+          tip-prefix: box
+          fig-title: "**Figure**"
+          tip-title: "**Box**"
           title-delim: "**.**"
+          tbl-title: "**Table**"
+          lof-title: Figures
+          lot-title: Tables
       logo: ../ofce/img/IFE-OFCE_logo_noir.png
       filters:
         - quotes
