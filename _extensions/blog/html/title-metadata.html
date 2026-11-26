@@ -1,9 +1,7 @@
 $if(author)$
-    <summary class ="quarto-title-meta-heading"><b>$labels.authors$</b></summary>
-
     $if(by-affiliation/first)$
     <div class="quarto-title-meta-author">
-      <div class="quarto-title-meta-heading"> </div>
+      <div class="quarto-title-meta-heading">$labels.authors$</div>
       <div class="quarto-title-meta-heading">$labels.affiliations$</div>
 
       $for(by-author)$
@@ -16,11 +14,11 @@ $if(author)$
         $for(by-author.affiliations)$
         <p class="affiliation">
           $if(it.url)$
-            <a href="$it.url$">
+          <a href="$it.url$">
           $endif$
           $it.name$
           $if(it.url)$
-            </a>
+          </a>
           $endif$
         </p>
         $endfor$
@@ -33,14 +31,14 @@ $if(author)$
     $if(by-affiliation)$
       $elseif(by-author)$
       <div class="abstract">
-        <div class="quarto-title-meta-heading"> </div>
+        <div class="quarto-title-meta-heading">$labels.authors$</div>
         <div class="quarto-title-meta-contents">
           $for(by-author)$
            <span>$_title-meta-author.html()$;</span>
           $endfor$
         </div>
       </div>
-    $endif$
+      $endif$
 
     <div class="quarto-title-meta">
       $if(date)$
@@ -61,23 +59,38 @@ $if(author)$
       </div>
       $endif$
 
-      $if(translated)$
-        $if(french)$
-
-          <button onclick="window.location = location.href.replace('/fr/','/en/');" class="translate-btn">
-            <i class="bi bi-translate"></i>
-             English version
-             <p></p>
-          </button>
-        $else$
-
-          <button onclick="window.location = location.href.replace('/en/','/fr/');" class="translate-btn">
-            <i class="bi bi-translate"></i>
-            Version française
-            <p></p>
-          </button>
-        $endif$
+      $if(doi)$
+      <div>
+        <div class="quarto-title-meta-heading">$labels.doi$</div>
+        <div class="quarto-title-meta-contents">
+          <p class="doi">
+            <a href="https://doi.org/$doi$">$doi$</a>
+          </p>
+        </div>
+      </div>
       $endif$
 
     </div>
+
+    $if(jel)$
+      <div>
+        <div class="abstract jel">
+          $if(french)$
+          <div class="quarto-title-meta-heading">Codes JEL</div>
+          $else$
+          <div class="quarto-title-meta-heading">JEL codes</div>
+          $endif$
+          $for(jel)$$it$$sep$, $endfor$
+        </div>
+      </div>
+    $endif$
+
+    $if(thanks)$
+      <div class="quarto-title">
+        <div class="abstract">
+          <div class="quarto-title-meta-heading">$thanks-title$</div>
+          <em>$thanks$</em>
+        </div>
+      </div>
+    $endif$
 $endif$
